@@ -395,3 +395,31 @@
     transform: scaleY(0.1);
   }
 }
+
+/* v4 terminal */
+.crt-flicker {
+  animation: crt-flicker 6s steps(1) infinite;
+}
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  47% {
+    opacity: 0.9;
+  }
+  48% {
+    opacity: 1;
+  }
+  83% {
+    opacity: 0.94;
+  }
+}
+.tail-scroll {
+  animation: tail-scroll 18s linear infinite;
+}
+@keyframes tail-scroll {
+  to {
+    transform: translateY(-50%);
+  }
+}

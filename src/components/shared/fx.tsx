@@ -6,7 +6,7 @@
  */
 
 import { animate, motion, useInView, useMotionValue, useSpring } from "motion/react";
-import type { ComponentProps, ElementType, PointerEvent, ReactNode } from "react";
+import type { ComponentProps, ComponentType, ElementType, HTMLAttributes, PointerEvent, ReactNode, Ref } from "react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -16,7 +16,7 @@ const GLYPHS = "▚▞▛▜▙▟█▓▒░01<>/\\#$%&*+=?";
 export function Scramble({
   text,
   className,
-  as: Tag = "span",
+  as = "span",
   trigger = "view",
   duration = 900,
   delay = 0,
@@ -31,6 +31,7 @@ export function Scramble({
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
   const [out, setOut] = useState(text);
+  const Tag = as as unknown as ComponentType<HTMLAttributes<HTMLElement> & { ref?: Ref<HTMLElement> }>;
   const [runs, setRuns] = useState(0);
 
   useEffect(() => {
@@ -151,7 +152,7 @@ export function Spotlight<T extends ElementType = "div">({
   children,
   ...rest
 }: { as?: T; className?: string; children?: ReactNode } & Omit<ComponentProps<T>, "as" | "className" | "children">) {
-  const Tag = (as ?? "div") as ElementType;
+  const Tag = (as ?? "div") as unknown as ComponentType<HTMLAttributes<HTMLElement>>;
   return (
     <Tag
       className={cn("spotlight", className)}

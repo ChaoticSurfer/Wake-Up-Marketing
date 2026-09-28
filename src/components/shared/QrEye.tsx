@@ -156,10 +156,10 @@ export default function QrEye({
 
     let scale = 1;
     const resize = () => {
-      const r = canvas.getBoundingClientRect();
+      // layout size (ignores CSS transforms, so a scaled-in parent doesn't shrink the buffer)
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.max(1, Math.round(r.width * dpr));
-      canvas.height = Math.max(1, Math.round(r.height * dpr));
+      canvas.width = Math.max(1, Math.round(canvas.clientWidth * dpr));
+      canvas.height = Math.max(1, Math.round(canvas.clientHeight * dpr));
       scale = canvas.width / W;
     };
     resize();
