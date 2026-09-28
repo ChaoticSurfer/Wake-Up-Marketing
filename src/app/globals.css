@@ -1,0 +1,397 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   WakeUP brand tokens (from the brand kit)
+   red #E40613 · black #111111 · white #FFFFFF · graphite #313231
+   amber #FFA800 — rare accent, status dots only
+   ========================================================================== */
+@theme {
+  --color-wu-red: #e40613;
+  --color-wu-red-deep: #8f0410;
+  --color-wu-black: #111111;
+  --color-wu-ink: #0a0a0a;
+  --color-wu-graphite: #313231;
+  --color-wu-white: #ffffff;
+  --color-wu-amber: #ffa800;
+
+  --font-display: var(--font-swiss), "Arial Black", "Helvetica Neue", Arial, sans-serif;
+
+  --animate-marquee: marquee var(--marquee-duration, 36s) linear infinite;
+  --animate-marquee-reverse: marquee var(--marquee-duration, 36s) linear infinite reverse;
+  --animate-grid-flow: grid-flow 3.5s linear infinite;
+  --animate-scan: scan 3.8s linear infinite;
+  --animate-blink: blink 1.4s steps(2) infinite;
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 1.8s infinite;
+  --animate-beam: beam 3s linear infinite;
+  --animate-shine: shine 4s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes grid-flow {
+    to {
+      background-position: 0 64px;
+    }
+  }
+  @keyframes scan {
+    from {
+      top: -30%;
+    }
+    to {
+      top: 110%;
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0.2;
+    }
+  }
+  @keyframes float {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 rgb(228 6 19 / 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 12px rgb(228 6 19 / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgb(228 6 19 / 0);
+    }
+  }
+  @keyframes beam {
+    from {
+      offset-distance: 0%;
+    }
+    to {
+      offset-distance: 100%;
+    }
+  }
+  @keyframes shine {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-code);
+  --font-heading: var(--font-display);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+/* shadcn semantic tokens, mapped to the brand (dark by default) */
+:root {
+  --background: #111111;
+  --foreground: #f5f5f5;
+  --card: #161616;
+  --card-foreground: #f5f5f5;
+  --popover: #161616;
+  --popover-foreground: #f5f5f5;
+  --primary: #e40613;
+  --primary-foreground: #ffffff;
+  --secondary: #1f1f1f;
+  --secondary-foreground: #f5f5f5;
+  --muted: #1c1c1c;
+  --muted-foreground: rgb(255 255 255 / 0.6);
+  --accent: #1f1f1f;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4d57;
+  --border: rgb(255 255 255 / 0.1);
+  --input: rgb(255 255 255 / 0.16);
+  --ring: #e40613;
+  --radius: 0.375rem;
+  color-scheme: dark;
+}
+
+/* light brand theme — used by versions that invert (white ground, black type) */
+.theme-light {
+  --background: #ffffff;
+  --foreground: #111111;
+  --card: #f4f4f4;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --secondary: #efefef;
+  --secondary-foreground: #111111;
+  --muted: #f1f1f1;
+  --muted-foreground: rgb(17 17 17 / 0.6);
+  --accent: #efefef;
+  --accent-foreground: #111111;
+  --border: rgb(17 17 17 / 0.12);
+  --input: rgb(17 17 17 / 0.2);
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    overflow-x: clip;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-wu-red);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-wu-red);
+    outline-offset: 3px;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+}
+
+@utility hud-label {
+  font-family: var(--font-code);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px currentColor;
+}
+
+/* film grain + faint scanlines */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(0deg, rgb(255 255 255 / 0.05) 0 1px, transparent 1px 3px);
+}
+
+/* glitch word: still most of the time, then a short sliced burst */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  clip-path: inset(100% 0 0 0);
+}
+.glitch::before {
+  color: var(--color-wu-red);
+  animation: glitch-burst 4.2s steps(1) infinite;
+}
+.glitch::after {
+  color: currentColor;
+  opacity: 0.7;
+  animation: glitch-burst 4.2s 0.12s steps(1) infinite reverse;
+}
+@keyframes glitch-burst {
+  0%,
+  84%,
+  100% {
+    clip-path: inset(100% 0 0 0);
+    transform: none;
+  }
+  86% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translateX(-6px);
+  }
+  89% {
+    clip-path: inset(55% 0 20% 0);
+    transform: translateX(7px);
+  }
+  92% {
+    clip-path: inset(30% 0 45% 0);
+    transform: translateX(-3px);
+  }
+  95% {
+    clip-path: inset(75% 0 5% 0);
+    transform: translateX(5px);
+  }
+}
+
+/* spotlight border that follows the pointer (--mx/--my set from JS) */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(228 6 19 / 0.16), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgb(228 6 19 / 0.9), transparent 60%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.spotlight:hover::before,
+.spotlight:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* glitching logo copy used by boot screens */
+.glitch-img {
+  mix-blend-mode: screen;
+  filter: drop-shadow(-4px 0 0 #e40613) drop-shadow(4px 0 0 rgb(255 255 255 / 0.6));
+  animation: glitch-img 0.9s steps(2) infinite;
+}
+@keyframes glitch-img {
+  0%,
+  100% {
+    clip-path: inset(0 0 85% 0);
+    transform: translateX(-6px);
+  }
+  25% {
+    clip-path: inset(40% 0 40% 0);
+    transform: translateX(8px);
+  }
+  50% {
+    clip-path: inset(70% 0 10% 0);
+    transform: translateX(-4px);
+  }
+  75% {
+    clip-path: inset(15% 0 70% 0);
+    transform: translateX(5px);
+  }
+}
+
+/* bento micro-animations */
+.beam-dash {
+  animation: beam-dash 2.6s linear infinite;
+}
+@keyframes beam-dash {
+  from {
+    stroke-dashoffset: 440;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.webviz-cursor {
+  left: 70%;
+  top: 30%;
+  animation: webviz-cursor 5s ease-in-out infinite;
+}
+@keyframes webviz-cursor {
+  0%,
+  100% {
+    left: 72%;
+    top: 22%;
+  }
+  35% {
+    left: 40%;
+    top: 55%;
+  }
+  60%,
+  70% {
+    left: 22%;
+    top: 84%;
+    transform: scale(0.85);
+  }
+  75% {
+    transform: scale(1);
+  }
+}
+
+.eye-look {
+  transform-origin: 20px 20px;
+  animation: eye-look 5s ease-in-out infinite;
+}
+@keyframes eye-look {
+  0%,
+  20%,
+  100% {
+    transform: translateX(0);
+  }
+  30%,
+  45% {
+    transform: translateX(-4px);
+  }
+  55%,
+  70% {
+    transform: translateX(4px);
+  }
+  92% {
+    transform: scaleY(0.1);
+  }
+}

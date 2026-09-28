@@ -11,12 +11,12 @@ export type Lead = {
 
 export type LeadResult = { id: string }
 
-const ENDPOINT = import.meta.env.VITE_LEAD_ENDPOINT as string | undefined
+const ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT
 
 const makeId = () => 'WU-' + Math.random().toString(36).slice(2, 7).toUpperCase()
 
 /**
- * Submits a lead. If VITE_LEAD_ENDPOINT is set, POSTs JSON there.
+ * Submits a lead. If NEXT_PUBLIC_LEAD_ENDPOINT is set, POSTs JSON there.
  * Otherwise (frontend-only mode) it simulates a request and keeps a copy in localStorage.
  */
 export async function submitLead(lead: Lead): Promise<LeadResult> {
