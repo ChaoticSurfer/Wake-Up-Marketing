@@ -26,7 +26,7 @@ npm run build   # static export → out/  (index.html, v1.html … v4.html)
 npm run lint
 ```
 
-`out/` uses relative asset paths, so it can be dropped into any static host or sub-folder.
+`out/` uses relative asset paths. Links between versions are clean paths (`/v2`), which is what Vercel serves. For a plain static host that only serves the files as-is, build with `NEXT_PUBLIC_FLAT_LINKS=1` so links point to `v2.html`.
 
 ## Structure
 

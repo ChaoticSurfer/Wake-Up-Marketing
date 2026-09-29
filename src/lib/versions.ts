@@ -38,6 +38,10 @@ export const versions: Version[] = [
   },
 ]
 
-/** Relative href to a version page — works in `next dev` and in the flat static export. */
-export const versionHref = (slug: string) => (process.env.NODE_ENV === 'production' ? `${slug}.html` : `/${slug}`)
-export const hubHref = () => (process.env.NODE_ENV === 'production' ? 'index.html' : '/')
+// Clean paths (/v2) work in `next dev` and on Vercel. Set NEXT_PUBLIC_FLAT_LINKS=1 for a plain
+// static host that only serves the exported files as-is (v2.html next to index.html).
+const FLAT = process.env.NEXT_PUBLIC_FLAT_LINKS === '1'
+
+/** Href to a version page. */
+export const versionHref = (slug: string) => (FLAT ? `${slug}.html` : `/${slug}`)
+export const hubHref = () => (FLAT ? 'index.html' : '/')
