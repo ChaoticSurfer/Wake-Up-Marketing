@@ -1,38 +1,26 @@
 import type { Metadata } from "next";
 import ChatWidget from "@/components/shared/ChatWidget";
 import VersionSwitcher from "@/components/shared/VersionSwitcher";
-import {
-  EdContact,
-  EdFooter,
-  EdHero,
-  EdManifesto,
-  EdNav,
-  EdProcess,
-  EdServices,
-  EdStats,
-  EdVoices,
-  EdWork,
-} from "@/components/v2/Editorial";
+import { AwContact, AwEngine, AwHero, AwNav, AwProof, AwResults, AwServices, AwTiers } from "@/components/v2/Awaken";
 
-export const metadata: Metadata = { title: "WakeUP Marketing — v2 Editorial" };
+export const metadata: Metadata = { title: "WakeUP Marketing — v2 Awaken" };
 
-export default function EditorialPage() {
+export default function AwakenPage() {
   return (
-    <div className="theme-light min-h-screen bg-white text-wu-black">
-      <EdNav />
+    <div className="relative bg-wu-black text-white">
+      <div className="grain" aria-hidden />
+      <AwNav />
       <main>
-        <EdHero />
-        <EdManifesto />
-        <EdServices />
-        <EdStats />
-        <EdProcess />
-        <EdWork />
-        <EdVoices />
-        <EdContact />
+        <AwHero />
+        <AwEngine />
+        <AwServices />
+        <AwResults />
+        <AwProof />
+        <AwTiers />
+        <AwContact />
       </main>
-      <EdFooter />
-      <ChatWidget skin="light" />
-      <VersionSwitcher current="v2" light />
+      <ChatWidget />
+      <VersionSwitcher current="v2" />
     </div>
   );
 }

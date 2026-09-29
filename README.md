@@ -10,9 +10,9 @@ React Three Fiber (v3 only).
 | --- | --- | --- |
 | `/` | Design Lab | Hub with previews of every version |
 | `/v1` | **Signal** (flagship) | Cyber-brutalist HUD: assembling QR-eye, decrypting type, bento services with live micro-visuals |
-| `/v2` | **Editorial** | Swiss kinetic on white: giant moving type, grid rules, red floods |
+| `/v2` | **Awaken** | Scroll story: the eye opens, a live growth dashboard animates with scroll, before/after results, packages |
 | `/v3` | **Spatial** | Live WebGL shader, 3D QR eyeball, glass panels, pinned horizontal process |
-| `/v4` | **Terminal** | Red-phosphor CRT, boot sequence, pixel eye, command-line sections (keys 1–4) |
+| `/v4` | **Pulse** | Particle field that morphs per section (eye → UP → chart → target), kinetic word-by-word type |
 
 Every version has the lead form and the **WakeUP AI** chat widget. A floating **Lab** pill in the
 bottom-left corner jumps between versions.

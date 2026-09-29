@@ -423,3 +423,9 @@
     transform: translateY(-50%);
   }
 }
+
+/* rotating light around a featured card (v2) */
+.beam-border {
+  background: conic-gradient(from 0deg, transparent 0 70%, #e40613 85%, #fff 90%, transparent 95%);
+  animation: spin 4s linear infinite;
+}

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import ChatWidget from "@/components/shared/ChatWidget";
 import VersionSwitcher from "@/components/shared/VersionSwitcher";
-import { TermPage } from "@/components/v4/Terminal";
+import { PulsePage } from "@/components/v4/Pulse";
 
-export const metadata: Metadata = { title: "WakeUP Marketing — v4 Terminal" };
+export const metadata: Metadata = { title: "WakeUP Marketing — v4 Pulse" };
 
-export default function TerminalPage() {
+export default function Page() {
   return (
     <>
-      <TermPage />
-      <ChatWidget skin="terminal" />
+      <PulsePage />
+      <ChatWidget />
       <VersionSwitcher current="v4" />
     </>
   );

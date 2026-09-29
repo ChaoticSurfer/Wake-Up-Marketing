@@ -17,9 +17,9 @@ export const versions: Version[] = [
   },
   {
     slug: 'v2',
-    name: 'Editorial',
-    tagline: 'Swiss kinetic, light',
-    direction: 'White ground, giant moving Swiss type, strict grid rules, red floods and an index-style services list.',
+    name: 'Awaken',
+    tagline: 'Scroll story for decision-makers',
+    direction: 'The eye opens as you scroll, a live growth dashboard animates with the page, then before/after results, clear packages and a free audit.',
     status: 'alt',
   },
   {
@@ -31,9 +31,9 @@ export const versions: Version[] = [
   },
   {
     slug: 'v4',
-    name: 'Terminal',
-    tagline: 'Red-phosphor CRT',
-    direction: 'Boot sequence, ASCII QR eye, block-letter type and command-line sections. Keys 1–4 navigate.',
+    name: 'Pulse',
+    tagline: 'Morphing particle field',
+    direction: 'Thousands of particles re-form behind the content as you scroll: eye, UP, a rising chart, a target. Kinetic word-by-word type.',
     status: 'alt',
   },
 ]
