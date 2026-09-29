@@ -11,7 +11,8 @@ import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 import QrEye from "@/components/shared/QrEye";
 import { Magnetic, Marquee, Reveal } from "@/components/shared/fx";
-import { budgetOptions, contact, nav, services, testimonials } from "@/lib/content";
+import { budgetOptions, contact, hero, nav, services, testimonials } from "@/lib/content";
+import { LabeledInput } from "@/components/shared/Sections";
 import { isEmail, submitLead } from "@/lib/leads";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
@@ -38,12 +39,12 @@ export function AwNav() {
         <img src="brand/logo-horizontal-light.png" alt="WakeUP Marketing" className="h-7 w-auto" />
         <nav className="ml-auto hidden gap-7 text-sm text-white/65 md:flex" aria-label="Primary">
           {nav.map((l) => (
-            <a key={l.href} href={l.href} className="transition-colors hover:text-white">
+            <a key={l.href} href={l.href} className="inline-flex min-h-11 items-center transition-colors hover:text-white">
               {l.label}
             </a>
           ))}
         </nav>
-        <a href="#contact" className="ml-auto rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
+        <a href="#contact" className="ml-auto inline-flex h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
           Book a call
         </a>
       </div>
@@ -75,17 +76,17 @@ export function AwHero() {
         </motion.div>
 
         <div className="relative z-10 mt-[36vh] px-4 text-center">
-          <motion.h1 style={{ opacity: headOp, y: headY }} className="font-display text-[clamp(48px,8vw,128px)] leading-[0.9]">
+          <motion.h1 style={{ opacity: headOp, y: headY }} className="font-display text-[clamp(44px,6.4vw,92px)] leading-[0.92]">
             Wake up your <span className="text-wu-red">growth.</span>
           </motion.h1>
           <motion.div style={{ opacity: subOp }} className="mx-auto mt-6 max-w-[600px]">
             <p className="text-lg text-white/65">
-              We turn marketing spend into measurable pipeline for ambitious businesses: strategy, creative and performance under one roof.
+              {hero.sub}
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Magnetic strength={0.2}>
                 <a href="#contact" className="flex h-14 items-center justify-center rounded-full bg-wu-red px-8 font-semibold shadow-[0_14px_40px_-10px_rgba(228,6,19,.9)]">
-                  Get a free growth audit →
+                  {hero.primaryCta} →
                 </a>
               </Magnetic>
               <button onClick={() => openChat()} className="h-14 rounded-full border border-white/20 px-8 font-semibold transition-colors hover:bg-white/10">
@@ -136,7 +137,7 @@ function Kpi({ label, p, to, fmt, i }: { label: string; p: MotionValue<number>; 
   useMotionValueEvent(v, "change", (n) => setText(fmt(n)));
   return (
     <div className="rounded-xl border border-white/10 bg-white/[.03] p-4">
-      <p className="hud-label !text-[9.5px] text-white/45">{label}</p>
+      <p className="hud-label text-xs text-white/45">{label}</p>
       <p className="mt-1 font-display text-2xl tabular-nums md:text-3xl">{text}</p>
     </div>
   );
@@ -163,7 +164,7 @@ export function AwEngine() {
   const d = "M0 150 C 50 148, 80 140, 120 130 S 190 118, 230 100 S 300 80, 340 60 S 410 30, 460 12";
 
   return (
-    <section ref={ref} id="services" className="relative h-[420vh]">
+    <section ref={ref} id="process" className="relative h-[420vh]">
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
         <div className="mx-auto grid w-full max-w-[1320px] items-center gap-6 px-4 md:px-8 lg:grid-cols-[.9fr_1.1fr] lg:gap-10">
           <div>
@@ -205,7 +206,7 @@ export function AwEngine() {
           <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-[#181818] to-wu-ink p-5 shadow-[0_40px_120px_-40px_rgba(228,6,19,.5)] md:p-7">
             <div className="flex items-center justify-between">
               <p className="text-sm font-semibold">Client dashboard · last 90 days</p>
-              <span className="hud-label flex items-center gap-2 !text-[9.5px] text-white/50">
+              <span className="hud-label flex items-center gap-2 text-xs text-white/50">
                 <i className="size-1.5 animate-blink rounded-full bg-wu-amber" /> Live
               </span>
             </div>
@@ -241,7 +242,7 @@ export function AwEngine() {
 
 export function AwServices() {
   return (
-    <section className="mx-auto max-w-[1320px] px-4 py-28 md:px-8">
+    <section id="services" className="mx-auto max-w-[1320px] scroll-mt-20 px-4 py-28 md:px-8">
       <Reveal className="max-w-[760px]">
         <p className="hud-label text-wu-red">What we do</p>
         <h2 className="mt-4 font-display text-[clamp(36px,4.6vw,68px)] leading-[0.95]">Everything your growth needs, under one roof.</h2>
@@ -343,7 +344,7 @@ export function AwProof() {
   const industries = ["E-commerce", "Hospitality", "Real estate", "SaaS", "Healthcare", "Education", "Retail", "Finance"];
   return (
     <section className="py-16">
-      <p className="hud-label mb-6 text-center text-white/40">Trusted by teams across industries</p>
+      <p className="hud-label mb-6 text-center text-white/40">Trusted by mid-sized teams across industries</p>
       <div className="[mask-image:linear-gradient(90deg,transparent,#000_15%,#000_85%,transparent)]">
         <Marquee duration={30}>
           {industries.map((n) => (
@@ -370,66 +371,13 @@ export function AwProof() {
   );
 }
 
-/* ---------------- engagement models ---------------- */
-
-const TIERS = [
-  { name: "Sprint", price: "from $2k", note: "one-off, 4–6 weeks", items: ["Growth audit & strategy", "Campaign or landing page launch", "Tracking set-up", "Handover playbook"] },
-  { name: "Growth", price: "$5k–15k / mo", note: "most chosen", items: ["Full-funnel paid media", "Weekly creative testing", "Landing pages & CRO", "Monthly strategy review"], featured: true },
-  { name: "Partner", price: "custom", note: "for scaling teams", items: ["Dedicated growth squad", "Brand, content & performance", "Automation & CRM", "Quarterly roadmap with KPIs"] },
-];
-
-export function AwTiers() {
-  return (
-    <section id="process" className="mx-auto max-w-[1320px] px-4 py-28 md:px-8">
-      <Reveal className="text-center">
-        <p className="hud-label text-wu-red">Ways to work together</p>
-        <h2 className="mx-auto mt-4 max-w-[760px] font-display text-[clamp(36px,4.6vw,68px)] leading-[0.95]">Clear scope. Clear KPIs. No surprises.</h2>
-      </Reveal>
-      <div className="mt-14 grid gap-5 md:grid-cols-3">
-        {TIERS.map((t, i) => (
-          <Reveal key={t.name} delay={i * 0.1}>
-            <div className={cn("relative h-full overflow-hidden rounded-3xl p-px", t.featured ? "" : "bg-white/10")}>
-              {t.featured && <span className="beam-border absolute inset-[-50%]" aria-hidden />}
-              <div className="relative flex h-full flex-col rounded-[23px] bg-[#131313] p-8">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-display text-3xl">{t.name}</h3>
-                  {t.featured && <span className="rounded-full bg-wu-red px-3 py-1 text-xs font-semibold">Most chosen</span>}
-                </div>
-                <p className="mt-6 font-display text-4xl">{t.price}</p>
-                <p className="mt-1 text-sm text-white/50">{t.note}</p>
-                <ul className="mt-8 grid flex-1 gap-3 text-white/75">
-                  {t.items.map((it) => (
-                    <li key={it} className="flex gap-3">
-                      <span className="text-wu-red">✓</span>
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#contact"
-                  className={cn(
-                    "mt-8 flex h-12 items-center justify-center rounded-full font-semibold transition-colors",
-                    t.featured ? "bg-wu-red hover:bg-white hover:text-black" : "border border-white/20 hover:bg-white/10",
-                  )}
-                >
-                  Talk to us
-                </a>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 /* ---------------- contact ---------------- */
 
 export function AwContact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
-  const [budget, setBudget] = useState(budgetOptions[2]);
+  const [budget, setBudget] = useState(budgetOptions[1]);
   const [err, setErr] = useState("");
   const [done, setDone] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -454,7 +402,7 @@ export function AwContact() {
       <div className="mx-auto grid max-w-[1120px] gap-12 px-4 md:grid-cols-2 md:px-8">
         <Reveal>
           <p className="hud-label text-wu-red">Free growth audit</p>
-          <h2 className="mt-4 font-display text-[clamp(40px,5vw,76px)] leading-[0.92]">Let’s find your next 100 customers.</h2>
+          <h2 className="mt-4 font-display text-[clamp(40px,5vw,76px)] leading-[0.92]">See where your marketing budget leaks.</h2>
           <p className="mt-6 text-lg text-white/65">Tell us about your business. Within one business day you get a short audit of your ads, site and funnel, plus three quick wins.</p>
           <p className="mt-8 font-mono text-sm text-white/60">{contact.email}</p>
         </Reveal>
@@ -472,10 +420,10 @@ export function AwContact() {
               </motion.div>
             ) : (
               <form onSubmit={submit} noValidate className="grid gap-3">
-                <input id="aw-name" aria-label="Name" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
-                <input id="aw-email" type="email" aria-label="Work email" placeholder="Work email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
-                <input id="aw-company" aria-label="Company" placeholder="Company / website" value={company} onChange={(e) => setCompany(e.target.value)} className={field} />
-                <p className="mt-2 text-sm text-white/55">Monthly marketing budget</p>
+                <LabeledInput id="aw-name" label="Your name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
+                <LabeledInput id="aw-email" label="Work email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
+                <LabeledInput id="aw-company" label="Company website" autoComplete="organization" value={company} onChange={(e) => setCompany(e.target.value)} className={field} />
+                <p className="mt-2 text-sm font-medium text-white/70">Monthly marketing budget</p>
                 <div className="grid grid-cols-2 gap-2">
                   {budgetOptions.map((b) => (
                     <button
@@ -502,7 +450,7 @@ export function AwContact() {
         <span>© WakeUP Marketing</span>
         <span className="flex gap-5">
           {contact.socials.map((s) => (
-            <a key={s.label} href={s.href} className="hover:text-white">
+            <a key={s.label} href={s.href} className="inline-flex min-h-11 items-center hover:text-white">
               {s.label}
             </a>
           ))}

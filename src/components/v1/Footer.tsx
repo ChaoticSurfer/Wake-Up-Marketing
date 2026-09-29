@@ -24,10 +24,10 @@ export default function Footer() {
             <span className="text-white/60">{contact.phone}</span>
           </div>
         </div>
-        <div className="hud-label flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 !text-[10px] text-white/35">
+        <div className="hud-label flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/35">
           <span>© {YEAR} WakeUP Marketing</span>
           <span>Built to be noticed.</span>
-          <a href="#top" className="hover:text-white">
+          <a href="#top" className="inline-flex min-h-11 items-center hover:text-white">
             Back to top ↑
           </a>
         </div>
@@ -41,7 +41,7 @@ function FooterCol({ title, items }: { title: string; items: string[][] }) {
     <nav className="grid content-start gap-2.5" aria-label={title}>
       <p className="hud-label mb-1 text-wu-red">{title}</p>
       {items.map(([label, href]) => (
-        <a key={label} href={href} className="w-fit text-white/60 transition-colors hover:text-white">
+        <a key={label} href={href} className="inline-flex min-h-11 w-fit items-center text-white/60 transition-colors hover:text-white">
           {label}
         </a>
       ))}

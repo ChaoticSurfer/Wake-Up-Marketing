@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Reveal, Scramble } from "@/components/shared/fx";
-import { budgetOptions, contact, serviceOptions } from "@/lib/content";
+import { budgetOptions, companySizeOptions, contact, serviceOptions } from "@/lib/content";
 import { isEmail, submitLead } from "@/lib/leads";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
@@ -19,8 +19,9 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
-  const [services, setServices] = useState<string[]>(["Performance ads"]);
-  const [budget, setBudget] = useState("$5k – $15k");
+  const [services, setServices] = useState<string[]>([serviceOptions[0]]);
+  const [budget, setBudget] = useState(budgetOptions[1]);
+  const [size, setSize] = useState(companySizeOptions[1]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [state, setState] = useState<"idle" | "sending" | "done">("idle");
   const [ticket, setTicket] = useState("");
@@ -36,7 +37,7 @@ export default function Contact() {
     setErrors(errs);
     if (Object.keys(errs).length) return;
     setState("sending");
-    const { id } = await submitLead({ name, email, company, services, budget, message, source: "form" });
+    const { id } = await submitLead({ name, email, company, services, budget, message: [`Company size: ${size}`, message].filter(Boolean).join("\n"), source: "form" });
     setTicket(id);
     setState("done");
   };
@@ -65,7 +66,7 @@ export default function Contact() {
           </ol>
           <div className="mt-8 flex flex-wrap items-center gap-5">
             <span className="border-b border-wu-red pb-0.5 font-mono text-sm">{contact.email}</span>
-            <button onClick={() => openChat()} className="hud-label text-white/50 transition-colors hover:text-white">
+            <button onClick={() => openChat()} className="hud-label min-h-11 text-white/50 transition-colors hover:text-white">
               or chat with WakeUP AI →
             </button>
           </div>
@@ -74,7 +75,7 @@ export default function Contact() {
         <Reveal delay={0.1}>
           <div className="rounded-2xl bg-[linear-gradient(140deg,#e40613,rgba(255,255,255,.12)_35%,rgba(255,255,255,.08)_70%,rgba(255,255,255,.4))] p-px shadow-[0_40px_120px_-40px_rgba(228,6,19,.5)]">
           <div className="relative rounded-[15px] bg-[#101010]">
-            <div className="hud-label flex items-center gap-3 border-b border-white/10 px-5 py-3.5 !text-[10px] text-white/50">
+            <div className="hud-label flex items-center gap-3 border-b border-white/10 px-5 py-3.5 text-xs text-white/50">
               <span className="flex gap-1.5">
                 <i className="size-2 rounded-full bg-wu-red" />
                 <i className="size-2 rounded-full bg-wu-graphite" />
@@ -124,7 +125,7 @@ export default function Contact() {
                     <Input id="c-company" className={field} placeholder="company.com" value={company} onChange={(e) => setCompany(e.target.value)} />
                   </Field>
                   <fieldset className="grid gap-3">
-                    <legend className="hud-label mb-3 !text-[10px] text-white/50">
+                    <legend className="hud-label mb-3 text-xs text-white/50">
                       What do you need? <span className="text-wu-red">*</span>
                     </legend>
                     <div className="flex flex-wrap gap-2">
@@ -137,7 +138,7 @@ export default function Contact() {
                             aria-pressed={on}
                             onClick={() => setServices(on ? services.filter((x) => x !== s) : [...services, s])}
                             className={cn(
-                              "rounded-full border px-4 py-2 text-sm transition-all active:scale-95",
+                              "min-h-11 rounded-full border px-4 py-2 text-sm transition-all active:scale-95",
                               on ? "border-wu-red bg-wu-red text-white shadow-[0_6px_20px_-6px_rgba(228,6,19,.8)]" : "border-white/15 hover:border-white/50",
                             )}
                           >
@@ -149,7 +150,26 @@ export default function Contact() {
                     {errors.services && <p className="font-mono text-xs text-[#ff5a63]">{errors.services}</p>}
                   </fieldset>
                   <fieldset className="grid gap-3">
-                    <legend className="hud-label mb-3 !text-[10px] text-white/50">Monthly budget</legend>
+                    <legend className="hud-label mb-3 text-xs text-white/50">Company size (employees)</legend>
+                    <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
+                      {companySizeOptions.map((o) => (
+                        <button
+                          key={o}
+                          type="button"
+                          aria-pressed={size === o}
+                          onClick={() => setSize(o)}
+                          className={cn(
+                            "min-h-11 rounded-lg border px-3 py-3 font-mono text-xs transition-all",
+                            size === o ? "border-wu-red bg-wu-red/15 text-white" : "border-white/10 text-white/60 hover:border-white/40",
+                          )}
+                        >
+                          {o}
+                        </button>
+                      ))}
+                    </div>
+                  </fieldset>
+                  <fieldset className="grid gap-3">
+                    <legend className="hud-label mb-3 text-xs text-white/50">Monthly budget</legend>
                     <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                       {budgetOptions.map((b) => (
                         <button
@@ -158,7 +178,7 @@ export default function Contact() {
                           aria-pressed={budget === b}
                           onClick={() => setBudget(budget === b ? "" : b)}
                           className={cn(
-                            "rounded-lg border px-3 py-3 font-mono text-xs transition-all",
+                            "min-h-11 rounded-lg border px-3 py-3 font-mono text-xs transition-all",
                             budget === b ? "border-wu-red bg-wu-red/15 text-white" : "border-white/10 text-white/60 hover:border-white/40",
                           )}
                         >
@@ -168,7 +188,7 @@ export default function Contact() {
                     </div>
                   </fieldset>
                   <Field label="Tell us about your goals" htmlFor="c-msg">
-                    <Textarea id="c-msg" className={cn(field, "h-auto min-h-28 py-3")} placeholder="We want to double online sales before Q4…" value={message} onChange={(e) => setMessage(e.target.value)} />
+                    <Textarea id="c-msg" className={cn(field, "h-auto min-h-28 py-3")} placeholder="e.g. We want 40 more qualified leads a month by Q2…" value={message} onChange={(e) => setMessage(e.target.value)} />
                   </Field>
                   <button
                     disabled={state === "sending"}
@@ -209,7 +229,7 @@ function Field({
 }) {
   return (
     <div className="grid gap-2.5">
-      <label htmlFor={htmlFor} className="hud-label !text-[10px] text-white/50">
+      <label htmlFor={htmlFor} className="hud-label text-xs text-white/50">
         {label} {required && <span className="text-wu-red">*</span>}
       </label>
       {children}

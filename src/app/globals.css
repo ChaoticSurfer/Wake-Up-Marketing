@@ -192,8 +192,8 @@
 
 @utility hud-label {
   font-family: var(--font-code);
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 

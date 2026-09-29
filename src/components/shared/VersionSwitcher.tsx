@@ -22,7 +22,7 @@ export default function VersionSwitcher({ current, light = false }: { current: s
       <a
         href={hubHref()}
         title="All designs"
-        className={cn("hud-label flex h-8 items-center gap-2 rounded-full px-3 !text-[10px] transition-colors", light ? "hover:bg-black/10" : "hover:bg-white/10")}
+        className={cn("hud-label flex h-8 items-center gap-2 rounded-full px-3 text-xs transition-colors", light ? "hover:bg-black/10" : "hover:bg-white/10")}
       >
         <span className="grid grid-cols-2 gap-[2px]" aria-hidden>
           {[0, 1, 2, 3].map((k) => (
@@ -36,7 +36,7 @@ export default function VersionSwitcher({ current, light = false }: { current: s
           ←
         </a>
       )}
-      <span className="hud-label !text-[10px] px-1 whitespace-nowrap">
+      <span className="hud-label text-xs px-1 whitespace-nowrap">
         <span className="text-wu-red">{v.slug.toUpperCase()}</span> · {v.name}
       </span>
       {versions.length > 1 && (

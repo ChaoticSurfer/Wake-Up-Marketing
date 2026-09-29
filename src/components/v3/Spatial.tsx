@@ -11,7 +11,8 @@ import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { Marquee, NumberTicker, Reveal } from "@/components/shared/fx";
-import { budgetOptions, cases, contact, nav, process, serviceOptions, services, stats, testimonials } from "@/lib/content";
+import { budgetOptions, cases, contact, hero, nav, process, serviceOptions, services, stats, testimonials } from "@/lib/content";
+import { LabeledInput } from "@/components/shared/Sections";
 import { isEmail, submitLead } from "@/lib/leads";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
@@ -39,12 +40,12 @@ export function SpNav() {
         <img src="brand/logo-horizontal-light.png" alt="WakeUP Marketing" className="h-7 w-auto" />
         <nav className="ml-auto hidden gap-1 md:flex" aria-label="Primary">
           {nav.map((l) => (
-            <a key={l.href} href={l.href} className="rounded-full px-4 py-2 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white">
+            <a key={l.href} href={l.href} className="inline-flex h-11 items-center rounded-full px-4 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white">
               {l.label}
             </a>
           ))}
         </nav>
-        <a href="#contact" className="ml-auto flex h-10 items-center rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
+        <a href="#contact" className="ml-auto flex h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
           Let’s talk
         </a>
       </div>
@@ -69,9 +70,9 @@ export function SpHero() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className={cn(glass, "hud-label mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 !text-[10px] text-white/80")}
+        className={cn(glass, "hud-label mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs text-white/80")}
       >
-        <i className="size-1.5 rounded-full bg-wu-amber shadow-[0_0_8px_#ffa800]" /> Now booking Q4 growth sprints
+        <i className="size-1.5 rounded-full bg-wu-amber shadow-[0_0_8px_#ffa800]" /> {hero.eyebrow}
       </motion.p>
       <motion.h1
         initial={{ opacity: 0, y: 30, filter: "blur(12px)" }}
@@ -79,9 +80,9 @@ export function SpHero() {
         transition={{ delay: 0.6, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         className="max-w-[1100px] font-display text-[clamp(40px,6vw,96px)] leading-[0.92]"
       >
-        Marketing from the future.
+        Marketing from the future,
         <br />
-        <span className="bg-gradient-to-r from-white via-[#ff6b73] to-wu-red bg-clip-text text-transparent">Results for right now.</span>
+        <span className="text-wu-red">measured in revenue.</span>
       </motion.h1>
       <motion.p
         initial={{ opacity: 0 }}
@@ -89,7 +90,7 @@ export function SpHero() {
         transition={{ delay: 1, duration: 1 }}
         className="mt-7 max-w-[560px] text-lg text-white/65"
       >
-        WakeUP builds brand, performance and content systems that wake your audience up and keep them buying.
+        {hero.sub}
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -98,7 +99,7 @@ export function SpHero() {
         className="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row"
       >
         <a href="#contact" className="flex h-14 items-center justify-center gap-2 rounded-full bg-wu-red px-8 font-semibold shadow-[0_0_40px_-6px_rgba(228,6,19,.9)] transition-transform hover:scale-[1.03]">
-          Book a strategy call →
+          {hero.primaryCta} →
         </a>
         <button onClick={() => openChat()} className={cn(glass, "flex h-14 items-center justify-center gap-2 rounded-full px-8 font-semibold transition-colors hover:bg-white/10")}>
           Ask WakeUP AI
@@ -156,7 +157,7 @@ export function SpServices() {
                 <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-wu-red to-wu-red-deep text-lg shadow-[0_10px_30px_-8px_rgba(228,6,19,.9)]">
                   {ICONS[i]}
                 </span>
-                <span className="hud-label !text-[10px] text-white/40">{s.code}</span>
+                <span className="hud-label text-xs text-white/40">{s.code}</span>
               </div>
               <h3 className="mt-10 font-display text-2xl leading-none">{s.title}</h3>
               <p className="mt-3 text-white/60">{s.text}</p>
@@ -210,7 +211,7 @@ export function SpProcess() {
       <div className="sticky top-0 flex h-[100svh] flex-col justify-center overflow-hidden">
         <div className="mx-auto mb-10 w-full max-w-[1240px] px-4 md:px-8">
           <p className="hud-label text-wu-red">Process</p>
-          <h2 className="mt-4 font-display text-[clamp(38px,5.2vw,76px)]">From silent to sold out.</h2>
+          <h2 className="mt-4 font-display text-[clamp(38px,5.2vw,76px)]">From first call to live in 30 days.</h2>
         </div>
         <motion.ol ref={track} style={{ x }} className="flex w-max gap-6 pl-[max(16px,calc((100vw-1240px)/2+32px))]">
           {process.map((s) => (
@@ -281,8 +282,8 @@ export function SpWork() {
 export function SpContact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [picked, setPicked] = useState<string[]>(["Performance ads"]);
-  const [budget, setBudget] = useState(budgetOptions[2]);
+  const [picked, setPicked] = useState<string[]>([serviceOptions[0]]);
+  const [budget, setBudget] = useState(budgetOptions[1]);
   const [done, setDone] = useState<string | null>(null);
   const [err, setErr] = useState("");
   const submit = async (e: FormEvent) => {
@@ -299,7 +300,7 @@ export function SpContact() {
         <div>
           <p className="hud-label text-wu-red">Start a project</p>
           <h2 className="mt-4 font-display text-[clamp(40px,5vw,76px)]">Ready to wake up?</h2>
-          <p className="mt-5 max-w-[420px] text-lg text-white/65">Free mini-audit within one business day. No spam, no fluff.</p>
+          <p className="mt-5 max-w-[420px] text-lg text-white/65">A free audit of your ads, site and funnel within one business day, with three quick wins you can act on.</p>
           <p className="mt-10 font-mono text-sm text-white/70">{contact.email}</p>
         </div>
         {done ? (
@@ -311,8 +312,8 @@ export function SpContact() {
           </div>
         ) : (
           <form onSubmit={submit} noValidate className="grid gap-4">
-            <input id="s-name" aria-label="Name" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
-            <input id="s-email" type="email" aria-label="Email" placeholder="Work email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
+            <LabeledInput id="s-name" label="Your name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
+            <LabeledInput id="s-email" label="Work email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
             <div className="flex flex-wrap gap-2">
               {serviceOptions.slice(0, 6).map((s) => {
                 const on = picked.includes(s);
@@ -322,7 +323,7 @@ export function SpContact() {
                     key={s}
                     aria-pressed={on}
                     onClick={() => setPicked(on ? picked.filter((x) => x !== s) : [...picked, s])}
-                    className={cn("rounded-full border px-4 py-2 text-sm transition-colors", on ? "border-wu-red bg-wu-red" : "border-white/15 bg-white/5 hover:bg-white/10")}
+                    className={cn("min-h-11 rounded-full border px-4 py-2 text-sm transition-colors", on ? "border-wu-red bg-wu-red" : "border-white/15 bg-white/5 hover:bg-white/10")}
                   >
                     {s}
                   </button>
@@ -336,7 +337,7 @@ export function SpContact() {
                   key={b}
                   aria-pressed={budget === b}
                   onClick={() => setBudget(b)}
-                  className={cn("rounded-xl border px-2 py-2.5 text-xs", budget === b ? "border-white bg-white text-black" : "border-white/10 bg-white/5")}
+                  className={cn("min-h-11 rounded-xl border px-2 py-2.5 text-xs", budget === b ? "border-white bg-white text-black" : "border-white/10 bg-white/5")}
                 >
                   {b}
                 </button>
@@ -352,7 +353,7 @@ export function SpContact() {
         <img src="brand/logo-horizontal-light.png" alt="WakeUP Marketing" className="h-7 w-auto" />
         <div className="flex gap-5">
           {contact.socials.map((s) => (
-            <a key={s.label} href={s.href} className="hover:text-white">
+            <a key={s.label} href={s.href} className="inline-flex min-h-11 items-center hover:text-white">
               {s.label}
             </a>
           ))}

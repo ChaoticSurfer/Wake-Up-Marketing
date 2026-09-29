@@ -36,9 +36,9 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="group flex items-baseline gap-1.5 rounded-full px-4 py-2 text-sm text-white/65 transition-colors hover:bg-white/5 hover:text-white"
+              className="group flex h-11 items-center gap-1.5 rounded-full px-4 text-sm text-white/65 transition-colors hover:bg-white/5 hover:text-white"
             >
-              <span className="font-mono text-[10px] text-wu-red">0{i + 1}</span>
+              <span className="font-mono text-xs text-wu-red">0{i + 1}</span>
               <Scramble text={l.label} trigger="hover" duration={400} />
             </a>
           ))}
@@ -47,7 +47,7 @@ export default function Nav() {
         <Magnetic className="hidden md:block" strength={0.25}>
           <a
             href="#contact"
-            className="group relative flex h-10 items-center gap-2 overflow-hidden rounded-full bg-wu-red px-5 text-sm font-semibold text-white shadow-[0_8px_30px_-6px_rgba(228,6,19,.7)]"
+            className="group relative flex h-11 items-center gap-2 overflow-hidden rounded-full bg-wu-red px-5 text-sm font-semibold text-white shadow-[0_8px_30px_-6px_rgba(228,6,19,.7)]"
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             Start a project <span className="transition-transform group-hover:translate-x-1">→</span>

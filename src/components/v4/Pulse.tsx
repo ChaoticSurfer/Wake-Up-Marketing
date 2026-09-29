@@ -11,7 +11,8 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { Magnetic, Marquee, NumberTicker } from "@/components/shared/fx";
-import { budgetOptions, cases, contact, nav, process, serviceOptions, services, stats, testimonials } from "@/lib/content";
+import { budgetOptions, hero, cases, contact, nav, process, serviceOptions, services, stats, testimonials } from "@/lib/content";
+import { FaqSection, LabeledInput, PricingSection } from "@/components/shared/Sections";
 import { isEmail, submitLead } from "@/lib/leads";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
@@ -78,31 +79,30 @@ export function PulsePage() {
       <PulseNav />
       <main>
         <Section shape="eye" id="top">
-          <Label>Growth marketing agency</Label>
-          <Words as="h1" text="Growth marketing for businesses that refuse to be *ignored." className="font-display text-[clamp(44px,6vw,96px)] leading-[0.92]" />
-          <Words as="p" delay={0.5} text="We turn attention into pipeline with brand, performance and content that is measured on revenue, not likes." className="mt-7 max-w-[520px] text-lg text-white/65" />
+          <Label>{hero.eyebrow}</Label>
+          <Words as="h1" text="Marketing that shows up in your *revenue." className="font-display text-[clamp(44px,5.6vw,88px)] leading-[0.92]" />
+          <Words as="p" delay={0.5} text={hero.sub} className="mt-7 max-w-[520px] text-lg text-white/65" />
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8, ease }} className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Magnetic strength={0.25}>
               <a href="#contact" className="group relative flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-wu-red px-8 font-semibold shadow-[0_14px_40px_-10px_rgba(228,6,19,.9)]">
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                Get a free growth audit →
+                {hero.primaryCta} →
               </a>
             </Magnetic>
             <button onClick={() => openChat()} className="h-14 rounded-full border border-white/20 bg-black/30 px-8 font-semibold backdrop-blur transition-colors hover:bg-white/10">
               Ask WakeUP AI
             </button>
           </motion.div>
-          <motion.dl initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }} className="mt-14 flex gap-10">
-            {stats.slice(0, 3).map((s) => (
-              <div key={s.label}>
-                <dd className="font-display text-4xl">
-                  <NumberTicker value={s.value} decimals={s.decimals} />
-                  <span className="text-wu-red">{s.suffix}</span>
-                </dd>
-                <dt className="mt-1 text-xs text-white/50">{s.label}</dt>
-              </div>
+          <motion.ul initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }} className="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70" aria-label="Who we work with">
+            {hero.fit.map((f) => (
+              <li key={f} className="flex items-center gap-2">
+                <span className="text-wu-red" aria-hidden>
+                  ✓
+                </span>
+                {f}
+              </li>
             ))}
-          </motion.dl>
+          </motion.ul>
         </Section>
 
         <Section shape="up" id="services">
@@ -219,6 +219,12 @@ export function PulsePage() {
           </div>
         </section>
 
+        <div data-shape="bars">
+          <PricingSection />
+        </div>
+        <div data-shape="target">
+          <FaqSection />
+        </div>
         <PulseContact />
       </main>
     </div>
@@ -233,12 +239,12 @@ function PulseNav() {
         <img src="brand/logo-horizontal-light.png" alt="WakeUP Marketing" className="h-7 w-auto" />
         <nav className="ml-auto hidden gap-7 text-sm text-white/65 md:flex" aria-label="Primary">
           {nav.map((l) => (
-            <a key={l.href} href={l.href} className="relative transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-wu-red after:transition-transform hover:text-white hover:after:origin-left hover:after:scale-x-100">
+            <a key={l.href} href={l.href} className="relative inline-flex min-h-11 items-center transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-wu-red after:transition-transform hover:text-white hover:after:origin-left hover:after:scale-x-100">
               {l.label}
             </a>
           ))}
         </nav>
-        <a href="#contact" className="ml-auto rounded-full bg-wu-red px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-white hover:text-black md:ml-0">
+        <a href="#contact" className="ml-auto inline-flex h-11 items-center rounded-full bg-wu-red px-5 text-sm font-semibold transition-colors hover:bg-white hover:text-black md:ml-0">
           Book a call
         </a>
       </div>
@@ -249,8 +255,8 @@ function PulseNav() {
 function PulseContact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [need, setNeed] = useState(serviceOptions[1]);
-  const [budget, setBudget] = useState(budgetOptions[2]);
+  const [need, setNeed] = useState(serviceOptions[0]);
+  const [budget, setBudget] = useState(budgetOptions[1]);
   const [done, setDone] = useState<string | null>(null);
   const [err, setErr] = useState("");
   const submit = async (e: FormEvent) => {
@@ -276,12 +282,12 @@ function PulseContact() {
       ) : (
         <form onSubmit={submit} noValidate className="mt-8 grid gap-3">
           <div className="grid gap-3 sm:grid-cols-2">
-            <input id="p-name" aria-label="Name" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
-            <input id="p-email" type="email" aria-label="Work email" placeholder="Work email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
+            <LabeledInput id="p-name" label="Your name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
+            <LabeledInput id="p-email" label="Work email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
           </div>
           <div className="flex flex-wrap gap-2">
             {serviceOptions.slice(0, 6).map((s) => (
-              <button key={s} type="button" aria-pressed={need === s} onClick={() => setNeed(s)} className={cn("rounded-full border px-4 py-2 text-sm transition-colors", need === s ? "border-wu-red bg-wu-red" : "border-white/15 bg-black/40 hover:bg-white/10")}>
+              <button key={s} type="button" aria-pressed={need === s} onClick={() => setNeed(s)} className={cn("min-h-11 rounded-full border px-4 py-2 text-sm transition-colors", need === s ? "border-wu-red bg-wu-red" : "border-white/15 bg-black/40 hover:bg-white/10")}>
                 {s}
               </button>
             ))}
@@ -300,7 +306,7 @@ function PulseContact() {
       <p className="mt-12 flex flex-wrap gap-5 text-sm text-white/45">
         <span>{contact.email}</span>
         {contact.socials.map((s) => (
-          <a key={s.label} href={s.href} className="hover:text-white">
+          <a key={s.label} href={s.href} className="inline-flex min-h-11 items-center hover:text-white">
             {s.label}
           </a>
         ))}

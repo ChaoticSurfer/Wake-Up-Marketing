@@ -27,7 +27,7 @@ function Tile({
         <div className="relative h-[240px] shrink-0 overflow-hidden border-b border-white/[.06]">{children}</div>
         <div className="flex flex-1 flex-col gap-2 p-6">
           <div className="flex items-center justify-between">
-            <span className="hud-label !text-[10px] text-wu-red">{code}</span>
+            <span className="hud-label text-xs text-wu-red">{code}</span>
             <span className="text-white/30 transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white">↗</span>
           </div>
           <h3 className="font-display text-2xl leading-none tracking-tight">{title}</h3>
@@ -46,7 +46,7 @@ function PerformanceViz() {
     <div className="absolute inset-0 p-6">
       <div className="flex items-start justify-between">
         <div>
-          <p className="hud-label !text-[10px] text-white/40">ROAS · last 90 days</p>
+          <p className="hud-label text-xs text-white/40">ROAS · last 90 days</p>
           <p className="mt-1 font-display text-5xl">
             <NumberTicker value={4.8} decimals={1} />
             <span className="text-wu-red">x</span>
@@ -54,7 +54,7 @@ function PerformanceViz() {
         </div>
         <div className="flex gap-1.5">
           {["Meta", "Google", "TikTok"].map((c) => (
-            <span key={c} className="hud-label rounded-full border border-white/10 px-2 py-1 !text-[9px] text-white/60">
+            <span key={c} className="hud-label rounded-full border border-white/10 px-2 py-1 text-xs text-white/60">
               {c}
             </span>
           ))}
@@ -129,7 +129,7 @@ function BrandViz() {
         <span className="font-display text-[110px] leading-none">
           A<span className="text-wu-red">a</span>
         </span>
-        <span className="hud-label absolute -right-10 -top-1 !text-[9px] text-white/40">Swiss 721</span>
+        <span className="hud-label absolute -right-10 -top-1 text-xs text-white/40">Swiss 721</span>
       </div>
       <div className="flex gap-2">
         {swatches.map(([c, n], i) => (
@@ -185,7 +185,7 @@ function SocialViz() {
           </div>
         ))}
       </div>
-      <span className="hud-label absolute right-4 top-4 rounded-full bg-wu-red px-2 py-1 !text-[9px] text-white">
+      <span className="hud-label absolute right-4 top-4 rounded-full bg-wu-red px-2 py-1 text-xs text-white">
         +<NumberTicker value={12} />K views
       </span>
     </div>
@@ -218,7 +218,7 @@ function WebViz() {
           <path d="M3 2l7 19 2.5-7.5L20 11z" fill="#fff" stroke="#111" strokeWidth="1.2" />
         </svg>
       </div>
-      <span className="hud-label absolute bottom-4 right-4 !text-[9px] text-white/50">
+      <span className="hud-label absolute bottom-4 right-4 text-xs text-white/50">
         CVR <span className="text-wu-red">+<NumberTicker value={38} />%</span>
       </span>
     </div>
@@ -297,7 +297,7 @@ function AnalyticsViz() {
         {nodes.map((n) => (
           <g key={n.label + "n"}>
             <rect x={n.x - 40} y={n.y - 14} width="80" height="28" rx="14" fill="#161616" stroke="rgba(255,255,255,.15)" />
-            <text x={n.x} y={n.y + 4} textAnchor="middle" fill="rgba(255,255,255,.8)" fontSize="11" fontFamily="var(--font-code)">
+            <text x={n.x} y={n.y + 4} textAnchor="middle" fill="rgba(255,255,255,.8)" fontSize="12" fontFamily="var(--font-code)">
               {n.label}
             </text>
           </g>
@@ -393,7 +393,7 @@ export default function Bento() {
                 }}
                 aria-hidden
               />
-              <span className="hud-label relative !text-[10px] text-white/80">Not sure where to start?</span>
+              <span className="hud-label relative text-xs text-white/80">Not sure where to start?</span>
               <span className="relative font-display text-4xl leading-[0.95]">
                 Ask WakeUP AI which mix fits you.
               </span>

@@ -45,6 +45,7 @@ src/
     leads.ts           lead submission
   fonts/               Swiss 721 Heavy (brand display face)
 docs/research.md       design research behind the directions
+docs/design-review.md  gstack design audit and the mid-sized business positioning
 ```
 
 ## Adding a version

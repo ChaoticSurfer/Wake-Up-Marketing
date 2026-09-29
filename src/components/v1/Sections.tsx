@@ -61,7 +61,7 @@ export function Stats() {
             key={s.label}
             className="relative border-white/10 py-10 pl-5 max-md:[&:nth-child(-n+2)]:border-b md:py-14 [&:not(:first-child)]:border-l max-md:[&:nth-child(3)]:border-l-0 max-md:[&:nth-child(3)]:pl-0 first:pl-0"
           >
-            <span className="hud-label absolute right-3 top-3 !text-[9px] text-white/25">0{i + 1}</span>
+            <span className="hud-label absolute right-3 top-3 text-xs text-white/25">0{i + 1}</span>
             <p className="font-display text-[clamp(44px,6vw,92px)]">
               <NumberTicker value={s.value} decimals={s.decimals} />
               <span className="text-wu-red">{s.suffix}</span>
@@ -169,8 +169,8 @@ export function Work() {
                   }}
                 >
                   <span className="absolute inset-x-0 h-[30%] animate-scan border-b border-white/25 bg-gradient-to-b from-transparent to-white/[.05]" aria-hidden />
-                  <span className="hud-label absolute left-4 top-4 !text-[10px] text-white/60">{c.id}</span>
-                  <span className="hud-label absolute right-4 top-4 !text-[10px] text-white/60">{c.tags.join(" · ")}</span>
+                  <span className="hud-label absolute left-4 top-4 text-xs text-white/60">{c.id}</span>
+                  <span className="hud-label absolute right-4 top-4 text-xs text-white/60">{c.tags.join(" · ")}</span>
                   <span
                     className={`font-display text-transparent transition-all duration-500 [-webkit-text-stroke:1.5px_rgba(255,255,255,.85)] group-hover:scale-105 group-hover:text-white ${
                       i === 0 ? "text-[clamp(84px,12vw,200px)]" : "text-[clamp(64px,8vw,130px)]"
@@ -180,7 +180,7 @@ export function Work() {
                   </span>
                 </div>
                 <div className="grid gap-1.5 border-t border-white/10 bg-wu-black p-6">
-                  <p className="hud-label !text-[10px] text-white/45">{c.client}</p>
+                  <p className="hud-label text-xs text-white/45">{c.client}</p>
                   <h3 className="text-2xl font-semibold tracking-tight">{c.title}</h3>
                   <p className="text-white/55">
                     <strong className="font-display text-xl text-wu-red">{c.metric}</strong> {c.metricLabel}
@@ -211,7 +211,7 @@ export function Voices() {
               <figure key={i} className="mr-4 w-[380px] shrink-0 rounded-2xl border border-white/10 bg-gradient-to-b from-[#161616] to-wu-ink p-6">
                 <span className="font-display text-5xl leading-[0.5] text-wu-red">“</span>
                 <blockquote className="mt-2 text-[17px] leading-snug text-white/85">{t.quote}</blockquote>
-                <figcaption className="hud-label mt-5 !text-[10px] text-white/40">
+                <figcaption className="hud-label mt-5 text-xs text-white/40">
                   {t.name} — {t.company}
                 </figcaption>
               </figure>

@@ -84,7 +84,7 @@ export function reply(input: string, stage: Stage, lead: LeadDraft): BotTurn {
   if (has(t, 'price', 'pricing', 'cost', 'budget', 'how much', 'expensive', 'rate')) {
     return {
       messages: [
-        'Every plan is tailored, but as a guide: focused engagements start around $2k/month, full-funnel growth programs typically run $5k–15k/month plus ad spend.',
+        'As a guide: one-off launch projects start from $4k, and most mid-sized clients are on a monthly plan of $6k–15k plus ad spend. Minimum term is 3 months, then month to month.',
         'The free audit tells you exactly what you’d need — want one?',
       ],
       chips: ['Start a project', 'What’s included?', 'How it works'],
@@ -94,7 +94,7 @@ export function reply(input: string, stage: Stage, lead: LeadDraft): BotTurn {
   if (has(t, 'service', 'what do you do', 'offer', 'included', 'help with')) {
     return {
       messages: [
-        'Six things, done properly: Brand strategy & identity · Performance ads (Meta, Google, TikTok) · Social media & content · Websites & landing pages · SEO · Analytics & automation.',
+        'Six things under one plan: paid media · brand & positioning · content & social · websites & landing pages · SEO · analytics, CRM & automation. Built for companies with roughly 20–500 people.',
         'Most clients combine 2–3 of them. Which one matters most to you right now?',
       ],
       chips: ['Performance ads', 'Social media', 'Website', 'SEO'],
@@ -151,7 +151,7 @@ export function reply(input: string, stage: Stage, lead: LeadDraft): BotTurn {
   if (has(t, 'result', 'case', 'portfolio', 'example', 'client', 'proof', 'roas')) {
     return {
       messages: [
-        'A few recent outcomes: +312% online revenue for a fashion e‑commerce brand, 6.2x ROAS for a restaurant group, and −48% cost per lead for a B2B SaaS.',
+        'A few recent outcomes: +212% online revenue for a 180-person retailer, 6.2x ROAS for a hospitality group, and −41% cost per qualified lead for a 90-person B2B firm.',
         'Want to see what’s realistic for your business?',
       ],
       chips: ['Start a project', 'How it works'],

@@ -162,7 +162,7 @@ export default function ChatWidget({ skin = "dark" }: { skin?: ChatSkin }) {
                 light ? "bg-wu-black text-white" : "bg-white text-black",
               )}
             >
-              <span className="hud-label !text-[9.5px] text-wu-red">WakeUP AI</span>
+              <span className="hud-label text-xs text-wu-red">WakeUP AI</span>
               Need more customers? Ask me anything. I reply instantly.
             </button>
           </motion.div>
@@ -181,7 +181,7 @@ export default function ChatWidget({ skin = "dark" }: { skin?: ChatSkin }) {
       >
         {!term && <span className="absolute -inset-1.5 animate-spin-slow rounded-full border border-dashed border-wu-red/80" aria-hidden />}
         <EyeMark size={30} />
-        {unread && <span className="absolute -right-0.5 -top-0.5 grid size-5 place-items-center rounded-full bg-white text-[11px] font-bold text-wu-red">1</span>}
+        {unread && <span className="absolute -right-0.5 -top-0.5 grid size-5 place-items-center rounded-full bg-white text-xs font-bold text-wu-red">1</span>}
       </motion.button>
 
       <AnimatePresence>
@@ -209,7 +209,7 @@ export default function ChatWidget({ skin = "dark" }: { skin?: ChatSkin }) {
                 <p className="font-display text-lg leading-none">
                   {term ? "wakeup@ai:~$" : <>WakeUP <span className="text-wu-red">AI</span></>}
                 </p>
-                <p className={cn("hud-label mt-1.5 flex items-center gap-1.5 !text-[9.5px]", muted)}>
+                <p className={cn("hud-label mt-1.5 flex items-center gap-1.5 text-xs", muted)}>
                   <i className="size-1.5 rounded-full bg-wu-amber shadow-[0_0_8px_#ffa800]" /> online · replies instantly
                 </p>
               </div>
@@ -232,7 +232,7 @@ export default function ChatWidget({ skin = "dark" }: { skin?: ChatSkin }) {
                 "[background-size:18px_18px]",
               )}
             >
-              <p className={cn("hud-label flex items-center gap-2.5 self-center !text-[9px]", muted)}>
+              <p className={cn("hud-label flex items-center gap-2.5 self-center text-xs", muted)}>
                 <i className="h-px w-8 bg-current opacity-40" /> Secure channel <i className="h-px w-8 bg-current opacity-40" />
               </p>
               {msgs.map((m) => (
@@ -256,7 +256,7 @@ export default function ChatWidget({ skin = "dark" }: { skin?: ChatSkin }) {
                   >
                     {m.text}
                   </div>
-                  <span className={cn("font-mono text-[9px] uppercase tracking-wider", muted)}>
+                  <span className={cn("font-mono text-xs uppercase tracking-wider", muted)}>
                     {m.from === "bot" ? "WakeUP AI" : "You"} · {m.time}
                   </span>
                 </motion.div>
@@ -320,7 +320,7 @@ export default function ChatWidget({ skin = "dark" }: { skin?: ChatSkin }) {
                 →
               </button>
             </form>
-            <p className={cn("pb-2.5 text-center font-mono text-[9px] uppercase tracking-wider", muted)}>AI assistant · a human strategist follows up</p>
+            <p className={cn("pb-2.5 text-center font-mono text-xs uppercase tracking-wider", muted)}>AI assistant · a human strategist follows up</p>
           </motion.section>
         )}
       </AnimatePresence>
