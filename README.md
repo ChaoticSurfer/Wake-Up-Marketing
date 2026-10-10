@@ -64,3 +64,13 @@ only appears on "online" status dots. Tokens live in `src/app/globals.css`.
 Stats, case studies, testimonials, email and phone in `src/lib/content.ts` are placeholders.
 The chat is scripted (`src/lib/chatEngine.ts`). Leads are stored in `localStorage` unless
 `NEXT_PUBLIC_LEAD_ENDPOINT` is set, in which case they are POSTed there as JSON.
+
+## CI/CD
+
+`main` is the deploy branch. `.github/workflows/ci-cd.yml` lints and builds every push and pull
+request to `main`, then deploys pushes on `main` to Vercel production
+(https://wake-up-marketing-pied.vercel.app).
+
+The deploy job needs one repository secret: `VERCEL_TOKEN` (Settings → Secrets and variables →
+Actions). Without it, the lint and build checks still run and the deploy job fails with a message
+saying the secret is missing.
