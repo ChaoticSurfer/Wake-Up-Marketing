@@ -1,7 +1,8 @@
 name: CI/CD
 
 # Every push and pull request to main is linted and built.
-# Pushes to main are then deployed to Vercel production.
+# Deploys are done by Vercel's Git integration (project wake-up-marketing on the
+# kezeroti2 account): pushes to main go to production, other branches get previews.
 
 on:
   push:
@@ -13,11 +14,6 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
-env:
-  # Not secrets: they identify the Vercel project. The token lives in the VERCEL_TOKEN repo secret.
-  VERCEL_ORG_ID: team_gvt5JnVMzyHIU7wOYGZrATa0
-  VERCEL_PROJECT_ID: prj_NmMbktOBsCA1mMgqLCQGSn3XDUwI
 
 jobs:
   check:
@@ -33,34 +29,3 @@ jobs:
       - run: npm run lint
       - run: npm run build
 
-  deploy:
-    name: Deploy to Vercel (production)
-    needs: check
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: https://wake-up-marketing-pied.vercel.app
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: npm
-      - name: Check for the Vercel token
-        run: |
-          if [ -z "$VERCEL_TOKEN" ]; then
-            echo "::error::Add a VERCEL_TOKEN secret (Settings → Secrets and variables → Actions) to enable deploys."
-            exit 1
-          fi
-      - run: npm install --global vercel@latest
-      - run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
-      - run: vercel build --prod --token="$VERCEL_TOKEN"
-      # Vercel blocks deploys whose commit author is not a member of the Vercel account,
-      # so deploy the prebuilt output without git metadata.
-      - name: Deploy
-        run: |
-          rm -rf .git
-          vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
