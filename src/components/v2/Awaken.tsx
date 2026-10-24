@@ -13,7 +13,7 @@ import QrEye from "@/components/shared/QrEye";
 import { Magnetic, Marquee, Reveal } from "@/components/shared/fx";
 import { budgetOptions, contact, hero, nav, services, testimonials } from "@/lib/content";
 import { LabeledInput } from "@/components/shared/Sections";
-import { isEmail, submitLead } from "@/lib/leads";
+import { isEmail, LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
 
@@ -386,9 +386,15 @@ export function AwContact() {
     if (name.trim().length < 2 || !isEmail(email)) return setErr("Add your name and a valid work email.");
     setErr("");
     setBusy(true);
-    const { id } = await submitLead({ name, email, company, budget, source: "form" });
-    setBusy(false);
-    setDone(id);
+    try {
+      const { id } = await submitLead({ name, email, company, budget, source: "form" });
+      setDone(id);
+    } catch (error) {
+      console.error(error);
+      setErr(LEAD_FAILED_MESSAGE);
+    } finally {
+      setBusy(false);
+    }
   };
   const field = "h-14 w-full rounded-xl border border-white/10 bg-white/[.04] px-4 outline-none transition-colors placeholder:text-white/35 focus:border-wu-red";
   return (

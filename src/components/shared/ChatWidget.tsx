@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
 import { GREETING, reply } from "@/lib/chatEngine";
 import type { LeadDraft, Stage } from "@/lib/chatEngine";
-import { submitLead } from "@/lib/leads";
+import { LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
 import { cn } from "@/lib/utils";
 
 type Msg = { id: number; from: "bot" | "user"; text: string; time: string };
@@ -75,8 +75,13 @@ export default function ChatWidget({ skin = "dark" }: { skin?: ChatSkin }) {
       botSay(turn.messages, turn.chips).then(async () => {
         if (!turn.submit) return;
         const l = lead.current;
-        const { id } = await submitLead({ name: l.name ?? "", email: l.email ?? "", message: l.goal, source: "chat" });
-        await botSay([`Done. Your request ID is ${id}.`, `A strategist will email ${l.email} within one business day.`], ["Services", "Results"]);
+        try {
+          const { id } = await submitLead({ name: l.name ?? "", email: l.email ?? "", message: l.goal, source: "chat" });
+          await botSay([`Done. Your request ID is ${id}.`, `A strategist will email ${l.email} within one business day.`], ["Services", "Results"]);
+        } catch (error) {
+          console.error(error);
+          await botSay([LEAD_FAILED_MESSAGE], ["Services", "Results"]);
+        }
         stage.current = "idle";
         setStageView("idle");
         lead.current = {};

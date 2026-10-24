@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Reveal, Scramble } from "@/components/shared/fx";
 import { budgetOptions, companySizeOptions, contact, serviceOptions } from "@/lib/content";
-import { isEmail, submitLead } from "@/lib/leads";
+import { isEmail, LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
 
@@ -37,9 +37,15 @@ export default function Contact() {
     setErrors(errs);
     if (Object.keys(errs).length) return;
     setState("sending");
-    const { id } = await submitLead({ name, email, company, services, budget, message: [`Company size: ${size}`, message].filter(Boolean).join("\n"), source: "form" });
-    setTicket(id);
-    setState("done");
+    try {
+      const { id } = await submitLead({ name, email, company, services, budget, message: [`Company size: ${size}`, message].filter(Boolean).join("\n"), source: "form" });
+      setTicket(id);
+      setState("done");
+    } catch (error) {
+      console.error(error);
+      setErrors({ submit: LEAD_FAILED_MESSAGE });
+      setState("idle");
+    }
   };
 
   return (
@@ -190,6 +196,7 @@ export default function Contact() {
                   <Field label="Tell us about your goals" htmlFor="c-msg">
                     <Textarea id="c-msg" className={cn(field, "h-auto min-h-28 py-3")} placeholder="e.g. We want 40 more qualified leads a month by Q2…" value={message} onChange={(e) => setMessage(e.target.value)} />
                   </Field>
+                  {errors.submit && <p className="font-mono text-xs text-[#ff5a63]">{errors.submit}</p>}
                   <button
                     disabled={state === "sending"}
                     className="group relative flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-wu-red font-semibold text-white shadow-[0_14px_40px_-10px_rgba(228,6,19,.8)] disabled:opacity-80"

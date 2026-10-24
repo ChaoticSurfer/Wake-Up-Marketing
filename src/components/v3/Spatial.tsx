@@ -13,7 +13,7 @@ import type { FormEvent } from "react";
 import { Marquee, NumberTicker, Reveal } from "@/components/shared/fx";
 import { budgetOptions, cases, contact, hero, nav, process, serviceOptions, services, stats, testimonials } from "@/lib/content";
 import { LabeledInput } from "@/components/shared/Sections";
-import { isEmail, submitLead } from "@/lib/leads";
+import { isEmail, LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
 
@@ -290,8 +290,13 @@ export function SpContact() {
     e.preventDefault();
     if (name.trim().length < 2 || !isEmail(email)) return setErr("Add your name and a valid email.");
     setErr("");
-    const { id } = await submitLead({ name, email, services: picked, budget, source: "form" });
-    setDone(id);
+    try {
+      const { id } = await submitLead({ name, email, services: picked, budget, source: "form" });
+      setDone(id);
+    } catch (error) {
+      console.error(error);
+      setErr(LEAD_FAILED_MESSAGE);
+    }
   };
   const field = "h-13 w-full rounded-2xl border border-white/10 bg-black/30 px-5 py-3.5 text-base outline-none transition-colors placeholder:text-white/35 focus:border-wu-red focus:bg-black/50";
   return (

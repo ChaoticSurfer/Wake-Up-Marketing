@@ -1,3 +1,5 @@
+import { contact } from '@/lib/content'
+
 export type Lead = {
   name: string
   email: string
@@ -11,38 +13,18 @@ export type Lead = {
 
 export type LeadResult = { id: string }
 
-const ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT
+/** Shown when a lead could not be delivered, so the visitor can still reach us. */
+export const LEAD_FAILED_MESSAGE = `We couldn't send that just now. Please try again or call us at ${contact.phone}.`
 
-const makeId = () => 'WU-' + Math.random().toString(36).slice(2, 7).toUpperCase()
-
-/**
- * Submits a lead. If NEXT_PUBLIC_LEAD_ENDPOINT is set, POSTs JSON there.
- * Otherwise (frontend-only mode) it simulates a request and keeps a copy in localStorage.
- */
+/** Sends a lead to /api/lead, which emails it to the team. Throws if it was not delivered. */
 export async function submitLead(lead: Lead): Promise<LeadResult> {
-  const payload = { ...lead, createdAt: new Date().toISOString(), page: location.href }
-
-  if (ENDPOINT) {
-    const res = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
-    if (!res.ok) throw new Error(`Lead submission failed (${res.status})`)
-    const data = (await res.json().catch(() => ({}))) as Partial<LeadResult>
-    return { id: data.id ?? makeId() }
-  }
-
-  await new Promise((r) => setTimeout(r, 1400))
-  const id = makeId()
-  try {
-    const stored = JSON.parse(localStorage.getItem('wu_leads') ?? '[]') as unknown[]
-    stored.push({ id, ...payload })
-    localStorage.setItem('wu_leads', JSON.stringify(stored))
-  } catch {
-    // storage unavailable — ignore in demo mode
-  }
-  return { id }
+  const res = await fetch('/api/lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...lead, page: location.href }),
+  })
+  if (!res.ok) throw new Error(`Lead submission failed (${res.status})`)
+  return (await res.json()) as LeadResult
 }
 
 export const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())

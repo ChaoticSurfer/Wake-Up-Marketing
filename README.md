@@ -41,7 +41,7 @@ src/
     content.ts         all copy (shared by every version)
     versions.ts        version registry (drives the hub + switcher)
     chatEngine.ts      scripted chat assistant
-    leads.ts           lead submission
+    leads.ts           lead submission (client side of /api/lead)
   fonts/               Swiss 721 Heavy (brand display face)
 docs/research.md       design research behind the directions
 docs/design-review.md  gstack design audit and the mid-sized business positioning
@@ -61,8 +61,14 @@ only appears on "online" status dots. Tokens live in `src/app/globals.css`.
 ## Placeholders
 
 Stats, case studies, testimonials, email and phone in `src/lib/content.ts` are placeholders.
-The chat is scripted (`src/lib/chatEngine.ts`). Leads are stored in `localStorage` unless
-`NEXT_PUBLIC_LEAD_ENDPOINT` is set, in which case they are POSTed there as JSON.
+The chat is scripted (`src/lib/chatEngine.ts`).
+
+## Leads
+
+The contact forms and the chat POST to `/api/lead` (`src/app/api/lead/route.ts`), which emails each lead
+to `info@wakeup.ge` through [Resend](https://resend.com), sent from `leads@wakeup.ge` with the visitor as
+reply-to. It needs `RESEND_API_KEY` in the Vercel project's environment variables and `wakeup.ge` verified
+in Resend. If sending fails, the form shows an error with the business phone instead of a success screen.
 
 ## CI/CD
 
