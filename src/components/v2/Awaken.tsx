@@ -296,9 +296,31 @@ export function AwResults() {
           <p className="hud-label text-wu-red">Results</p>
           <h2 className="mt-4 font-display text-[clamp(36px,4.6vw,68px)] leading-[0.95]">Before and after 90 days.</h2>
         </div>
-        <p className="max-w-[360px] text-white/55">Drag the handle. Typical results from a performance engagement (example figures).</p>
+        <p className="max-w-[360px] text-white/55">
+          <span className="hidden sm:inline">Drag the handle. </span>Typical results from a performance engagement (example figures).
+        </p>
       </Reveal>
-      <Reveal delay={0.1} className="mt-12">
+      {/* Phones stack the metrics in one column, where a left/right wipe would hide every "after" value. */}
+      <Reveal delay={0.1} className="mt-12 sm:hidden">
+        <ul className="grid gap-3">
+          {ROWS.map(([metric, before, after]) => (
+            <li key={metric} className="overflow-hidden rounded-2xl border border-white/10">
+              <p className="bg-[#171717] px-5 pt-4 text-sm text-white/70">{metric}</p>
+              <div className="grid grid-cols-2">
+                <div className="bg-[#171717] px-5 pb-5 pt-2">
+                  <p className="hud-label text-white/60">Before</p>
+                  <p className="mt-1 font-display text-4xl">{before}</p>
+                </div>
+                <div className="bg-gradient-to-br from-wu-red to-wu-red-deep px-5 pb-5 pt-2">
+                  <p className="hud-label text-white/85">After 90 days</p>
+                  <p className="mt-1 font-display text-4xl">{after}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Reveal>
+      <Reveal delay={0.1} className="mt-12 hidden sm:block">
         <div className="relative select-none overflow-hidden rounded-3xl border border-white/10">
           <Table rows={ROWS.map((r) => [r[0], r[1]])} title="Before WakeUP" tone="before" />
           <div className="absolute inset-0" style={{ clipPath: `inset(0 0 0 ${pos}%)` }}>
