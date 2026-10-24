@@ -30,8 +30,9 @@ function Words({ text, className, delay = 0, as: Tag = "h2" }: { text: string; c
       whileInView="shown"
       viewport={{ once: true, margin: "-10%" }}
       transition={{ staggerChildren: 0.06, delayChildren: delay }}
-      aria-label={text}
     >
+      {/* Screen readers read this plain copy; the animated words below are hidden from them. */}
+      <span className="sr-only">{text.replaceAll("*", "")}</span>
       {text.split(" ").map((w, i) => (
         <motion.span
           key={i}
