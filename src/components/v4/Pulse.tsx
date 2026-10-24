@@ -317,6 +317,9 @@ function PulseContact() {
             {s.label}
           </a>
         ))}
+        <a href="/privacy" className="inline-flex min-h-11 items-center hover:text-white">
+          Privacy
+        </a>
       </p>
     </Section>
   );
