@@ -109,7 +109,7 @@ export function PricingSection({ look = "plain" }: { look?: Look }) {
               <a
                 href="#contact"
                 className={cn(
-                  "mt-8 flex h-12 items-center justify-center rounded-full font-semibold transition-colors",
+                  "mt-8 flex min-h-12 items-center justify-center rounded-full px-6 py-3 text-center font-semibold leading-tight transition-colors",
                   t.featured ? "bg-wu-red hover:bg-white hover:text-black" : "border border-white/20 hover:bg-white/10",
                 )}
               >
