@@ -1,5 +1,5 @@
 // All site copy lives here so it can be edited without touching components.
-// Audience: mid-sized businesses (roughly 20–500 employees) where a CEO, founder or head of
+// Audience: mid-sized businesses in Georgia (roughly 20–250 employees; Geostat counts 50–249 as medium) where a CEO, founder or head of
 // marketing owns growth, usually with a small in-house team.
 // NOTE: figures, prices, case studies, testimonials and contact details are placeholders —
 // replace with real data before launch.
@@ -15,11 +15,11 @@ export const nav = [
 export const hero = {
   eyebrow: 'Growth partner for mid-sized businesses',
   headline: 'Marketing that shows up in your revenue.',
-  sub: 'A senior marketing team for companies with 20–500 people: strategy, creative and paid media in one plan, reported in revenue, not likes.',
+  sub: 'A senior marketing team for companies with 20–250 people: strategy, creative and paid media in one plan, reported in revenue, not likes.',
   primaryCta: 'Get a free growth audit',
   secondaryCta: 'Ask WakeUP AI',
   // short qualifier shown under the hero instead of vanity numbers
-  fit: ['20–500 employees', '$2M–$100M revenue', 'Live in 30 days'],
+  fit: ['20–250 employees', '₾2M–₾60M revenue', 'Live in 30 days'],
 }
 
 // Homepage (v2 Awaken) headline; the accent word is shown in brand red. Also used on the social share image.
@@ -164,20 +164,20 @@ export const testimonials = [
 export const tiers = [
   {
     name: 'Launch',
-    price: 'from $4k',
+    price: 'from ₾5k',
     note: 'one-off project, 4–6 weeks',
     items: ['Growth audit and 90-day plan', 'Campaign or website launch', 'Tracking and dashboard set-up', 'Handover to your team'],
   },
   {
     name: 'Growth',
-    price: '$6k–15k / mo',
+    price: '₾4k–10k / mo',
     note: 'most mid-sized clients',
     items: ['Paid media across 2–3 channels', 'Creative and content every week', 'Landing pages and CRO', 'Monthly review with leadership'],
     featured: true,
   },
   {
     name: 'Partner',
-    price: 'from $15k / mo',
+    price: 'from ₾12k / mo',
     note: 'multi-market or multi-brand',
     items: ['Dedicated senior team', 'Brand, content and performance', 'CRM and marketing automation', 'Quarterly board-ready reporting'],
   },
@@ -186,7 +186,7 @@ export const tiers = [
 export const faq = [
   {
     q: 'Who do you usually work with?',
-    a: 'Companies with roughly 20–500 employees, often with a small in-house marketing team and a CEO or head of marketing who owns growth.',
+    a: 'Companies with roughly 20–250 employees, often with a small in-house marketing team and a CEO or head of marketing who owns growth.',
   },
   {
     q: 'How long is the contract?',
@@ -216,7 +216,7 @@ export const serviceOptions = [
   'Not sure yet',
 ]
 
-export const budgetOptions = ['< $5k / mo', '$5k – $10k', '$10k – $25k', '$25k+']
+export const budgetOptions = ['< ₾3k / mo', '₾3k – ₾8k', '₾8k – ₾20k', '₾20k+']
 
 export const companySizeOptions = ['1–19', '20–99', '100–249', '250–500', '500+']
 

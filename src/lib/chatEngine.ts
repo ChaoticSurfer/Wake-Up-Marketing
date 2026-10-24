@@ -84,7 +84,7 @@ export function reply(input: string, stage: Stage, lead: LeadDraft): BotTurn {
   if (has(t, 'price', 'pricing', 'cost', 'budget', 'how much', 'expensive', 'rate')) {
     return {
       messages: [
-        'As a guide: one-off launch projects start from $4k, and most mid-sized clients are on a monthly plan of $6k–15k plus ad spend. Minimum term is 3 months, then month to month.',
+        'As a guide: one-off launch projects start from ₾5k, and most mid-sized clients are on a monthly plan of ₾4k–10k plus ad spend. Minimum term is 3 months, then month to month.',
         'The free audit tells you exactly what you’d need — want one?',
       ],
       chips: ['Start a project', 'What’s included?', 'How it works'],
@@ -94,7 +94,7 @@ export function reply(input: string, stage: Stage, lead: LeadDraft): BotTurn {
   if (has(t, 'service', 'what do you do', 'offer', 'included', 'help with')) {
     return {
       messages: [
-        'Six things under one plan: paid media · brand & positioning · content & social · websites & landing pages · SEO · analytics, CRM & automation. Built for companies with roughly 20–500 people.',
+        'Six things under one plan: paid media · brand & positioning · content & social · websites & landing pages · SEO · analytics, CRM & automation. Built for companies with roughly 20–250 people.',
         'Most clients combine 2–3 of them. Which one matters most to you right now?',
       ],
       chips: ['Performance ads', 'Social media', 'Website', 'SEO'],
