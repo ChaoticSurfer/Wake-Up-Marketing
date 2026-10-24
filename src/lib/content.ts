@@ -218,7 +218,7 @@ export const budgetOptions = ['< $5k / mo', '$5k – $10k', '$10k – $25k', '$2
 export const companySizeOptions = ['1–19', '20–99', '100–249', '250–500', '500+']
 
 export const contact = {
-  email: 'hello@wakeup.marketing',
+  email: 'info@wakeup.ge',
   phone: '+995 598 770 543',
   socials: [
     { label: 'LinkedIn', href: '#' },
