@@ -230,3 +230,9 @@ export const contact = {
     { label: 'TikTok', href: '#' },
   ],
 }
+
+/** Links that open the visitor's mail app or dialer. */
+export const contactLinks = {
+  email: `mailto:${contact.email}`,
+  phone: `tel:${contact.phone.replace(/\s+/g, '')}`,
+}

@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 import QrEye from "@/components/shared/QrEye";
 import { Magnetic, Marquee, Reveal } from "@/components/shared/fx";
-import { budgetOptions, contact, hero, homepageHeadline, nav, services, testimonials } from "@/lib/content";
+import { budgetOptions, contact, contactLinks, hero, homepageHeadline, nav, services, testimonials } from "@/lib/content";
 import { LabeledInput } from "@/components/shared/Sections";
 import { isEmail, LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
 import { HoneypotField } from "@/components/shared/HoneypotField";
@@ -412,7 +412,14 @@ export function AwContact() {
           <p className="hud-label text-wu-red">Free growth audit</p>
           <h2 className="mt-4 font-display text-[clamp(40px,5vw,76px)] leading-[0.92]">See where your marketing budget leaks.</h2>
           <p className="mt-6 text-lg text-white/65">Tell us about your business. Within one business day you get a short audit of your ads, site and funnel, plus three quick wins.</p>
-          <p className="mt-8 font-mono text-sm text-white/60">{contact.email}</p>
+          <div className="mt-8 flex flex-col gap-1 font-mono text-sm text-white/70">
+            <a href={contactLinks.email} className="inline-flex min-h-11 w-fit items-center hover:text-white">
+              {contact.email}
+            </a>
+            <a href={contactLinks.phone} className="inline-flex min-h-11 w-fit items-center hover:text-white">
+              {contact.phone}
+            </a>
+          </div>
         </Reveal>
         <Reveal delay={0.1}>
           <div className="rounded-3xl border border-white/10 bg-[#121212]/90 p-6 backdrop-blur-xl md:p-8">
@@ -456,8 +463,16 @@ export function AwContact() {
         </Reveal>
       </div>
       <footer className="mx-auto mt-24 flex max-w-[1320px] flex-wrap items-center justify-between gap-4 px-4 pb-20 text-sm text-white/45 md:px-8">
-        <span>© WakeUP Marketing</span>
-        <span className="flex gap-5">
+        <span className="flex flex-wrap items-center gap-x-5">
+          <span>© WakeUP Marketing</span>
+          <a href={contactLinks.email} className="inline-flex min-h-11 items-center hover:text-white">
+            {contact.email}
+          </a>
+          <a href={contactLinks.phone} className="inline-flex min-h-11 items-center hover:text-white">
+            {contact.phone}
+          </a>
+        </span>
+        <span className="flex flex-wrap gap-x-5">
           {contact.socials.map((s) => (
             <a key={s.label} href={s.href} className="inline-flex min-h-11 items-center hover:text-white">
               {s.label}
