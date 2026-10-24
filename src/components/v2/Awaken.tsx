@@ -14,6 +14,7 @@ import { Magnetic, Marquee, Reveal } from "@/components/shared/fx";
 import { budgetOptions, contact, hero, nav, services, testimonials } from "@/lib/content";
 import { LabeledInput } from "@/components/shared/Sections";
 import { isEmail, LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
+import { HoneypotField } from "@/components/shared/HoneypotField";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
 
@@ -381,13 +382,14 @@ export function AwContact() {
   const [err, setErr] = useState("");
   const [done, setDone] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [website, setWebsite] = useState("");
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (name.trim().length < 2 || !isEmail(email)) return setErr("Add your name and a valid work email.");
     setErr("");
     setBusy(true);
     try {
-      const { id } = await submitLead({ name, email, company, budget, source: "form" });
+      const { id } = await submitLead({ name, email, company, budget, source: "form", website });
       setDone(id);
     } catch (error) {
       console.error(error);
@@ -425,7 +427,8 @@ export function AwContact() {
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={submit} noValidate className="grid gap-3">
+              <form onSubmit={submit} noValidate className="relative grid gap-3">
+                <HoneypotField value={website} onChange={setWebsite} />
                 <LabeledInput id="aw-name" label="Your name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
                 <LabeledInput id="aw-email" label="Work email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
                 <LabeledInput id="aw-company" label="Company website" autoComplete="organization" value={company} onChange={(e) => setCompany(e.target.value)} className={field} />
@@ -460,6 +463,9 @@ export function AwContact() {
               {s.label}
             </a>
           ))}
+          <a href="/privacy" className="inline-flex min-h-11 items-center hover:text-white">
+            Privacy
+          </a>
         </span>
       </footer>
     </section>

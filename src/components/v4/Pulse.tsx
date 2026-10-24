@@ -13,6 +13,7 @@ import type { FormEvent } from "react";
 import { Magnetic, Marquee, NumberTicker } from "@/components/shared/fx";
 import { budgetOptions, hero, cases, contact, nav, process, serviceOptions, services, stats, testimonials } from "@/lib/content";
 import { FaqSection, LabeledInput, PricingSection } from "@/components/shared/Sections";
+import { HoneypotField } from "@/components/shared/HoneypotField";
 import { isEmail, LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
@@ -288,7 +289,7 @@ function PulseContact() {
         </motion.div>
       ) : (
         <form onSubmit={submit} noValidate className="relative mt-8 grid gap-3">
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} className="absolute -left-[9999px] size-px opacity-0" />
+          <HoneypotField value={website} onChange={setWebsite} />
           <div className="grid gap-3 sm:grid-cols-2">
             <LabeledInput id="p-name" label="Your name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
             <LabeledInput id="p-email" label="Work email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
