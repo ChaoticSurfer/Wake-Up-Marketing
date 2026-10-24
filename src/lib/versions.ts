@@ -44,4 +44,4 @@ const FLAT = process.env.NEXT_PUBLIC_FLAT_LINKS === '1'
 
 /** Href to a version page. */
 export const versionHref = (slug: string) => (FLAT ? `${slug}.html` : `/${slug}`)
-export const hubHref = () => (FLAT ? 'index.html' : '/')
+export const hubHref = () => (FLAT ? 'versions.html' : '/versions')
