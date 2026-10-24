@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import ChatWidget from "@/components/shared/ChatWidget";
-import VersionSwitcher from "@/components/shared/VersionSwitcher";
 import { PulsePage } from "@/components/v4/Pulse";
 import { contact } from "@/lib/content";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
@@ -18,7 +17,7 @@ const organizationJsonLd = {
   sameAs: contact.socials.map((s) => s.href).filter((href) => href.startsWith("http")),
 };
 
-// The homepage serves v4 Pulse. The Design Lab hub lives at /versions.
+// The homepage serves v4 Pulse without the design lab switcher. The Design Lab hub lives at /versions.
 export default function Home() {
   return (
     <>
@@ -28,7 +27,6 @@ export default function Home() {
       />
       <PulsePage />
       <ChatWidget />
-      <VersionSwitcher current="v4" />
     </>
   );
 }
