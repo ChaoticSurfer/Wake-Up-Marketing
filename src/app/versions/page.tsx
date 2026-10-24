@@ -1,4 +1,8 @@
+import type { Metadata } from "next";
+import { designLabMetadata } from "@/lib/design-lab-metadata";
 import { versionHref, versions } from "@/lib/versions";
+
+export const metadata: Metadata = designLabMetadata("All directions");
 
 export default function DesignLab() {
   return (
