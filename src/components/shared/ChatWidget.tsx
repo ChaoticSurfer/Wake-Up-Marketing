@@ -151,7 +151,7 @@ export default function ChatWidget({ skin = "dark" }: { skin?: ChatSkin }) {
             initial={{ opacity: 0, y: 12, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8 }}
-            className="fixed bottom-24 right-5 z-[75] max-w-[260px]"
+            className="fixed bottom-24 right-5 z-[75] hidden max-w-[260px] sm:block"
           >
             <button
               onClick={() => setTeaser(false)}
