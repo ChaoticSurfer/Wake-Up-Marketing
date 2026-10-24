@@ -345,11 +345,11 @@ export function AwProof() {
   const industries = ["E-commerce", "Hospitality", "Real estate", "SaaS", "Healthcare", "Education", "Retail", "Finance"];
   return (
     <section className="py-16">
-      <p className="hud-label mb-6 text-center text-white/40">Trusted by mid-sized teams across industries</p>
+      <p className="hud-label mb-6 text-center text-white/60">Trusted by mid-sized teams across industries</p>
       <div className="[mask-image:linear-gradient(90deg,transparent,#000_15%,#000_85%,transparent)]">
         <Marquee duration={30}>
           {industries.map((n) => (
-            <span key={n} className="mx-8 font-display text-3xl text-white/25 transition-colors hover:text-white">
+            <span key={n} className="mx-8 font-display text-3xl text-white/50 transition-colors hover:text-white">
               {n}
             </span>
           ))}
