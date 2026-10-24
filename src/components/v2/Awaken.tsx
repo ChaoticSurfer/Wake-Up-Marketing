@@ -15,6 +15,7 @@ import { budgetOptions, contact, contactLinks, hero, homepageHeadline, nav, serv
 import { LabeledInput } from "@/components/shared/Sections";
 import { isEmail, LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
 import { HoneypotField } from "@/components/shared/HoneypotField";
+import { MobileMenu } from "@/components/shared/MobileMenu";
 import { openChat } from "@/lib/chat-bus";
 import { cn } from "@/lib/utils";
 
@@ -35,7 +36,7 @@ export function AwNav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-wu-black/70 backdrop-blur-xl">
       <motion.div style={{ scaleX }} className="h-0.5 origin-left bg-wu-red shadow-[0_0_12px_#e40613]" />
-      <div className="mx-auto flex h-16 max-w-[1320px] items-center gap-8 px-4 md:px-8">
+      <div className="mx-auto flex h-16 max-w-[1320px] items-center gap-3 px-4 md:gap-8 md:px-8">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="brand/logo-horizontal-light.png" alt="WakeUP Marketing" className="h-7 w-auto" />
         <nav className="ml-auto hidden gap-7 text-sm text-white/65 md:flex" aria-label="Primary">
@@ -48,6 +49,7 @@ export function AwNav() {
         <a href="#contact" className="ml-auto inline-flex h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
           Book a call
         </a>
+        <MobileMenu />
       </div>
     </header>
   );
