@@ -3,7 +3,7 @@
 Frontend-only design exploration for **WakeUP Marketing**. Several complete homepage directions
 built on one brand kit and one set of copy, so the team can compare them and pick one.
 
-**Stack:** Next.js 16 (App Router, static export) · Tailwind CSS v4 · shadcn/ui (Base UI) · Motion ·
+**Stack:** Next.js 16 (App Router) · Tailwind CSS v4 · shadcn/ui (Base UI) · Motion ·
 React Three Fiber (v3 only).
 
 | Route | Direction | What it is |
@@ -23,11 +23,9 @@ bottom-left corner jumps between versions.
 ```bash
 npm install
 npm run dev     # http://localhost:3000  → /, /versions, /v1 … /v4
-npm run build   # static export → out/  (index.html, versions.html, v1.html … v4.html)
+npm run build
 npm run lint
 ```
-
-`out/` uses relative asset paths. Links between versions are clean paths (`/v2`), which is what Vercel serves. For a plain static host that only serves the files as-is, build with `NEXT_PUBLIC_FLAT_LINKS=1` so links point to `v2.html`.
 
 ## Structure
 

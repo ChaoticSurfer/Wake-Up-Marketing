@@ -1,4 +1,4 @@
-// Registry of design directions. Each lives at /<slug> and in the static export as <slug>.html.
+// Registry of design directions. Each lives at /<slug>.
 export type Version = {
   slug: string
   name: string
@@ -38,10 +38,6 @@ export const versions: Version[] = [
   },
 ]
 
-// Clean paths (/v2) work in `next dev` and on Vercel. Set NEXT_PUBLIC_FLAT_LINKS=1 for a plain
-// static host that only serves the exported files as-is (v2.html next to index.html).
-const FLAT = process.env.NEXT_PUBLIC_FLAT_LINKS === '1'
-
 /** Href to a version page. */
-export const versionHref = (slug: string) => (FLAT ? `${slug}.html` : `/${slug}`)
-export const hubHref = () => (FLAT ? 'versions.html' : '/versions')
+export const versionHref = (slug: string) => `/${slug}`
+export const hubHref = () => '/versions'
