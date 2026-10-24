@@ -222,7 +222,7 @@ export const contact = {
   phone: '+000 000 000 000',
   socials: [
     { label: 'LinkedIn', href: '#' },
-    { label: 'Instagram', href: '#' },
+    { label: 'Instagram', href: 'https://www.instagram.com/wake.up.marketing/' },
     { label: 'Facebook', href: '#' },
     { label: 'TikTok', href: '#' },
   ],
