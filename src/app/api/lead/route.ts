@@ -46,14 +46,22 @@ function leadEmailText(ref: string, lead: LeadPayload): string {
   return lead.message ? `${fields}\n\nMessage:\n${lead.message}` : fields;
 }
 
+const newLeadRef = () => "WU-" + crypto.randomUUID().slice(0, 5).toUpperCase();
+
 export async function POST(request: Request) {
-  const lead = parseLead(await request.json().catch(() => null));
+  const body = await request.json().catch(() => null);
+  // Bots that fill the hidden honeypot get a normal-looking success and no email is sent.
+  if (clip((body as Record<string, unknown> | null)?.website)) {
+    console.warn("Lead dropped: honeypot filled");
+    return Response.json({ id: newLeadRef() });
+  }
+  const lead = parseLead(body);
   if (!lead) return Response.json({ error: "Name and a valid email are required." }, { status: 400 });
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) throw new Error("RESEND_API_KEY is not set");
 
-  const ref = "WU-" + crypto.randomUUID().slice(0, 5).toUpperCase();
+  const ref = newLeadRef();
   const { error } = await new Resend(apiKey).emails.send({
     from: LEAD_SENDER,
     to: LEAD_INBOX,

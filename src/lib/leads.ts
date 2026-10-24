@@ -9,6 +9,8 @@ export type Lead = {
   budget?: string
   message?: string
   source: 'form' | 'chat'
+  /** Honeypot: a hidden field people never see, so any value means a bot filled the form. */
+  website?: string
 }
 
 export type LeadResult = { id: string }
