@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 import QrEye from "@/components/shared/QrEye";
 import { Magnetic, Marquee, Reveal } from "@/components/shared/fx";
-import { budgetOptions, contact, hero, nav, services, testimonials } from "@/lib/content";
+import { budgetOptions, contact, hero, homepageHeadline, nav, services, testimonials } from "@/lib/content";
 import { LabeledInput } from "@/components/shared/Sections";
 import { isEmail, LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
 import { HoneypotField } from "@/components/shared/HoneypotField";
@@ -78,7 +78,7 @@ export function AwHero() {
 
         <div className="relative z-10 mt-[36vh] px-4 text-center">
           <motion.h1 style={{ opacity: headOp, y: headY }} className="font-display text-[clamp(44px,6.4vw,92px)] leading-[0.92]">
-            Wake up your <span className="text-wu-red">growth.</span>
+            {homepageHeadline.lead} <span className="text-wu-red">{homepageHeadline.accent}</span>
           </motion.h1>
           <motion.div style={{ opacity: subOp }} className="mx-auto mt-6 max-w-[600px]">
             <p className="text-lg text-white/65">

@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og";
-import { hero } from "@/lib/content";
+import { hero, homepageHeadline } from "@/lib/content";
 import { SITE_NAME } from "@/lib/site";
 
-export const alt = `${SITE_NAME}: ${hero.headline}`;
+export const alt = `${SITE_NAME}: ${homepageHeadline.lead} ${homepageHeadline.accent}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,7 +14,9 @@ export default function OpengraphImage() {
           Wake<span style={{ color: "#E40613" }}>UP</span>&nbsp;Marketing
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 76, fontWeight: 800, lineHeight: 1.02, maxWidth: 980 }}>{hero.headline}</div>
+          <div style={{ display: "flex", fontSize: 96, fontWeight: 800, lineHeight: 1.02 }}>
+            {homepageHeadline.lead}&nbsp;<span style={{ color: "#E40613" }}>{homepageHeadline.accent}</span>
+          </div>
           <div style={{ marginTop: 28, fontSize: 30, color: "rgba(255,255,255,0.65)" }}>{hero.eyebrow}</div>
         </div>
         <div style={{ display: "flex", height: 10, width: 160, background: "#E40613" }} />

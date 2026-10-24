@@ -22,6 +22,9 @@ export const hero = {
   fit: ['20–500 employees', '$2M–$100M revenue', 'Live in 30 days'],
 }
 
+// Homepage (v2 Awaken) headline; the accent word is shown in brand red. Also used on the social share image.
+export const homepageHeadline = { lead: 'Wake up your', accent: 'growth.' }
+
 export const marquee = [
   'Brand strategy',
   'Paid media',
