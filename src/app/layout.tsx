@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { hero } from "@/lib/content";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const swiss = localFont({
   src: [
@@ -16,9 +18,12 @@ const body = Geist({ variable: "--font-body", subsets: ["latin"] });
 const code = JetBrains_Mono({ variable: "--font-code", subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
-  title: "WakeUP Marketing",
-  description: "Brand, performance and content marketing that wakes your audience up.",
-  icons: { icon: "favicon.svg" },
+  metadataBase: new URL(SITE_URL),
+  title: { default: `${SITE_NAME} | Growth marketing for mid-sized businesses`, template: `%s | ${SITE_NAME}` },
+  description: hero.sub,
+  openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US", url: "/" },
+  twitter: { card: "summary_large_image" },
+  icons: { icon: "/favicon.svg" },
 };
 
 export const viewport: Viewport = { themeColor: "#111111" };
