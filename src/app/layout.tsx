@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { hero } from "@/lib/content";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
@@ -31,7 +32,10 @@ export const viewport: Viewport = { themeColor: "#111111" };
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${swiss.variable} ${body.variable} ${code.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
