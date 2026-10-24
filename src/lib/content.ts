@@ -219,7 +219,7 @@ export const companySizeOptions = ['1–19', '20–99', '100–249', '250–500'
 
 export const contact = {
   email: 'hello@wakeup.marketing',
-  phone: '+000 000 000 000',
+  phone: '+995 598 770 543',
   socials: [
     { label: 'LinkedIn', href: '#' },
     { label: 'Instagram', href: 'https://www.instagram.com/wake.up.marketing/' },
