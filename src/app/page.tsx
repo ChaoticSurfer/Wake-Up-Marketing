@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import ChatWidget from "@/components/shared/ChatWidget";
-import { PulsePage } from "@/components/v4/Pulse";
+import { AwakenPage } from "@/components/v2/AwakenPage";
 import { contact } from "@/lib/content";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
@@ -17,7 +16,7 @@ const organizationJsonLd = {
   sameAs: contact.socials.map((s) => s.href).filter((href) => href.startsWith("http")),
 };
 
-// The homepage serves v4 Pulse without the design lab switcher. The Design Lab hub lives at /versions.
+// The homepage serves v2 Awaken without the design lab switcher. The Design Lab hub lives at /versions.
 export default function Home() {
   return (
     <>
@@ -25,8 +24,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }}
       />
-      <PulsePage />
-      <ChatWidget />
+      <AwakenPage />
     </>
   );
 }

@@ -8,7 +8,7 @@ React Three Fiber (v3 only).
 
 | Route | Direction | What it is |
 | --- | --- | --- |
-| `/` | Homepage | Serves **v4 Pulse** |
+| `/` | Homepage | Serves **v2 Awaken** |
 | `/versions` | Design Lab | Hub with previews of every version |
 | `/v1` | **Signal** (flagship) | Cyber-brutalist HUD: assembling QR-eye, decrypting type, bento services with live micro-visuals |
 | `/v2` | **Awaken** | Scroll story: the eye opens, a live growth dashboard animates with scroll, before/after results, packages |
@@ -31,7 +31,7 @@ npm run lint
 
 ```
 src/
-  app/                 routes: page.tsx (homepage, v4), versions (lab hub), v1 … v4
+  app/                 routes: page.tsx (homepage, v2), versions (lab hub), v1 … v4
   components/
     shared/            QrEye (canvas eye), ChatWidget, VersionSwitcher, fx.tsx (scramble, marquee,
                        magnetic, spotlight, flickering grid, number ticker, reveal)
