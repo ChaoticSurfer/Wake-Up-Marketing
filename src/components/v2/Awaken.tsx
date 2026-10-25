@@ -283,11 +283,12 @@ export function AwServices() {
 
 /* ---------------- results: before / after slider ---------------- */
 
+// Example before/after figures for a mid-sized Georgian business, in lari.
 const ROWS = [
-  ["Cost per lead", "$84", "$41"],
-  ["Monthly qualified leads", "62", "187"],
-  ["Return on ad spend", "1.6x", "4.8x"],
-  ["Website conversion rate", "1.1%", "3.4%"],
+  ["Cost per lead", "₾38", "₾19"],
+  ["Monthly qualified leads", "40", "110"],
+  ["Return on ad spend", "1.8x", "3.9x"],
+  ["Website conversion rate", "1.2%", "2.9%"],
 ];
 
 export function AwResults() {
