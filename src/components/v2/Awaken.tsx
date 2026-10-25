@@ -208,16 +208,17 @@ export function AwEngine() {
 
           <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-[#181818] to-wu-ink p-5 shadow-[0_40px_120px_-40px_rgba(228,6,19,.5)] md:p-7">
             <div className="flex items-center justify-between">
-              <p className="text-sm font-semibold">Client dashboard · last 90 days</p>
+              <p className="text-sm font-semibold">Example client dashboard · 90 days</p>
               <span className="hud-label flex items-center gap-2 text-xs text-white/50">
-                <i className="size-1.5 animate-blink rounded-full bg-wu-amber" /> Live
+                <i className="size-1.5 animate-blink rounded-full bg-wu-amber" /> Sample
               </span>
             </div>
+            {/* Example figures at Georgian-market scale (population ~3.7M), not a real client. */}
             <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
-              <Kpi label="Reach" p={p} to={2.4} fmt={(n) => `${n.toFixed(1)}M`} i={0} />
-              <Kpi label="CTR" p={p} to={3.8} fmt={(n) => `${n.toFixed(1)}%`} i={1} />
-              <Kpi label="Leads" p={p} to={1240} fmt={(n) => Math.round(n).toLocaleString("en-US")} i={2} />
-              <Kpi label="Revenue" p={p} to={212} fmt={(n) => `+${Math.round(n)}%`} i={3} />
+              <Kpi label="Reach" p={p} to={480} fmt={(n) => `${Math.round(n)}K`} i={0} />
+              <Kpi label="CTR" p={p} to={1.9} fmt={(n) => `${n.toFixed(1)}%`} i={1} />
+              <Kpi label="Leads" p={p} to={380} fmt={(n) => Math.round(n).toLocaleString("en-US")} i={2} />
+              <Kpi label="Revenue" p={p} to={68} fmt={(n) => `+${Math.round(n)}%`} i={3} />
             </div>
             <div className="mt-6 grid gap-2.5">
               <FunnelBar p={p} i={0} label="Impressions" w={100} />
