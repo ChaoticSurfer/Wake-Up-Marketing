@@ -284,9 +284,10 @@ export function AwServices() {
 /* ---------------- results: before / after slider ---------------- */
 
 // Example before/after figures for a mid-sized Georgian business, in lari.
+// "After" monthly leads match the example dashboard: 120 leads over 90 days = 40 a month.
 const ROWS = [
   ["Cost per lead", "₾38", "₾19"],
-  ["Monthly qualified leads", "40", "110"],
+  ["Monthly qualified leads", "15", "40"],
   ["Return on ad spend", "1.8x", "3.9x"],
   ["Website conversion rate", "1.2%", "2.9%"],
 ];
