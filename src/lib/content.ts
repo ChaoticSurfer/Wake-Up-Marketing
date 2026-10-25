@@ -13,9 +13,9 @@ export const nav = [
 ]
 
 export const hero = {
-  eyebrow: 'Growth partner for mid-sized businesses',
+  eyebrow: 'Growth partner for mid-sized businesses in Georgia',
   headline: 'Marketing that shows up in your revenue.',
-  sub: 'A senior marketing team for companies with 20–250 people: strategy, creative and paid media in one plan, reported in revenue, not likes.',
+  sub: 'A senior marketing team for Georgian companies with 20–250 people: strategy, creative and paid media in one plan, reported in revenue, not likes.',
   primaryCta: 'Get a free growth audit',
   secondaryCta: 'Ask WakeUP AI',
   // short qualifier shown under the hero instead of vanity numbers
@@ -186,7 +186,7 @@ export const tiers = [
 export const faq = [
   {
     q: 'Who do you usually work with?',
-    a: 'Companies with roughly 20–250 employees, often with a small in-house marketing team and a CEO or head of marketing who owns growth.',
+    a: 'Companies across Georgia with roughly 20–250 employees, often with a small in-house marketing team and a CEO or head of marketing who owns growth.',
   },
   {
     q: 'How long is the contract?',

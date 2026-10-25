@@ -13,6 +13,8 @@ const organizationJsonLd = {
   logo: `${SITE_URL}/brand/logo-stacked-red.png`,
   email: contact.email,
   telephone: contact.phone,
+  address: { "@type": "PostalAddress", addressCountry: "GE" },
+  areaServed: { "@type": "Country", name: "Georgia" },
   sameAs: contact.socials.map((s) => s.href).filter((href) => href.startsWith("http")),
 };
 

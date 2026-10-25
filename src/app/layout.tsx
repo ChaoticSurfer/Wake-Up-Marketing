@@ -20,7 +20,7 @@ const code = JetBrains_Mono({ variable: "--font-code", subsets: ["latin"], weigh
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: `${SITE_NAME} | Growth marketing for mid-sized businesses`, template: `%s | ${SITE_NAME}` },
+  title: { default: `${SITE_NAME} | Growth marketing for mid-sized businesses in Georgia`, template: `%s | ${SITE_NAME}` },
   description: hero.sub,
   openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US", url: "/" },
   twitter: { card: "summary_large_image" },
