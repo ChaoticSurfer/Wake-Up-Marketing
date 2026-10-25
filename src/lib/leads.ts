@@ -1,3 +1,4 @@
+import { sendGAEvent } from '@next/third-parties/google'
 import { contact } from '@/lib/content'
 
 export type Lead = {
@@ -26,7 +27,9 @@ export async function submitLead(lead: Lead): Promise<LeadResult> {
     body: JSON.stringify({ ...lead, page: location.href }),
   })
   if (!res.ok) throw new Error(`Lead submission failed (${res.status})`)
-  return (await res.json()) as LeadResult
+  const result = (await res.json()) as LeadResult
+  sendGAEvent('event', 'generate_lead', { lead_source: lead.source })
+  return result
 }
 
 export const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())

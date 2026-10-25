@@ -14,7 +14,7 @@ const sections: { heading: string; body: string[] }[] = [
     heading: "What we collect",
     body: [
       "When you send the contact form or leave your details in the chat, we receive what you enter: your name, email, and any company, service, budget or message details you add, plus the page you sent it from.",
-      "We also count visits with Vercel Web Analytics, which does not use cookies and does not identify you personally.",
+      "We measure how people use the site with Google Analytics, which sets cookies and records things like the pages you visit, your device and roughly where you are. Vercel Web Analytics also counts visits, without cookies.",
     ],
   },
   {
@@ -24,7 +24,7 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "Who processes it for us",
     body: [
-      "Vercel hosts this website. Resend delivers form submissions to our inbox by email. Our email is hosted by Google.",
+      "Vercel hosts this website. Google Analytics measures site usage. Resend delivers form submissions to our inbox by email. Our email is hosted by Google.",
     ],
   },
   {
