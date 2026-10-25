@@ -215,10 +215,10 @@ export function AwEngine() {
             </div>
             {/* Example figures at Georgian-market scale (population ~3.7M), not a real client. */}
             <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
-              <Kpi label="Reach" p={p} to={480} fmt={(n) => `${Math.round(n)}K`} i={0} />
-              <Kpi label="CTR" p={p} to={1.9} fmt={(n) => `${n.toFixed(1)}%`} i={1} />
-              <Kpi label="Leads" p={p} to={380} fmt={(n) => Math.round(n).toLocaleString("en-US")} i={2} />
-              <Kpi label="Revenue" p={p} to={68} fmt={(n) => `+${Math.round(n)}%`} i={3} />
+              <Kpi label="Reach" p={p} to={320} fmt={(n) => `${Math.round(n)}K`} i={0} />
+              <Kpi label="CTR" p={p} to={1.6} fmt={(n) => `${n.toFixed(1)}%`} i={1} />
+              <Kpi label="Leads" p={p} to={240} fmt={(n) => Math.round(n).toLocaleString("en-US")} i={2} />
+              <Kpi label="Revenue" p={p} to={45} fmt={(n) => `+${Math.round(n)}%`} i={3} />
             </div>
             <div className="mt-6 grid gap-2.5">
               <FunnelBar p={p} i={0} label="Impressions" w={100} />
