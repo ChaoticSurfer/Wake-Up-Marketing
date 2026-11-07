@@ -227,7 +227,7 @@ export const contact = {
     { label: 'LinkedIn', href: '#' },
     { label: 'Instagram', href: 'https://www.instagram.com/wake.up.marketing/' },
     { label: 'Facebook', href: '#' },
-    { label: 'TikTok', href: '#' },
+    { label: 'TikTok', href: 'https://www.tiktok.com/@wake.up.marketing' },
   ],
 }
 
