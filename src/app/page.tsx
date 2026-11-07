@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { LocaleProvider } from "@/components/shared/LocaleProvider";
 import { AwakenPage } from "@/components/v2/AwakenPage";
+import { bilingualAlternates } from "@/lib/alternates";
 import { contact } from "@/lib/content";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = { alternates: { canonical: "/" } };
+export const metadata: Metadata = { alternates: bilingualAlternates("/", "/", "/ka") };
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -34,7 +36,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }}
       />
-      <AwakenPage />
+      <LocaleProvider locale="en" alternatePath="/ka">
+        <AwakenPage />
+      </LocaleProvider>
     </>
   );
 }

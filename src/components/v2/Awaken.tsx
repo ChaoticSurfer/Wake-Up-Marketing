@@ -48,7 +48,17 @@ export function AwNav() {
             </a>
           ))}
         </nav>
-        <a href={`${c.home}#contact`} className="ml-auto inline-flex h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
+        <a
+          href={c.alternatePath}
+          hrefLang={c.languageSwitch.hrefLang}
+          lang={c.languageSwitch.hrefLang}
+          aria-label={c.languageSwitch.name}
+          className="ml-auto inline-flex h-11 shrink-0 items-center rounded-full border border-white/15 px-3 text-sm font-semibold transition-colors hover:bg-white/10 md:ml-0"
+        >
+          {c.languageSwitch.label}
+        </a>
+        {/* Phones reach contact through the menu; three header buttons do not fit at 375px in Georgian. */}
+        <a href={`${c.home}#contact`} className="hidden h-11 shrink-0 items-center whitespace-nowrap rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white sm:inline-flex">
           {c.navCta}
         </a>
         <MobileMenu />
@@ -95,9 +105,15 @@ export function AwHero() {
                   {c.hero.primaryCta} →
                 </a>
               </Magnetic>
-              <button onClick={() => openChat()} className="h-14 rounded-full border border-white/20 px-8 font-semibold transition-colors hover:bg-white/10">
-                {c.hero.askAi}
-              </button>
+              {c.chatEnabled ? (
+                <button onClick={() => openChat()} className="h-14 rounded-full border border-white/20 px-8 font-semibold transition-colors hover:bg-white/10">
+                  {c.hero.askAi}
+                </button>
+              ) : (
+                <a href={contactLinks.phone} className="flex h-14 items-center justify-center rounded-full border border-white/20 px-8 font-semibold transition-colors hover:bg-white/10">
+                  {c.hero.callUs}
+                </a>
+              )}
             </div>
           </motion.div>
         </div>

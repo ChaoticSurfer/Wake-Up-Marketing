@@ -12,8 +12,8 @@ export function MobileMenu() {
     <>
       <button
         type="button"
-        className="grid size-11 place-items-center rounded-full border border-white/15 md:hidden"
-        aria-label={open ? "Close menu" : "Open menu"}
+        className="grid size-11 shrink-0 place-items-center rounded-full border border-white/15 md:hidden"
+        aria-label={open ? c.menu.close : c.menu.open}
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}

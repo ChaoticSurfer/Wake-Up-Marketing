@@ -1,9 +1,9 @@
 // Per-language copy for the live site (homepage v2 Awaken, contact page and the shared sections).
 // English reuses content.ts so the design-lab versions and the live site stay in step.
-import { budgetOptions, faq, hero, homepageHeadline, nav, pains, services, testimonials, tiers } from '@/lib/content'
+import { budgetOptions, contact, faq, hero, homepageHeadline, nav, pains, services, testimonials, tiers } from '@/lib/content'
 import { LEAD_FAILED_MESSAGE } from '@/lib/leads'
 
-export type Locale = 'en'
+export type Locale = 'en' | 'ka'
 
 export type SiteCopy = {
   /** Path of this language's homepage; in-page anchors are resolved against it. */
@@ -11,6 +11,11 @@ export type SiteCopy = {
   contactPath: string
   nav: { label: string; href: string }[]
   navCta: string
+  /** Link to the same page in the other language. */
+  languageSwitch: { label: string; hrefLang: Locale; name: string }
+  menu: { open: string; close: string }
+  /** The scripted chat only speaks English; without it the hero offers a call instead. */
+  chatEnabled: boolean
   hero: {
     brand: string
     asleepLead: string
@@ -21,6 +26,7 @@ export type SiteCopy = {
     sub: string
     primaryCta: string
     askAi: string
+    callUs: string
   }
   fit: { label: string; titleLead: string; titleAccent: string; pains: { problem: string; fix: string }[] }
   engine: {
@@ -73,6 +79,8 @@ export type SiteCopy = {
     received: (ref: string, email: string) => string
   }
   footer: { contact: string; privacy: string }
+  homeMeta: { title: string; description: string }
+  contactPage: { metaTitle: string; metaDescription: string; label: string; title: string; intro: string }
 }
 
 // Example before/after figures for a mid-sized Georgian business, in lari.
@@ -93,6 +101,9 @@ export const enCopy: SiteCopy = {
   contactPath: '/contact',
   nav,
   navCta: 'Book a call',
+  languageSwitch: { label: 'ქართ', hrefLang: 'ka', name: 'ქართული' },
+  menu: { open: 'Open menu', close: 'Close menu' },
+  chatEnabled: true,
   hero: {
     brand: 'WakeUP Marketing',
     asleepLead: 'Your market',
@@ -103,6 +114,7 @@ export const enCopy: SiteCopy = {
     sub: hero.sub,
     primaryCta: hero.primaryCta,
     askAi: 'Ask WakeUP AI',
+    callUs: 'Call us',
   },
   fit: { label: 'Built for mid-sized businesses', titleLead: 'Too big for freelancers.', titleAccent: 'Tired of agency theatre.', pains },
   engine: {
@@ -164,5 +176,13 @@ export const enCopy: SiteCopy = {
     received: (ref, email) => `Reference ${ref}. We’ll email ${email} within one business day.`,
   },
   footer: { contact: 'Contact', privacy: 'Privacy' },
+  homeMeta: { title: 'WakeUP Marketing | Marketing agency in Georgia', description: hero.sub },
+  contactPage: {
+    metaTitle: 'Contact a marketing agency in Tbilisi',
+    metaDescription: `Call ${contact.phone} or email ${contact.email}, or send a short brief for a free growth audit. WakeUP Marketing works with mid-sized businesses across Georgia.`,
+    label: 'Contact',
+    title: 'Talk to WakeUP Marketing',
+    intro: 'We work with mid-sized businesses across Georgia. Call or email us, or send the short form below and we reply within one business day.',
+  },
 }
 
