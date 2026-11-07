@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import { Geist, JetBrains_Mono, Noto_Sans_Georgian } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -18,6 +18,8 @@ const swiss = localFont({
 
 const body = Geist({ variable: "--font-body", subsets: ["latin"] });
 const code = JetBrains_Mono({ variable: "--font-code", subsets: ["latin"], weight: ["400", "500"] });
+// Georgian letters for /ka; the brand fonts have none. Not preloaded, so English pages never download it.
+const georgian = Noto_Sans_Georgian({ variable: "--font-georgian", subsets: ["georgian"], weight: ["400", "600", "800"], preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -33,7 +35,7 @@ export const viewport: Viewport = { themeColor: "#111111" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${swiss.variable} ${body.variable} ${code.variable}`}>
+    <html lang="en" className={`${swiss.variable} ${body.variable} ${code.variable} ${georgian.variable}`}>
       <body>
         {children}
         <Analytics />
