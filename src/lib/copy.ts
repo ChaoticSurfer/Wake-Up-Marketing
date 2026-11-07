@@ -101,7 +101,7 @@ export const enCopy: SiteCopy = {
   contactPath: '/contact',
   nav,
   navCta: 'Book a call',
-  languageSwitch: { label: 'ქართ', hrefLang: 'ka', name: 'ქართული' },
+  languageSwitch: { label: 'კა', hrefLang: 'ka', name: 'ქართული' },
   menu: { open: 'Open menu', close: 'Close menu' },
   chatEnabled: true,
   hero: {
