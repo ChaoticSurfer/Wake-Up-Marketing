@@ -50,19 +50,19 @@ export const pains = [
 export const services = [
   {
     code: 'S-01',
-    title: 'Paid Media',
+    title: 'Paid Ads (Meta & Google)',
     text: 'Google, Meta and LinkedIn campaigns run against pipeline and cost per acquisition.',
     tags: ['Google Ads', 'Meta', 'LinkedIn'],
   },
   {
     code: 'S-02',
-    title: 'Brand & Positioning',
+    title: 'Branding & Positioning',
     text: 'Messaging and visual identity that make you the obvious choice in your category.',
     tags: ['Positioning', 'Identity', 'Messaging'],
   },
   {
     code: 'S-03',
-    title: 'Content & Social',
+    title: 'Social Media Marketing (SMM)',
     text: 'Always-on content, video and social for the channels your buyers actually use.',
     tags: ['Video', 'Social', 'Thought leadership'],
   },
@@ -74,7 +74,7 @@ export const services = [
   },
   {
     code: 'S-05',
-    title: 'SEO & Content Marketing',
+    title: 'SEO & Content',
     text: 'Technical SEO and expert content that bring in demand month after month.',
     tags: ['Technical SEO', 'Content', 'Links'],
   },

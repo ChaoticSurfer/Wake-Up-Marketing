@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import { LocaleProvider } from "@/components/shared/LocaleProvider";
 import { AwakenPage } from "@/components/v2/AwakenPage";
 import { bilingualAlternates } from "@/lib/alternates";
+import { enCopy } from "@/lib/copy";
 import { contact } from "@/lib/content";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = { alternates: bilingualAlternates("/", "/", "/ka") };
+export const metadata: Metadata = {
+  title: { absolute: enCopy.homeMeta.title },
+  description: enCopy.homeMeta.description,
+  alternates: bilingualAlternates("/", "/", "/ka"),
+  openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US", images: ["/opengraph-image"], url: "/", title: enCopy.homeMeta.title, description: enCopy.homeMeta.description },
+};
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -23,7 +29,7 @@ const organizationJsonLd = {
     areaServed: "GE",
     availableLanguage: ["Georgian", "English"],
   },
-  address: { "@type": "PostalAddress", addressCountry: "GE" },
+  address: { "@type": "PostalAddress", addressLocality: "Tbilisi", addressCountry: "GE" },
   areaServed: { "@type": "Country", name: "Georgia" },
   sameAs: contact.socials.map((s) => s.href).filter((href) => href.startsWith("http")),
 };

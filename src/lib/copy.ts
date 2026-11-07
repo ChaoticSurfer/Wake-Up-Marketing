@@ -176,7 +176,12 @@ export const enCopy: SiteCopy = {
     received: (ref, email) => `Reference ${ref}. We’ll email ${email} within one business day.`,
   },
   footer: { contact: 'Contact', privacy: 'Privacy' },
-  homeMeta: { title: 'WakeUP Marketing | Marketing agency in Georgia', description: hero.sub },
+  homeMeta: {
+    // "Georgia" alone matches the US state in English search; Tbilisi makes the market unambiguous.
+    title: 'Marketing Agency in Tbilisi: SMM, Ads, SEO | WakeUP Marketing',
+    description:
+      'Marketing agency in Tbilisi for mid-sized companies: SMM, Meta and Google Ads, SEO, websites, branding and video in one team. Prices published upfront.',
+  },
   contactPage: {
     metaTitle: 'Contact a marketing agency in Tbilisi',
     metaDescription: `Call ${contact.phone} or email ${contact.email}, or send a short brief for a free growth audit. WakeUP Marketing works with mid-sized businesses across Georgia.`,
