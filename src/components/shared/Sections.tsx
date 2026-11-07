@@ -78,7 +78,7 @@ export function FitSection({ look = "plain", id }: { look?: Look; id?: string })
 export function PricingSection({ look = "plain" }: { look?: Look }) {
   const { pricing } = useCopy();
   return (
-    <section id="pricing" className="mx-auto max-w-[1320px] scroll-mt-20 px-4 py-24 md:px-8 md:py-32">
+    <section id="pricing" className="mx-auto max-w-[1320px] px-4 py-24 md:px-8 md:py-32">
       <Head look={look} label={pricing.label} title={<>{pricing.titleLead} <span className="text-wu-red">{pricing.titleAccent}</span></>} />
       <div className="grid gap-5 md:grid-cols-3">
         {pricing.tiers.map((t, i) => (

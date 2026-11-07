@@ -262,7 +262,7 @@ export function AwEngine() {
 export function AwServices() {
   const c = useCopy();
   return (
-    <section id="services" className="mx-auto max-w-[1320px] scroll-mt-20 px-4 py-28 md:px-8">
+    <section id="services" className="mx-auto max-w-[1320px] px-4 py-28 md:px-8">
       <Reveal className="max-w-[760px]">
         <p className="hud-label text-wu-red">{c.services.label}</p>
         <h2 className="mt-4 font-display text-[clamp(36px,4.6vw,68px)] leading-[0.95]">{c.services.title}</h2>

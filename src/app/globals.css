@@ -167,7 +167,9 @@
   html {
     @apply font-sans;
     overflow-x: clip;
-    scroll-behavior: smooth;
+    /* Menu links jump straight to their section. Smooth scrolling ran through the scroll-driven hero
+       and growth-engine sections, and phones cancelled it midway when their toolbar resized the viewport. */
+    scroll-padding-top: 4rem;
   }
   body {
     @apply bg-background text-foreground antialiased;
