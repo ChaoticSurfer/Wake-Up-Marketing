@@ -41,12 +41,12 @@ export function AwNav() {
         <img src="/brand/logo-horizontal-light.png" alt="WakeUP Marketing" width={857} height={169} className="h-7 w-auto" />
         <nav className="ml-auto hidden gap-7 text-sm text-white/65 md:flex" aria-label="Primary">
           {nav.map((l) => (
-            <a key={l.href} href={l.href} className="inline-flex min-h-11 items-center transition-colors hover:text-white">
+            <a key={l.href} href={`/${l.href}`} className="inline-flex min-h-11 items-center transition-colors hover:text-white">
               {l.label}
             </a>
           ))}
         </nav>
-        <a href="#contact" className="ml-auto inline-flex h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
+        <a href="/#contact" className="ml-auto inline-flex h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
           Book a call
         </a>
         <MobileMenu />
@@ -505,6 +505,9 @@ export function AwContact() {
               {s.label}
             </a>
           ))}
+          <a href="/contact" className="inline-flex min-h-11 items-center hover:text-white">
+            Contact
+          </a>
           <a href="/privacy" className="inline-flex min-h-11 items-center hover:text-white">
             Privacy
           </a>

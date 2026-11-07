@@ -33,7 +33,7 @@ export function MobileMenu() {
         {nav.map((l, i) => (
           <a
             key={l.href}
-            href={l.href}
+            href={`/${l.href}`}
             onClick={() => setOpen(false)}
             className="flex items-baseline gap-3 border-b border-white/10 px-6 py-4 font-display text-2xl"
           >
