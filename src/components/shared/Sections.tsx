@@ -9,7 +9,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import type { InputHTMLAttributes, ReactNode } from "react";
 import { useState } from "react";
-import { faq, pains, tiers } from "@/lib/content";
+import { useCopy } from "@/components/shared/LocaleProvider";
 import { cn } from "@/lib/utils";
 
 export type Look = "hud" | "glass" | "plain";
@@ -39,11 +39,12 @@ function Head({ label, title, look }: { label: string; title: ReactNode; look: L
 
 /** "Built for" strip: the four problems mid-sized teams bring us, and what we do about each. */
 export function FitSection({ look = "plain", id }: { look?: Look; id?: string }) {
+  const { fit } = useCopy();
   return (
     <section id={id} className="mx-auto max-w-[1320px] px-4 py-24 md:px-8 md:py-32">
-      <Head look={look} label="Built for mid-sized businesses" title={<>Too big for freelancers. <span className="text-wu-red">Tired of agency theatre.</span></>} />
+      <Head look={look} label={fit.label} title={<>{fit.titleLead} <span className="text-wu-red">{fit.titleAccent}</span></>} />
       <div className="grid gap-4 md:grid-cols-2">
-        {pains.map((p, i) => (
+        {fit.pains.map((p, i) => (
           <motion.div
             key={p.problem}
             initial={{ opacity: 0, y: 30 }}
@@ -75,11 +76,12 @@ export function FitSection({ look = "plain", id }: { look?: Look; id?: string })
 
 /** Three engagement models with prices shown up front. */
 export function PricingSection({ look = "plain" }: { look?: Look }) {
+  const { pricing } = useCopy();
   return (
     <section id="pricing" className="mx-auto max-w-[1320px] scroll-mt-20 px-4 py-24 md:px-8 md:py-32">
-      <Head look={look} label="Pricing" title={<>Clear scope. Clear price. <span className="text-wu-red">No lock-in.</span></>} />
+      <Head look={look} label={pricing.label} title={<>{pricing.titleLead} <span className="text-wu-red">{pricing.titleAccent}</span></>} />
       <div className="grid gap-5 md:grid-cols-3">
-        {tiers.map((t, i) => (
+        {pricing.tiers.map((t, i) => (
           <motion.div
             key={t.name}
             initial={{ opacity: 0, y: 40 }}
@@ -92,7 +94,7 @@ export function PricingSection({ look = "plain" }: { look?: Look }) {
             <div className={cn("relative flex h-full flex-col bg-[#131313] p-8", look === "glass" ? "rounded-[23px]" : "rounded-[15px]")}>
               <div className="flex items-center justify-between gap-3">
                 <h3 className="font-display text-3xl">{t.name}</h3>
-                {t.featured && <span className="rounded-full bg-wu-red px-3 py-1 text-xs font-semibold">Most chosen</span>}
+                {t.featured && <span className="rounded-full bg-wu-red px-3 py-1 text-xs font-semibold">{pricing.mostChosen}</span>}
               </div>
               <p className="mt-6 font-display text-4xl">{t.price}</p>
               <p className="mt-1 text-sm text-white/55">{t.note}</p>
@@ -113,25 +115,26 @@ export function PricingSection({ look = "plain" }: { look?: Look }) {
                   t.featured ? "bg-wu-red hover:bg-white hover:text-black" : "border border-white/20 hover:bg-white/10",
                 )}
               >
-                Discuss the {t.name} plan
+                {pricing.discuss(t.name)}
               </a>
             </div>
           </motion.div>
         ))}
       </div>
-      <p className="mt-6 text-sm text-white/50">Prices exclude ad spend. Ad accounts, data and creative always stay in your name.</p>
+      <p className="mt-6 text-sm text-white/50">{pricing.note}</p>
     </section>
   );
 }
 
 /** Accordion with the questions mid-sized buyers ask on the first call. */
 export function FaqSection({ look = "plain" }: { look?: Look }) {
+  const { faq } = useCopy();
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="mx-auto grid max-w-[1320px] gap-10 px-4 py-24 md:px-8 md:py-32 lg:grid-cols-[.8fr_1.2fr]">
-      <Head look={look} label="FAQ" title="Questions we hear on every first call." />
+      <Head look={look} label={faq.label} title={faq.title} />
       <div className="grid gap-3">
-        {faq.map((f, i) => {
+        {faq.items.map((f, i) => {
           const isOpen = open === i;
           return (
             <div key={f.q} className={cn(surface[look], "overflow-hidden transition-colors", isOpen && "border-wu-red/50")}>

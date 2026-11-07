@@ -11,9 +11,10 @@ import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 import QrEye from "@/components/shared/QrEye";
 import { Magnetic, Marquee, Reveal } from "@/components/shared/fx";
-import { budgetOptions, contact, contactLinks, hero, homepageHeadline, nav, services, testimonials } from "@/lib/content";
+import { contact, contactLinks } from "@/lib/content";
+import { useCopy } from "@/components/shared/LocaleProvider";
 import { LabeledInput } from "@/components/shared/Sections";
-import { isEmail, LEAD_FAILED_MESSAGE, submitLead } from "@/lib/leads";
+import { isEmail, submitLead } from "@/lib/leads";
 import { HoneypotField } from "@/components/shared/HoneypotField";
 import { MobileMenu } from "@/components/shared/MobileMenu";
 import { openChat } from "@/lib/chat-bus";
@@ -31,6 +32,7 @@ const ramp = (a: number, b: number, from: number, to: number) => (v: number) => 
 /* ---------------- nav + progress ---------------- */
 
 export function AwNav() {
+  const c = useCopy();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
   return (
@@ -40,14 +42,14 @@ export function AwNav() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/brand/logo-horizontal-light.png" alt="WakeUP Marketing" width={857} height={169} className="h-7 w-auto" />
         <nav className="ml-auto hidden gap-7 text-sm text-white/65 md:flex" aria-label="Primary">
-          {nav.map((l) => (
-            <a key={l.href} href={`/${l.href}`} className="inline-flex min-h-11 items-center transition-colors hover:text-white">
+          {c.nav.map((l) => (
+            <a key={l.href} href={`${c.home}${l.href}`} className="inline-flex min-h-11 items-center transition-colors hover:text-white">
               {l.label}
             </a>
           ))}
         </nav>
-        <a href="/#contact" className="ml-auto inline-flex h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
-          Book a call
+        <a href={`${c.home}#contact`} className="ml-auto inline-flex h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-wu-red hover:text-white md:ml-0">
+          {c.navCta}
         </a>
         <MobileMenu />
       </div>
@@ -58,6 +60,7 @@ export function AwNav() {
 /* ---------------- hero: the eye opens ---------------- */
 
 export function AwHero() {
+  const c = useCopy();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const lidTop = useTransform(p, (v) => `${ramp(0, 0.42, 0, -102)(v)}%`);
@@ -80,20 +83,20 @@ export function AwHero() {
 
         <div className="relative z-10 mt-[36vh] px-4 text-center">
           <motion.h1 style={{ opacity: headOp, y: headY }} className="font-display text-[clamp(44px,6.4vw,92px)] leading-[0.92]">
-            {homepageHeadline.lead} <span className="text-wu-red">{homepageHeadline.accent}</span>
+            {c.hero.headlineLead} <span className="text-wu-red">{c.hero.headlineAccent}</span>
           </motion.h1>
           <motion.div style={{ opacity: subOp }} className="mx-auto mt-6 max-w-[600px]">
             <p className="text-lg text-white/65">
-              {hero.sub}
+              {c.hero.sub}
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Magnetic strength={0.2}>
                 <a href="#contact" className="flex h-14 items-center justify-center rounded-full bg-wu-red px-8 font-semibold shadow-[0_14px_40px_-10px_rgba(228,6,19,.9)]">
-                  {hero.primaryCta} →
+                  {c.hero.primaryCta} →
                 </a>
               </Magnetic>
               <button onClick={() => openChat()} className="h-14 rounded-full border border-white/20 px-8 font-semibold transition-colors hover:bg-white/10">
-                Ask WakeUP AI
+                {c.hero.askAi}
               </button>
             </div>
           </motion.div>
@@ -105,18 +108,18 @@ export function AwHero() {
 
         <motion.div style={{ opacity: asleep, y: asleepY }} className="absolute inset-0 z-30 grid place-items-center px-4 text-center">
           <div>
-            <p className="hud-label text-wu-red">WakeUP Marketing</p>
+            <p className="hud-label text-wu-red">{c.hero.brand}</p>
             <p className="mt-5 font-display text-[clamp(44px,7.4vw,120px)] leading-[0.92]">
-              Your market
+              {c.hero.asleepLead}
               <br />
-              is asleep.
+              {c.hero.asleepTail}
             </p>
             <motion.p
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.8, repeat: Infinity }}
               className="hud-label mt-10 text-white/50"
             >
-              Scroll to wake it up ↓
+              {c.hero.scrollHint}
             </motion.p>
           </div>
         </motion.div>
@@ -126,13 +129,6 @@ export function AwHero() {
 }
 
 /* ---------------- growth engine: pinned, scroll-driven dashboard ---------------- */
-
-const STEPS = [
-  { k: "Attract", t: "We put your brand in front of the right buyers with targeted ads, content and SEO.", kpi: "Reach" },
-  { k: "Engage", t: "Creative that stops the scroll and makes them care, tested every week.", kpi: "CTR" },
-  { k: "Convert", t: "Landing pages and funnels built to turn attention into qualified leads.", kpi: "Leads" },
-  { k: "Grow", t: "Automation and reporting that compound results month after month.", kpi: "Revenue" },
-];
 
 function Kpi({ label, p, to, fmt, i }: { label: string; p: MotionValue<number>; to: number; fmt: (n: number) => string; i: number }) {
   const v = useTransform(p, ramp(i * 0.2, i * 0.2 + 0.35, 0, to));
@@ -159,6 +155,8 @@ function FunnelBar({ p, i, label, w }: { p: MotionValue<number>; i: number; labe
 }
 
 export function AwEngine() {
+  const c = useCopy();
+  const steps = c.engine.steps;
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const [step, setStep] = useState(0);
@@ -171,13 +169,13 @@ export function AwEngine() {
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
         <div className="mx-auto grid w-full max-w-[1320px] items-center gap-6 px-4 md:px-8 lg:grid-cols-[.9fr_1.1fr] lg:gap-10">
           <div>
-            <p className="hud-label text-wu-red">The growth engine</p>
-            <h2 className="mt-3 font-display text-[clamp(32px,4.6vw,68px)] leading-[0.95] lg:mt-4">One system. Four gears.</h2>
+            <p className="hud-label text-wu-red">{c.engine.label}</p>
+            <h2 className="mt-3 font-display text-[clamp(32px,4.6vw,68px)] leading-[0.95] lg:mt-4">{c.engine.title}</h2>
             <p className="mt-4 text-white/65 lg:hidden">
-              <span className="font-mono text-xs text-wu-red">0{step + 1}</span> <strong className="text-white">{STEPS[step].k}.</strong> {STEPS[step].t}
+              <span className="font-mono text-xs text-wu-red">0{step + 1}</span> <strong className="text-white">{steps[step].k}.</strong> {steps[step].t}
             </p>
             <ol className="mt-10 hidden gap-2 lg:grid">
-              {STEPS.map((s, i) => (
+              {steps.map((s, i) => (
                 <li
                   key={s.k}
                   className={cn(
@@ -208,26 +206,26 @@ export function AwEngine() {
 
           <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-[#181818] to-wu-ink p-5 shadow-[0_40px_120px_-40px_rgba(228,6,19,.5)] md:p-7">
             <div className="flex items-center justify-between">
-              <p className="text-sm font-semibold">Example client dashboard · 90 days</p>
+              <p className="text-sm font-semibold">{c.engine.dashboardTitle}</p>
               <span className="hud-label flex items-center gap-2 text-xs text-white/50">
-                <i className="size-1.5 animate-blink rounded-full bg-wu-amber" /> Sample
+                <i className="size-1.5 animate-blink rounded-full bg-wu-amber" /> {c.engine.sample}
               </span>
             </div>
             {/* Example figures at Georgian-market scale (population ~3.7M), not a real client. */}
             <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
-              <Kpi label="Reach" p={p} to={180} fmt={(n) => `${Math.round(n)}K`} i={0} />
-              <Kpi label="CTR" p={p} to={1.3} fmt={(n) => `${n.toFixed(1)}%`} i={1} />
-              <Kpi label="Leads" p={p} to={120} fmt={(n) => Math.round(n).toLocaleString("en-US")} i={2} />
-              <Kpi label="Revenue" p={p} to={28} fmt={(n) => `+${Math.round(n)}%`} i={3} />
+              <Kpi label={c.engine.kpis.reach} p={p} to={180} fmt={(n) => `${Math.round(n)}K`} i={0} />
+              <Kpi label={c.engine.kpis.ctr} p={p} to={1.3} fmt={(n) => `${n.toFixed(1)}%`} i={1} />
+              <Kpi label={c.engine.kpis.leads} p={p} to={120} fmt={(n) => Math.round(n).toLocaleString("en-US")} i={2} />
+              <Kpi label={c.engine.kpis.revenue} p={p} to={28} fmt={(n) => `+${Math.round(n)}%`} i={3} />
             </div>
             <div className="mt-6 grid gap-2.5">
-              <FunnelBar p={p} i={0} label="Impressions" w={100} />
-              <FunnelBar p={p} i={1} label="Clicks" w={72} />
-              <FunnelBar p={p} i={2} label="Leads" w={46} />
-              <FunnelBar p={p} i={3} label="Customers" w={28} />
+              <FunnelBar p={p} i={0} label={c.engine.funnel.impressions} w={100} />
+              <FunnelBar p={p} i={1} label={c.engine.funnel.clicks} w={72} />
+              <FunnelBar p={p} i={2} label={c.engine.funnel.leads} w={46} />
+              <FunnelBar p={p} i={3} label={c.engine.funnel.customers} w={28} />
             </div>
             <div className="mt-6 rounded-xl border border-white/10 bg-black/30 p-4">
-              <p className="text-xs text-white/50">Revenue from marketing</p>
+              <p className="text-xs text-white/50">{c.engine.revenueChart}</p>
               <svg viewBox="0 0 460 160" className="mt-2 h-32 w-full" preserveAspectRatio="none" aria-hidden>
                 {[40, 80, 120].map((y) => (
                   <line key={y} x1="0" x2="460" y1={y} y2={y} stroke="rgba(255,255,255,.06)" />
@@ -245,14 +243,15 @@ export function AwEngine() {
 /* ---------------- services: cards flip in ---------------- */
 
 export function AwServices() {
+  const c = useCopy();
   return (
     <section id="services" className="mx-auto max-w-[1320px] scroll-mt-20 px-4 py-28 md:px-8">
       <Reveal className="max-w-[760px]">
-        <p className="hud-label text-wu-red">What we do</p>
-        <h2 className="mt-4 font-display text-[clamp(36px,4.6vw,68px)] leading-[0.95]">Everything your growth needs, under one roof.</h2>
+        <p className="hud-label text-wu-red">{c.services.label}</p>
+        <h2 className="mt-4 font-display text-[clamp(36px,4.6vw,68px)] leading-[0.95]">{c.services.title}</h2>
       </Reveal>
       <div className="mt-14 grid gap-4 [perspective:1200px] sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((s, i) => (
+        {c.services.items.map((s, i) => (
           <motion.article
             key={s.code}
             initial={{ opacity: 0, rotateX: 55, y: 60 }}
@@ -283,41 +282,34 @@ export function AwServices() {
 
 /* ---------------- results: before / after slider ---------------- */
 
-// Example before/after figures for a mid-sized Georgian business, in lari.
-// "After" monthly leads match the example dashboard: 120 leads over 90 days = 40 a month.
-const ROWS = [
-  ["Cost per lead", "₾38", "₾19"],
-  ["Monthly qualified leads", "15", "40"],
-  ["Return on ad spend", "1.8x", "3.9x"],
-  ["Website conversion rate", "1.2%", "2.9%"],
-];
-
 export function AwResults() {
+  const c = useCopy();
+  const r = c.results;
   const [pos, setPos] = useState(50);
   return (
     <section id="work" className="mx-auto max-w-[1320px] px-4 py-28 md:px-8">
       <Reveal className="flex flex-wrap items-end justify-between gap-6">
         <div>
-          <p className="hud-label text-wu-red">Results</p>
-          <h2 className="mt-4 font-display text-[clamp(36px,4.6vw,68px)] leading-[0.95]">Before and after 90 days.</h2>
+          <p className="hud-label text-wu-red">{r.label}</p>
+          <h2 className="mt-4 font-display text-[clamp(36px,4.6vw,68px)] leading-[0.95]">{r.title}</h2>
         </div>
         <p className="max-w-[360px] text-white/55">
-          <span className="hidden sm:inline">Drag the handle. </span>Typical results from a performance engagement (example figures).
+          <span className="hidden sm:inline">{r.dragHint}</span>{r.note}
         </p>
       </Reveal>
       {/* Phones stack the metrics in one column, where a left/right wipe would hide every "after" value. */}
       <Reveal delay={0.1} className="mt-12 sm:hidden">
         <ul className="grid gap-3">
-          {ROWS.map(([metric, before, after]) => (
+          {r.rows.map(([metric, before, after]) => (
             <li key={metric} className="overflow-hidden rounded-2xl border border-white/10">
               <p className="bg-[#171717] px-5 pt-4 text-sm text-white/70">{metric}</p>
               <div className="grid grid-cols-2">
                 <div className="bg-[#171717] px-5 pb-5 pt-2">
-                  <p className="hud-label text-white/60">Before</p>
+                  <p className="hud-label text-white/60">{r.before}</p>
                   <p className="mt-1 font-display text-4xl">{before}</p>
                 </div>
                 <div className="bg-gradient-to-br from-wu-red to-wu-red-deep px-5 pb-5 pt-2">
-                  <p className="hud-label text-white/85">After 90 days</p>
+                  <p className="hud-label text-white/85">{r.after}</p>
                   <p className="mt-1 font-display text-4xl">{after}</p>
                 </div>
               </div>
@@ -327,9 +319,9 @@ export function AwResults() {
       </Reveal>
       <Reveal delay={0.1} className="mt-12 hidden sm:block">
         <div className="relative select-none overflow-hidden rounded-3xl border border-white/10">
-          <Table rows={ROWS.map((r) => [r[0], r[1]])} title="Before WakeUP" tone="before" />
+          <Table rows={r.rows.map((row) => [row[0], row[1]])} title={r.beforeTitle} tone="before" />
           <div className="absolute inset-0" style={{ clipPath: `inset(0 0 0 ${pos}%)` }}>
-            <Table rows={ROWS.map((r) => [r[0], r[2]])} title="After 90 days" tone="after" />
+            <Table rows={r.rows.map((row) => [row[0], row[2]])} title={r.after} tone="after" />
           </div>
           <div className="pointer-events-none absolute inset-y-0 w-0.5 bg-white shadow-[0_0_20px_#fff]" style={{ left: `${pos}%` }}>
             <span className="absolute left-1/2 top-1/2 grid size-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-black shadow-xl">⇆</span>
@@ -341,7 +333,7 @@ export function AwResults() {
             max={100}
             value={pos}
             onChange={(e) => setPos(Number(e.target.value))}
-            aria-label="Compare before and after"
+            aria-label={r.compareLabel}
             className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0"
           />
         </div>
@@ -369,13 +361,13 @@ function Table({ rows, title, tone }: { rows: string[][]; title: string; tone: "
 /* ---------------- proof marquee ---------------- */
 
 export function AwProof() {
-  const industries = ["E-commerce", "Hospitality", "Real estate", "SaaS", "Healthcare", "Education", "Retail", "Finance"];
+  const c = useCopy();
   return (
     <section className="py-16">
-      <p className="hud-label mb-6 text-center text-white/60">Trusted by mid-sized teams across industries</p>
+      <p className="hud-label mb-6 text-center text-white/60">{c.proof.label}</p>
       <div className="[mask-image:linear-gradient(90deg,transparent,#000_15%,#000_85%,transparent)]">
         <Marquee duration={30}>
-          {industries.map((n) => (
+          {c.proof.industries.map((n) => (
             <span key={n} className="mx-8 font-display text-3xl text-white/50 transition-colors hover:text-white">
               {n}
             </span>
@@ -383,7 +375,7 @@ export function AwProof() {
         </Marquee>
       </div>
       <div className="mx-auto mt-16 grid max-w-[1320px] gap-4 px-4 md:grid-cols-3 md:px-8">
-        {testimonials.map((t, i) => (
+        {c.proof.testimonials.map((t, i) => (
           <Reveal key={i} delay={i * 0.1}>
             <figure className="h-full rounded-2xl border border-white/10 bg-[#141414] p-7">
               <p className="text-wu-red">★★★★★</p>
@@ -402,17 +394,19 @@ export function AwProof() {
 /* ---------------- contact ---------------- */
 
 export function AwContact() {
+  const c = useCopy();
+  const f = c.contact;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
-  const [budget, setBudget] = useState(budgetOptions[1]);
+  const [budget, setBudget] = useState(f.budgetOptions[1]);
   const [err, setErr] = useState("");
   const [done, setDone] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [website, setWebsite] = useState("");
   const submit = async (e: FormEvent) => {
     e.preventDefault();
-    if (name.trim().length < 2 || !isEmail(email)) return setErr("Add your name and a valid work email.");
+    if (name.trim().length < 2 || !isEmail(email)) return setErr(f.invalid);
     setErr("");
     setBusy(true);
     try {
@@ -420,7 +414,7 @@ export function AwContact() {
       setDone(id);
     } catch (error) {
       console.error(error);
-      setErr(LEAD_FAILED_MESSAGE);
+      setErr(f.failed);
     } finally {
       setBusy(false);
     }
@@ -436,9 +430,9 @@ export function AwContact() {
       />
       <div className="mx-auto grid max-w-[1120px] gap-12 px-4 md:grid-cols-2 md:px-8">
         <Reveal>
-          <p className="hud-label text-wu-red">Free growth audit</p>
-          <h2 className="mt-4 font-display text-[clamp(40px,5vw,76px)] leading-[0.92]">See where your marketing budget leaks.</h2>
-          <p className="mt-6 text-lg text-white/65">Tell us about your business. Within one business day you get a short audit of your ads, site and funnel, plus three quick wins.</p>
+          <p className="hud-label text-wu-red">{f.label}</p>
+          <h2 className="mt-4 font-display text-[clamp(40px,5vw,76px)] leading-[0.92]">{f.title}</h2>
+          <p className="mt-6 text-lg text-white/65">{f.body}</p>
           <div className="mt-8 flex flex-col gap-1 font-mono text-sm text-white/70">
             <a href={contactLinks.email} className="inline-flex min-h-11 w-fit items-center hover:text-white">
               {contact.email}
@@ -455,20 +449,20 @@ export function AwContact() {
                 <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.1 }} className="mx-auto grid size-16 place-items-center rounded-full bg-wu-red text-2xl">
                   ✓
                 </motion.div>
-                <p className="mt-6 font-display text-4xl">Request received</p>
+                <p className="mt-6 font-display text-4xl">{f.receivedTitle}</p>
                 <p className="mt-2 text-white/60">
-                  Reference {done}. We’ll email {email} within one business day.
+                  {f.received(done, email)}
                 </p>
               </motion.div>
             ) : (
               <form onSubmit={submit} noValidate className="relative grid gap-3">
                 <HoneypotField value={website} onChange={setWebsite} />
-                <LabeledInput id="aw-name" label="Your name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
-                <LabeledInput id="aw-email" label="Work email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
-                <LabeledInput id="aw-company" label="Company website" autoComplete="organization" value={company} onChange={(e) => setCompany(e.target.value)} className={field} />
-                <p className="mt-2 text-sm font-medium text-white/70">Monthly marketing budget</p>
+                <LabeledInput id="aw-name" label={f.name} autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} className={field} />
+                <LabeledInput id="aw-email" label={f.email} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} />
+                <LabeledInput id="aw-company" label={f.company} autoComplete="organization" value={company} onChange={(e) => setCompany(e.target.value)} className={field} />
+                <p className="mt-2 text-sm font-medium text-white/70">{f.budgetLabel}</p>
                 <div className="grid grid-cols-2 gap-2">
-                  {budgetOptions.map((b) => (
+                  {f.budgetOptions.map((b) => (
                     <button
                       key={b}
                       type="button"
@@ -482,7 +476,7 @@ export function AwContact() {
                 </div>
                 {err && <p className="text-sm text-[#ff6b73]">{err}</p>}
                 <button disabled={busy} className="mt-3 h-14 rounded-xl bg-wu-red font-semibold shadow-[0_14px_40px_-10px_rgba(228,6,19,.9)] transition-transform hover:scale-[1.01] disabled:opacity-70">
-                  {busy ? "Sending…" : "Get my free audit →"}
+                  {busy ? f.sending : f.submit}
                 </button>
               </form>
             )}
@@ -505,11 +499,11 @@ export function AwContact() {
               {s.label}
             </a>
           ))}
-          <a href="/contact" className="inline-flex min-h-11 items-center hover:text-white">
-            Contact
+          <a href={c.contactPath} className="inline-flex min-h-11 items-center hover:text-white">
+            {c.footer.contact}
           </a>
           <a href="/privacy" className="inline-flex min-h-11 items-center hover:text-white">
-            Privacy
+            {c.footer.privacy}
           </a>
         </span>
       </footer>

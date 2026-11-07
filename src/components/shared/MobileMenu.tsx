@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { nav } from "@/lib/content";
+import { useCopy } from "@/components/shared/LocaleProvider";
 import { cn } from "@/lib/utils";
 
 /** Menu button and drop-down panel for phones; render inside a positioned (fixed/relative) header. */
 export function MobileMenu() {
+  const c = useCopy();
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -30,10 +31,10 @@ export function MobileMenu() {
           open ? "max-h-[420px] opacity-100" : "pointer-events-none invisible max-h-0 opacity-0",
         )}
       >
-        {nav.map((l, i) => (
+        {c.nav.map((l, i) => (
           <a
             key={l.href}
-            href={`/${l.href}`}
+            href={`${c.home}${l.href}`}
             onClick={() => setOpen(false)}
             className="flex items-baseline gap-3 border-b border-white/10 px-6 py-4 font-display text-2xl"
           >
