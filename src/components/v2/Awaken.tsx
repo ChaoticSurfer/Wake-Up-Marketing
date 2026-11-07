@@ -13,6 +13,7 @@ import QrEye from "@/components/shared/QrEye";
 import { Magnetic, Marquee, Reveal } from "@/components/shared/fx";
 import { contact, contactLinks } from "@/lib/content";
 import { useCopy } from "@/components/shared/LocaleProvider";
+import { serviceChrome, serviceIdByCode, servicePath, servicesIndexPath } from "@/lib/service-pages";
 import { LabeledInput } from "@/components/shared/Sections";
 import { isEmail, submitLead } from "@/lib/leads";
 import { HoneypotField } from "@/components/shared/HoneypotField";
@@ -287,11 +288,22 @@ export function AwServices() {
               </motion.span>
               <span className="text-white/30 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white">↗</span>
             </div>
-            <h3 className="mt-8 font-display text-2xl">{s.title}</h3>
+            <h3 className="mt-8 font-display text-2xl">
+              {serviceIdByCode[s.code] ? (
+                <a href={servicePath(serviceIdByCode[s.code], c.locale)} className="after:absolute after:inset-0">
+                  {s.title}
+                </a>
+              ) : (
+                s.title
+              )}
+            </h3>
             <p className="mt-3 text-white/60">{s.text}</p>
           </motion.article>
         ))}
       </div>
+      <a href={servicesIndexPath(c.locale)} className="mt-8 inline-flex min-h-11 items-center font-semibold text-wu-red hover:text-white">
+        {serviceChrome[c.locale].allServices}
+      </a>
     </section>
   );
 }
