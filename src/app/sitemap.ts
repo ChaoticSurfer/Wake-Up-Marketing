@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { serviceIds, servicePath, servicesIndexPath } from "@/lib/service-pages";
 import { SITE_URL } from "@/lib/site";
 
 // English and Georgian versions of the same page, each listing both as hreflang alternates.
@@ -14,6 +15,8 @@ const bilingual = (en: string, ka: string, priority: number): MetadataRoute.Site
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...bilingual("", "/ka", 1),
+    ...bilingual(servicesIndexPath("en"), servicesIndexPath("ka"), 0.8),
+    ...serviceIds.flatMap((id) => bilingual(servicePath(id, "en"), servicePath(id, "ka"), 0.8)),
     ...bilingual("/contact", "/ka/contact", 0.6),
     { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.2 },
   ];
