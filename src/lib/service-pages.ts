@@ -29,7 +29,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       name: 'Social media marketing (SMM)',
       metaTitle: 'Social Media Marketing (SMM) in Tbilisi',
       metaDescription:
-        'SMM for Georgian businesses: strategy, content, Reels and video, page management and paid social, reported in leads and sales.',
+        'SMM for Georgian businesses: strategy, content, Reels and video, page management and paid social, reported in leads and sales. From ₾4k a month.',
       h1: 'Social media marketing (SMM) in Tbilisi',
       intro:
         'We run your Facebook, Instagram, TikTok and LinkedIn as a sales channel, not a posting schedule. Every month you see which posts and campaigns brought enquiries.',
@@ -61,9 +61,9 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'smm',
       name: 'სოციალური მედიის მართვა (SMM)',
-      metaTitle: 'სოციალური მედიის მართვა (SMM) თბილისში',
+      metaTitle: 'სოციალური მედიის მართვა (SMM) თბილისში — ფასი',
       metaDescription:
-        'SMM მომსახურება ქართული ბიზნესისთვის: სტრატეგია, კონტენტის შექმნა, Reels და ვიდეო, გვერდების მართვა და რეკლამა. შედეგს ლიდებითა და გაყიდვებით ვზომავთ.',
+        'SMM მომსახურება ქართული ბიზნესისთვის: სტრატეგია, კონტენტის შექმნა, Reels, გვერდების მართვა და რეკლამა. შედეგს ლიდებითა და გაყიდვებით ვზომავთ. ფასი 4 000 ₾-დან თვეში.',
       h1: 'სოციალური მედიის მართვა (SMM)',
       intro:
         'თქვენს Facebook-ს, Instagram-ს, TikTok-სა და LinkedIn-ს გაყიდვების არხად ვმართავთ და არა უბრალოდ პოსტების გრაფიკად. ყოველთვიურად ხედავთ, რომელმა პოსტმა და კამპანიამ მოიტანა მომართვები.',
@@ -76,11 +76,11 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       ],
       fit: 'კომპანიებისთვის 20–250 თანამშრომლით, რომელთა სოციალური გვერდები აქტიურია, მაგრამ კლიენტები არ მოჰყავს, ან შიდა მარკეტოლოგს მათი მართვისთვის დრო არ ჰყოფნის.',
       pricing:
-        'კლიენტების უმეტესობა SMM-ს ზრდის პაკეტში იყენებს: ₾4k–10k თვეში 2–3 არხისთვის, სარეკლამო ბიუჯეტი ცალკეა. უფასო აუდიტის შემდეგ ფიქსირებულ ფასს გეტყვით.',
+        'კლიენტების უმეტესობა SMM-ს ზრდის პაკეტში იყენებს: 4\u00a0000–10\u00a0000\u00a0₾ თვეში 2–3 არხისთვის, სარეკლამო ბიუჯეტი ცალკეა. უფასო აუდიტის შემდეგ ფიქსირებულ ფასს გეტყვით.',
       faq: [
         {
-          q: 'რა ღირს SMM?',
-          a: 'ფასი არხების რაოდენობასა და კონტენტის მოცულობაზეა დამოკიდებული. კლიენტების უმეტესობა ზრდის პაკეტზე თვეში ₾4k–10k-ს იხდის, სარეკლამო ბიუჯეტი ცალკეა. ზუსტ ფასს უფასო აუდიტის შემდეგ ვადასტურებთ.',
+          q: 'რა ღირს სოციალური მედიის მართვა (SMM)?',
+          a: 'ფასი არხების რაოდენობასა და კონტენტის მოცულობაზეა დამოკიდებული. კლიენტების უმეტესობა ზრდის პაკეტზე თვეში 4\u00a0000–10\u00a0000\u00a0₾-ს იხდის, სარეკლამო ბიუჯეტი ცალკეა. ზუსტ ფასს უფასო აუდიტის შემდეგ ვადასტურებთ.',
         },
         {
           q: 'რომელ პლატფორმებს მართავთ?',
@@ -99,7 +99,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       name: 'Meta and Google Ads',
       metaTitle: 'Facebook & Google Ads in Tbilisi',
       metaDescription:
-        'Meta and Google Ads managed against cost per lead and sales: campaign setup, creative testing, tracking and weekly optimisation.',
+        'Facebook, Instagram and Google Ads managed against cost per lead and sales: campaign setup, creative testing, tracking and weekly optimisation. From ₾4k a month.',
       h1: 'Meta and Google Ads management',
       intro:
         'We plan, launch and optimise ads on Facebook, Instagram and Google so that every lari of budget is judged by the leads and sales it brings.',
@@ -132,10 +132,10 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'reklama',
       name: 'რეკლამის მართვა (Meta, Google Ads)',
-      metaTitle: 'ფეისბუქ და Google რეკლამის მართვა',
+      metaTitle: 'ფეისბუქ და Google რეკლამის მართვა — ფასი',
       metaDescription:
-        'Meta-სა და Google Ads-ის რეკლამის მართვა ლიდის ღირებულებასა და გაყიდვებზე ორიენტირებით: კამპანიების აწყობა, კრეატივის ტესტირება და ყოველკვირეული ოპტიმიზაცია.',
-      h1: 'რეკლამის მართვა: Meta და Google Ads',
+        'ფეისბუქ, Instagram და Google Ads რეკლამის მართვა ლიდის ღირებულებასა და გაყიდვებზე ორიენტირებით: კამპანიების აწყობა, კრეატივის ტესტირება, ოპტიმიზაცია. მართვა 4 000 ₾-დან თვეში.',
+      h1: 'ფეისბუქ და Google რეკლამის მართვა',
       intro:
         'ვგეგმავთ, ვუშვებთ და ვაოპტიმიზებთ რეკლამას Facebook-ზე, Instagram-სა და Google-ში, რომ ბიუჯეტის ყოველი ლარი იმით შეფასდეს, რამდენ ლიდსა და გაყიდვას მოიტანს.',
       included: [
@@ -148,11 +148,11 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       ],
       fit: 'ბიზნესებისთვის, რომლებიც უკვე ხარჯავენ რეკლამაზე, მაგრამ არ იციან, რას იღებენ სანაცვლოდ, ან მზად არიან, მკაფიო მიზნებით დაიწყონ.',
       pricing:
-        'რეკლამის მართვა ზრდის პაკეტის ნაწილია: ₾4k–10k თვეში რამდენიმე არხზე. სარეკლამო ბიუჯეტს პირდაპირ Meta-სა და Google-ს უხდით და ის თქვენს ანგარიშებში რჩება.',
+        'რეკლამის მართვა ზრდის პაკეტის ნაწილია: 4\u00a0000–10\u00a0000\u00a0₾ თვეში რამდენიმე არხზე. სარეკლამო ბიუჯეტს პირდაპირ Meta-სა და Google-ს უხდით და ის თქვენს ანგარიშებში რჩება.',
       faq: [
         {
           q: 'რა ღირს ფეისბუქ რეკლამა?',
-          a: 'ორი ნაწილისგან შედგება: სარეკლამო ბიუჯეტი, რომელსაც პირდაპირ Meta-ს უხდით, და ჩვენი მართვის საფასური ზრდის პაკეტში (კლიენტების უმეტესობისთვის ₾4k–10k თვეში). საწყის ბიუჯეტს უფასო აუდიტის შემდეგ გირჩევთ.',
+          a: 'ორი ნაწილისგან შედგება: სარეკლამო ბიუჯეტი, რომელსაც პირდაპირ Meta-ს უხდით, და ჩვენი მართვის საფასური ზრდის პაკეტში (კლიენტების უმეტესობისთვის 4\u00a0000–10\u00a0000\u00a0₾ თვეში). საწყის ბიუჯეტს უფასო აუდიტის შემდეგ გირჩევთ.',
         },
         {
           q: 'ვის ეკუთვნის სარეკლამო ანგარიშები?',
@@ -171,7 +171,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       name: 'SEO',
       metaTitle: 'SEO Services in Tbilisi',
       metaDescription:
-        'Technical SEO, keyword research, content and local SEO for Georgian businesses, in Georgian and English, reported in rankings, traffic and enquiries.',
+        'Technical SEO, keyword research, content and local SEO for Georgian businesses, in Georgian and English, reported in rankings and enquiries. Audits from ₾5k.',
       h1: 'SEO services in Tbilisi',
       intro:
         'We help your website rank for what Georgian buyers search, in Georgian and English, and turn that traffic into enquiries.',
@@ -203,9 +203,9 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'seo',
       name: 'SEO ოპტიმიზაცია',
-      metaTitle: 'SEO ოპტიმიზაცია თბილისში',
+      metaTitle: 'SEO ოპტიმიზაცია თბილისში — ფასი და მომსახურება',
       metaDescription:
-        'ტექნიკური SEO, საკვანძო სიტყვების კვლევა, კონტენტი და ლოკალური SEO ქართულ და ინგლისურ ენებზე. შედეგს პოზიციებით, ტრაფიკითა და მომართვებით ვზომავთ.',
+        'SEO მომსახურება ქართულ და ინგლისურ ენებზე: ტექნიკური SEO, საკვანძო სიტყვების კვლევა, კონტენტი და ლოკალური SEO. ერთჯერადი SEO აუდიტი 5 000 ₾-დან.',
       h1: 'SEO ოპტიმიზაცია',
       intro:
         'გეხმარებით, რომ თქვენი საიტი Google-ში იმ ძიებებზე გამოჩნდეს, რასაც ქართველი მყიდველები ეძებენ, ქართულად და ინგლისურად, და ეს ტრაფიკი მომართვებად იქცეს.',
@@ -218,11 +218,11 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       ],
       fit: 'კომპანიებისთვის, რომელთა საიტზე Google-დან ცოტა ვიზიტორი შედის, ან რომლებიც მხოლოდ საკუთარი ბრენდის სახელზე ჩანან.',
       pricing:
-        'SEO ჩვეულებრივ ზრდის პაკეტში შედის: ₾4k–10k თვეში ერთ-ორ სხვა არხთან ერთად. ერთჯერადი SEO აუდიტი და გამოსწორება სტარტის პროექტია ₾5k-დან.',
+        'SEO ჩვეულებრივ ზრდის პაკეტში შედის: 4\u00a0000–10\u00a0000\u00a0₾ თვეში ერთ-ორ სხვა არხთან ერთად. ერთჯერადი SEO აუდიტი და გამოსწორება სტარტის პროექტია 5\u00a0000\u00a0₾-დან.',
       faq: [
         {
           q: 'რა ღირს SEO ოპტიმიზაცია?',
-          a: 'მიმდინარე SEO ზრდის პაკეტის ნაწილია, კლიენტების უმეტესობისთვის ₾4k–10k თვეში. ერთჯერადი აუდიტისა და გამოსწორების პროექტი ₾5k-დან იწყება.',
+          a: 'მიმდინარე SEO ზრდის პაკეტის ნაწილია, კლიენტების უმეტესობისთვის 4\u00a0000–10\u00a0000\u00a0₾ თვეში. ერთჯერადი აუდიტისა და გამოსწორების პროექტი 5\u00a0000\u00a0₾-დან იწყება.',
         },
         {
           q: 'რამდენ ხანში ჩანს SEO-ს შედეგი?',
@@ -241,7 +241,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       name: 'Websites and landing pages',
       metaTitle: 'Website Development in Tbilisi',
       metaDescription:
-        'Fast business websites and landing pages built to turn visits into enquiries: design, development, SEO basics and tracking included.',
+        'Fast business websites and landing pages built to turn visits into enquiries: design, development, SEO basics and tracking included. From ₾5k, in 4–6 weeks.',
       h1: 'Website and landing page development',
       intro:
         'We build fast, mobile-first websites and landing pages with one job: turning visitors into qualified enquiries you can measure.',
@@ -270,9 +270,9 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'saitis-damzadeba',
       name: 'საიტის დამზადება და ლენდინგები',
-      metaTitle: 'საიტის დამზადება თბილისში',
+      metaTitle: 'საიტის დამზადება თბილისში — ფასი',
       metaDescription:
-        'სწრაფი ბიზნეს საიტები და ლენდინგები, რომლებიც ვიზიტებს მომართვებად აქცევს: დიზაინი, დეველოპმენტი, SEO-ს საფუძვლები და თრექინგი.',
+        'ბიზნეს საიტისა და ლენდინგის დამზადება, რომელიც ვიზიტორებს მომართვებად აქცევს: დიზაინი, დეველოპმენტი, SEO და თრექინგი. ფასი 5 000 ₾-დან, 4–6 კვირაში.',
       h1: 'საიტის დამზადება და ლენდინგები',
       intro:
         'ვქმნით სწრაფ, მობილურზე მორგებულ საიტებსა და ლენდინგებს ერთი მიზნით: ვიზიტორები გაზომვად, კვალიფიციურ მომართვებად აქციონ.',
@@ -285,11 +285,11 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       ],
       fit: 'კომპანიებისთვის, რომელთა საიტი ნელია, მოძველებულია ან მომართვები არ მოაქვს, და კამპანიებისთვის, რომლებსაც ცალკე ლენდინგი სჭირდებათ.',
       pricing:
-        'საიტის ან ლენდინგის დამზადება სტარტის პროექტია ₾5k-დან, 4–6 კვირაში. შემდგომი ოპტიმიზაცია ზრდის პაკეტში გრძელდება.',
+        'საიტის ან ლენდინგის დამზადება სტარტის პროექტია 5\u00a0000\u00a0₾-დან, 4–6 კვირაში. შემდგომი ოპტიმიზაცია ზრდის პაკეტში გრძელდება.',
       faq: [
         {
           q: 'რა ღირს საიტის დამზადება?',
-          a: 'საიტისა და ლენდინგის პროექტები ₾5k-დან იწყება. საბოლოო ფასი გვერდების რაოდენობასა და ინტეგრაციებზეა დამოკიდებული.',
+          a: 'საიტისა და ლენდინგის პროექტები 5\u00a0000\u00a0₾-დან იწყება. საბოლოო ფასი გვერდების რაოდენობასა და ინტეგრაციებზეა დამოკიდებული.',
         },
         { q: 'რამდენ ხანს გრძელდება?', a: 'პროექტების უმეტესობა პირველი შეხვედრიდან გაშვებამდე 4–6 კვირას გრძელდება.' },
         {
@@ -305,7 +305,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       name: 'Branding and positioning',
       metaTitle: 'Branding Agency in Tbilisi',
       metaDescription:
-        'Positioning, messaging and visual identity for Georgian companies: logo, brand guidelines and the copy that makes you the obvious choice.',
+        'Branding and rebranding for Georgian companies: positioning, messaging, logo design and brand guidelines. From ₾5k.',
       h1: 'Branding and positioning',
       intro:
         'We define what makes your company the obvious choice and turn it into a clear message and visual identity your team can use everywhere.',
@@ -336,9 +336,9 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'brendingi',
       name: 'ბრენდინგი და პოზიციონირება',
-      metaTitle: 'ბრენდინგი და ლოგოს დიზაინი თბილისში',
+      metaTitle: 'ბრენდინგი და ლოგოს დიზაინი თბილისში — ფასი',
       metaDescription:
-        'პოზიციონირება, მესიჯები და ვიზუალური იდენტობა ქართული კომპანიებისთვის: ლოგო, ბრენდბუქი და ტექსტები, რომლებიც აშკარა არჩევანად გაქცევთ.',
+        'ბრენდინგი და რებრენდინგი ქართული კომპანიებისთვის: პოზიციონირება, მესიჯები, ლოგოს დიზაინი და ბრენდბუქი. ფასი 5 000 ₾-დან.',
       h1: 'ბრენდინგი და პოზიციონირება',
       intro:
         'განვსაზღვრავთ, რა ხდის თქვენს კომპანიას აშკარა არჩევანად, და ამას მკაფიო მესიჯად და ვიზუალურ იდენტობად ვაქცევთ, რომელსაც თქვენი გუნდი ყველგან გამოიყენებს.',
@@ -350,11 +350,11 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
         'დანერგვა საიტზე, სოციალურ მედიასა და რეკლამაში',
       ],
       fit: 'კომპანიებისთვის, რომლებიც პირველ ლოგოს გაიზარდნენ, ახალ ბაზარზე გადიან, ან კონკურენტებივით ჟღერენ.',
-      pricing: 'ბრენდინგი ერთჯერადი სტარტის პროექტია ₾5k-დან, ჩვეულებრივ 4–6 კვირაში.',
+      pricing: 'ბრენდინგი ერთჯერადი სტარტის პროექტია 5\u00a0000\u00a0₾-დან, ჩვეულებრივ 4–6 კვირაში.',
       faq: [
         {
           q: 'რა ღირს ბრენდინგი?',
-          a: 'ბრენდინგის პროექტები ₾5k-დან იწყება. ფასი მოცულობაზეა დამოკიდებული: მხოლოდ პოზიციონირება თუ სრული იდენტობა ბრენდბუქითა და შაბლონებით.',
+          a: 'ბრენდინგის პროექტები 5\u00a0000\u00a0₾-დან იწყება. ფასი მოცულობაზეა დამოკიდებული: მხოლოდ პოზიციონირება თუ სრული იდენტობა ბრენდბუქითა და შაბლონებით.',
         },
         {
           q: 'მხოლოდ ლოგოს აკეთებთ?',
@@ -373,7 +373,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       name: 'Video production',
       metaTitle: 'Video Production in Tbilisi',
       metaDescription:
-        'Ad videos, Reels and short-form video for social media and campaigns, planned around what makes Georgian buyers stop scrolling and act.',
+        'Ad videos, Reels and TikTok video for Georgian businesses: scripts, filming and editing, tested in campaigns. Campaign video sets from ₾5k.',
       h1: 'Video production for ads and social media',
       intro:
         'We script, shoot and edit short videos for ads, Reels and TikTok, and test them in campaigns so you know which ones sell.',
@@ -404,9 +404,9 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'video-gadageba',
       name: 'ვიდეო გადაღება',
-      metaTitle: 'ვიდეო გადაღება თბილისში',
+      metaTitle: 'ვიდეო გადაღება თბილისში — ფასი',
       metaDescription:
-        'სარეკლამო ვიდეოები, Reels და მოკლე ვიდეო სოციალური მედიისა და კამპანიებისთვის, რომლებიც მყიდველს სქროლს აჩერებინებს და მოქმედებისკენ უბიძგებს.',
+        'სარეკლამო ვიდეოს, Reels-ისა და TikTok ვიდეოების გადაღება და მონტაჟი ბიზნესისთვის, კამპანიებში ტესტირებით. ვიდეოების ნაკრები 5 000 ₾-დან.',
       h1: 'ვიდეო გადაღება რეკლამისა და სოციალური მედიისთვის',
       intro:
         'ვწერთ სცენარს, ვიღებთ და ვამონტაჟებთ მოკლე ვიდეოებს რეკლამისთვის, Reels-ისა და TikTok-ისთვის, და კამპანიებში ვტესტავთ, რომ იცოდეთ, რომელი ყიდის.',
@@ -418,11 +418,11 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
         'ტესტირება სარეკლამო კამპანიებში',
       ],
       fit: 'ბრენდებისთვის, რომლებსაც სოციალური მედიისა და რეკლამისთვის მუდმივად სჭირდებათ ვიდეო, მაგრამ შიდა პროდაქშენის გუნდი არ ჰყავთ.',
-      pricing: 'ვიდეო ზრდის პაკეტში შედის, ან კეთდება ერთჯერად სტარტის პროექტად ₾5k-დან კამპანიის ვიდეოების ნაკრებისთვის.',
+      pricing: 'ვიდეო ზრდის პაკეტში შედის, ან კეთდება ერთჯერად სტარტის პროექტად 5\u00a0000\u00a0₾-დან კამპანიის ვიდეოების ნაკრებისთვის.',
       faq: [
         {
           q: 'რა ღირს ვიდეო გადაღება?',
-          a: 'კამპანიის ვიდეოების ნაკრები ერთჯერად პროექტად ₾5k-დან იწყება; ყოველთვიური ვიდეო ზრდის პაკეტის ნაწილია.',
+          a: 'კამპანიის ვიდეოების ნაკრები ერთჯერად პროექტად 5\u00a0000\u00a0₾-დან იწყება; ყოველთვიური ვიდეო ზრდის პაკეტის ნაწილია.',
         },
         {
           q: 'როგორ ვიდეოებს იღებთ?',
@@ -475,7 +475,7 @@ export const serviceChrome: Record<
     seePlans: 'See all plans',
     faq: 'Questions',
     related: 'Other services',
-    cta: 'Get a free growth audit',
+    cta: 'Get a free marketing audit',
     indexMetaTitle: 'Marketing Services in Tbilisi',
     indexMetaDescription:
       'SMM, Meta and Google Ads, SEO, website development, branding and video production for mid-sized Georgian companies. Prices published upfront.',
@@ -499,7 +499,7 @@ export const serviceChrome: Record<
     seePlans: 'ყველა პაკეტი',
     faq: 'ხშირი კითხვები',
     related: 'სხვა სერვისები',
-    cta: 'მიიღეთ ზრდის უფასო აუდიტი',
+    cta: 'მიიღეთ უფასო მარკეტინგული აუდიტი',
     indexMetaTitle: 'მარკეტინგული სერვისები თბილისში',
     indexMetaDescription:
       'SMM, რეკლამის მართვა, SEO ოპტიმიზაცია, საიტის დამზადება, ბრენდინგი და ვიდეო გადაღება საშუალო ბიზნესისთვის. ფასები ღიად არის მითითებული.',
