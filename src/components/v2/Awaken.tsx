@@ -40,8 +40,10 @@ export function AwNav() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-wu-black/70 backdrop-blur-xl">
       <motion.div style={{ scaleX }} className="h-0.5 origin-left bg-wu-red shadow-[0_0_12px_#e40613]" />
       <div className="mx-auto flex h-16 max-w-[1320px] items-center gap-3 px-4 md:gap-8 md:px-8">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/logo-horizontal-light.png" alt="WakeUP Marketing" width={857} height={169} className="h-7 w-auto" />
+        <a href={c.home} className="inline-flex min-h-11 shrink-0 items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/logo-horizontal-light.png" alt="WakeUP Marketing" width={857} height={169} className="h-7 w-auto" />
+        </a>
         <nav className="ml-auto hidden gap-7 text-sm text-white/65 md:flex" aria-label="Primary">
           {c.nav.map((l) => (
             <a key={l.href} href={`${c.home}${l.href}`} className="inline-flex min-h-11 items-center transition-colors hover:text-white">
