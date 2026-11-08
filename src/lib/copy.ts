@@ -1,6 +1,6 @@
 // Per-language copy for the live site (homepage v2 Awaken, contact page and the shared sections).
 // English reuses content.ts so the design-lab versions and the live site stay in step.
-import { budgetOptions, contact, faq, hero, homepageHeadline, nav, pains, services, testimonials, tiers } from '@/lib/content'
+import { budgetOptions, contact, faq, homepageHeadline, nav, pains, services, testimonials, tiers } from '@/lib/content'
 import { LEAD_FAILED_MESSAGE } from '@/lib/leads'
 
 export type Locale = 'en' | 'ka'
@@ -21,6 +21,8 @@ export type SiteCopy = {
     asleepLead: string
     asleepTail: string
     scrollHint: string
+    /** Small line above the headline, inside the h1, so the page's main heading names the service and city. */
+    kicker: string
     headlineLead: string
     headlineAccent: string
     sub: string
@@ -100,7 +102,7 @@ export const enCopy: SiteCopy = {
   home: '/',
   contactPath: '/contact',
   nav,
-  navCta: 'Book a call',
+  navCta: 'Free audit',
   languageSwitch: { label: 'კა', hrefLang: 'ka', name: 'ქართული' },
   menu: { open: 'Open menu', close: 'Close menu' },
   chatEnabled: true,
@@ -109,10 +111,11 @@ export const enCopy: SiteCopy = {
     asleepLead: 'Your market',
     asleepTail: 'is asleep.',
     scrollHint: 'Scroll to wake it up ↓',
+    kicker: 'Marketing agency in Tbilisi',
     headlineLead: homepageHeadline.lead,
     headlineAccent: homepageHeadline.accent,
-    sub: hero.sub,
-    primaryCta: hero.primaryCta,
+    sub: 'SMM, Facebook and Google Ads, SEO and websites from one senior team, for Georgian companies with 20–250 people. We report in leads and sales, not likes.',
+    primaryCta: 'Get a free marketing audit',
     askAi: 'Ask WakeUP AI',
     callUs: 'Call us',
   },
@@ -132,7 +135,7 @@ export const enCopy: SiteCopy = {
     funnel: { impressions: 'Impressions', clicks: 'Clicks', leads: 'Leads', customers: 'Customers' },
     revenueChart: 'Revenue from marketing',
   },
-  services: { label: 'What we do', title: 'Everything your growth needs, under one roof.', items: services },
+  services: { label: 'Marketing services', title: 'Everything your growth needs, under one roof.', items: services },
   results: {
     label: 'Results',
     title: 'Before and after 90 days.',
@@ -158,11 +161,25 @@ export const enCopy: SiteCopy = {
     note: 'Prices exclude ad spend. Ad accounts, data and creative always stay in your name.',
     tiers,
   },
-  faq: { label: 'FAQ', title: 'Questions we hear on every first call.', items: faq },
+  faq: {
+    label: 'FAQ',
+    title: 'Questions we hear on every first call.',
+    items: [
+      {
+        q: 'How much do your marketing services cost?',
+        a: 'One-off projects (a website, branding or a campaign launch) start from ₾5k. Monthly plans run ₾4k–10k for most clients. Ad spend is separate and paid directly to Meta and Google. You get a fixed quote after the free audit.',
+      },
+      ...faq,
+      {
+        q: 'What does the free audit include?',
+        a: 'We review your ads, website and sales process and, within one business day, send a short summary: where budget leaks and the three changes that would improve results fastest. There is no obligation.',
+      },
+    ],
+  },
   contact: {
-    label: 'Free growth audit',
+    label: 'Free marketing audit',
     title: 'See where your marketing budget leaks.',
-    body: 'Tell us about your business. Within one business day you get a short audit of your ads, site and funnel, plus three quick wins.',
+    body: 'Tell us about your business. Within one business day you get a short audit of your ads, site and funnel, plus three quick wins. Free, with no obligation.',
     budgetLabel: 'Monthly marketing budget',
     budgetOptions,
     name: 'Your name',
@@ -180,7 +197,7 @@ export const enCopy: SiteCopy = {
     // "Georgia" alone matches the US state in English search; Tbilisi makes the market unambiguous.
     title: 'Marketing Agency in Tbilisi: SMM, Ads, SEO | WakeUP Marketing',
     description:
-      'Marketing agency in Tbilisi for mid-sized companies: SMM, Meta and Google Ads, SEO, websites, branding and video in one team. Prices published upfront.',
+      'Marketing agency in Tbilisi: social media marketing (SMM), Facebook and Google Ads, SEO, websites, branding and video for mid-sized companies. Published prices, free audit.',
   },
   contactPage: {
     metaTitle: 'Contact a marketing agency in Tbilisi',

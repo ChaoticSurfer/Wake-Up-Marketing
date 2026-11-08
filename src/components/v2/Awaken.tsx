@@ -94,6 +94,7 @@ export function AwHero() {
 
         <div className="relative z-10 mt-[36vh] px-4 text-center">
           <motion.h1 style={{ opacity: headOp, y: headY }} className="font-display text-[clamp(44px,6.4vw,92px)] leading-[0.92]">
+            <span className="hud-label mb-4 block text-wu-red">{c.hero.kicker}</span>
             {c.hero.headlineLead} <span className="text-wu-red">{c.hero.headlineAccent}</span>
           </motion.h1>
           <motion.div style={{ opacity: subOp }} className="mx-auto mt-6 max-w-[600px]">
