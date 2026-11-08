@@ -4,7 +4,7 @@
 // plans in content.ts / copy-ka.ts; the owner confirms final service scope and prices.
 import type { Locale } from '@/lib/copy'
 
-export type ServiceId = 'smm' | 'advertising' | 'seo' | 'websites' | 'branding' | 'video' | 'automation'
+export type ServiceId = 'smm' | 'content' | 'advertising' | 'seo' | 'websites' | 'branding' | 'video' | 'automation' | 'calling'
 
 type ServiceText = {
   slug: string
@@ -20,7 +20,7 @@ type ServiceText = {
   faq: { q: string; a: string }[]
 }
 
-export const serviceIds: ServiceId[] = ['smm', 'advertising', 'seo', 'websites', 'branding', 'video', 'automation']
+export const serviceIds: ServiceId[] = ['smm', 'content', 'advertising', 'seo', 'websites', 'branding', 'video', 'automation', 'calling']
 
 export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
   smm: {
@@ -515,6 +515,158 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       ],
     },
   },
+  // Georgian searches "ხმოვანი ასისტენტი" (also "ქართული ხმოვანი ასისტენტი"); "ai ზარები" and "ავტომატური ზარები"
+  // had no autocomplete suggestions on 2026-11-08 (seo-work/kw-calling-content-ka.json), so the Georgian title leads with it.
+  calling: {
+    en: {
+      slug: 'ai-calling',
+      name: 'AI calling: inbound and outbound',
+      metaTitle: 'AI Voice Agents in Tbilisi: Inbound & Outbound Sales Calls',
+      metaDescription:
+        'AI voice agents that answer calls in Georgian and English 24/7 and call new leads back within minutes to qualify them and book meetings. Set-up from ₾5k.',
+      h1: 'AI calling for inbound calls and outbound sales',
+      intro:
+        'An AI voice agent answers every call in Georgian and English, handles questions, books appointments and passes ready buyers to your team. For outbound sales it calls new leads within minutes of a form or ad enquiry, qualifies them and books a meeting with your sales team.',
+      included: [
+        'Inbound: every call answered 24/7, including after hours and at peak times',
+        'Outbound: new leads from your forms and ads called within minutes, plus reminders and follow-up calls',
+        'Natural conversation in Georgian and English, based on your prices, services and sales scripts',
+        'Lead qualification, bookings and live transfer to a salesperson when the buyer is ready',
+        'Call recordings, transcripts and summaries in your CRM',
+      ],
+      fit: 'Companies that miss calls, take hours to call new leads back, or whose sales team spends its day on unqualified calls.',
+      pricing:
+        'An AI calling set-up is a Launch project from ₾5k, usually live in four to six weeks. Call minutes are billed at cost and estimated before launch. Ongoing tuning runs within the Growth plan.',
+      faq: [
+        {
+          q: 'How much does an AI calling agent cost?',
+          a: 'Set-up starts from ₾5k as a one-off Launch project. The price depends on call volume, integrations and how many scripts the agent needs. We estimate the monthly cost of call minutes before launch.',
+        },
+        {
+          q: 'Can the voice agent speak Georgian?',
+          a: 'Yes, Georgian and English. Before launch you listen to test calls and approve the voice and the way it speaks.',
+        },
+        {
+          q: 'Who does the AI call?',
+          a: 'Only people who gave you their number and agreed to be contacted, such as form leads and existing customers. We do not cold-call bought lists, and the agent says at the start of every call that it is an automated assistant.',
+        },
+        {
+          q: 'What if the caller wants to talk to a person?',
+          a: 'The agent transfers the call to your team or books a callback, and your salesperson sees a summary of the conversation in the CRM.',
+        },
+      ],
+    },
+    ka: {
+      slug: 'ai-khmovani-asistenti',
+      name: 'AI ზარები და ხმოვანი ასისტენტი',
+      metaTitle: 'AI ხმოვანი ასისტენტი ზარებისა და გაყიდვებისთვის — ფასი',
+      metaDescription:
+        'ქართული AI ხმოვანი ასისტენტი, რომელიც შემომავალ ზარებს 24/7 პასუხობს, ახალ ლიდებს რამდენიმე წუთში ურეკავს, აკვალიფიცირებს და შეხვედრას უნიშნავს. ფასი 5 000 ₾-დან.',
+      h1: 'AI ხმოვანი ასისტენტი ზარებისა და გაყიდვებისთვის',
+      intro:
+        'AI ხმოვანი ასისტენტი ყველა ზარს ქართულად და ინგლისურად პასუხობს: კითხვებზე პასუხობს, ვიზიტს ჯავშნის და მზად მყოფ მყიდველს თქვენს გუნდს გადასცემს. გაყიდვებისთვის ახალ ლიდებს ფორმიდან ან რეკლამიდან მომართვის შემდეგ რამდენიმე წუთში ურეკავს, აკვალიფიცირებს და გაყიდვების გუნდთან შეხვედრას უნიშნავს.',
+      included: [
+        'შემომავალი ზარები: პასუხი 24/7, სამუშაო საათების შემდეგაც და დატვირთულ პერიოდში',
+        'გამავალი ზარები: ფორმებიდან და რეკლამიდან მოსულ ლიდებს რამდენიმე წუთში ურეკავს, ასევე შეხსენებები და განმეორებითი ზარები',
+        'ბუნებრივი საუბარი ქართულად და ინგლისურად, თქვენს ფასებზე, სერვისებსა და გაყიდვების სკრიპტებზე დაყრდნობით',
+        'ლიდების კვალიფიკაცია, ჯავშნები და ზარის გადართვა გაყიდვების მენეჯერზე, როცა მყიდველი მზადაა',
+        'ზარების ჩანაწერები, ტრანსკრიპტები და შეჯამებები თქვენს CRM-ში',
+      ],
+      fit: 'კომპანიებისთვის, რომლებსაც ბევრი გამოტოვებული ზარი აქვთ, ახალ ლიდებს საათების შემდეგ ურეკავენ, ან რომელთა გაყიდვების გუნდი დროს არაკვალიფიციურ ზარებზე ხარჯავს.',
+      pricing:
+        'AI ზარების აწყობა სტარტის პროექტია 5 000 ₾-დან, ჩვეულებრივ 4–6 კვირაში. საუბრის წუთები თვითღირებულებით ითვლება და მათ ხარჯს გაშვებამდე წინასწარ გითვლით. შემდგომი გაუმჯობესება ზრდის პაკეტში გრძელდება.',
+      faq: [
+        {
+          q: 'რა ღირს AI ხმოვანი ასისტენტი?',
+          a: 'აწყობა 5 000 ₾-დან იწყება ერთჯერად პროექტად. ფასი ზარების მოცულობაზე, ინტეგრაციებსა და სკრიპტების რაოდენობაზეა დამოკიდებული. საუბრის წუთების ყოველთვიურ ხარჯს გაშვებამდე წინასწარ გითვლით.',
+        },
+        {
+          q: 'ასისტენტი ქართულად ისაუბრებს?',
+          a: 'დიახ, ქართულად და ინგლისურად. გაშვებამდე სატესტო ზარებს მოისმენთ და ხმასა და საუბრის სტილს თქვენ დაამტკიცებთ.',
+        },
+        {
+          q: 'ვის ურეკავს AI ასისტენტი?',
+          a: 'მხოლოდ მათ, ვინც ნომერი თავად დაგიტოვათ და დაკავშირებაზე თანხმობა მოგცათ, მაგალითად ფორმიდან მოსულ ლიდებსა და არსებულ კლიენტებს. ნაყიდ ბაზებზე ცივ ზარებს არ ვაკეთებთ, ხოლო ასისტენტი ყოველი ზარის დასაწყისში ამბობს, რომ ავტომატური ასისტენტია.',
+        },
+        {
+          q: 'რა ხდება, თუ კლიენტს ადამიანთან საუბარი სურს?',
+          a: 'ასისტენტი ზარს თქვენს გუნდზე გადართავს ან უკუზარს დანიშნავს, ხოლო მენეჯერი საუბრის შეჯამებას CRM-ში ხედავს.',
+        },
+      ],
+    },
+  },
+  // Georgian searches "კონტენტის შექმნა", "სარეკლამო კონტენტის შექმნა" and "ვიდეო კონტენტის შექმნა"
+  // (seo-work/kw-calling-content-ka.json, 2026-11-08). SMM is running the channels; this page is making the content.
+  content: {
+    en: {
+      slug: 'content-creation',
+      name: 'Content creation',
+      metaTitle: 'Content Creation Agency in Tbilisi: Photo, Video & Copy',
+      metaDescription:
+        'Content creation for Georgian brands: photo shoots, Reels, design and copy in Georgian and English, made for social media and ads. From ₾4k a month.',
+      h1: 'Content creation for social media and ads',
+      intro:
+        'We plan, shoot and write the content your brand needs every month: photos, short videos, design and copy in Georgian and English. Your team posts it, or we run the channels for you as part of SMM.',
+      included: [
+        'A monthly content plan built around your offers and campaigns',
+        'Product, lifestyle and team photo shoots',
+        'Reels, TikTok and short video, filmed and edited',
+        'Post, carousel and ad creative design in every size',
+        'Copywriting in Georgian and English: captions, ad text and articles',
+      ],
+      fit: 'Brands that post rarely or irregularly, have a marketer but no designer or camera, or need fresh ad creatives every week.',
+      pricing:
+        'Monthly content runs within the Growth plan, from ₾4k a month depending on volume. A one-off shoot or launch content set is a Launch project from ₾5k.',
+      faq: [
+        {
+          q: 'How much does content creation cost?',
+          a: 'From ₾4k a month on the Growth plan, depending on how many shoots, videos and posts you need. A one-off content set for a launch starts from ₾5k.',
+        },
+        {
+          q: 'What is the difference between content creation and SMM?',
+          a: 'Content creation is making the photos, videos, design and text. SMM also covers strategy, posting, replies to messages and paid social. You can take content on its own or both together.',
+        },
+        {
+          q: 'Who owns the content?',
+          a: 'You do. Photos, videos and design files are handed over in full, and you can use them anywhere.',
+        },
+      ],
+    },
+    ka: {
+      slug: 'kontentis-sheqmna',
+      name: 'კონტენტის შექმნა',
+      metaTitle: 'კონტენტის შექმნა სოციალური მედიისა და რეკლამისთვის — ფასი',
+      metaDescription:
+        'კონტენტის შექმნა ქართული ბრენდებისთვის: ფოტოგადაღება, Reels და ვიდეო, დიზაინი და ტექსტები ქართულად და ინგლისურად. ფასი 4 000 ₾-დან თვეში.',
+      h1: 'კონტენტის შექმნა სოციალური მედიისა და რეკლამისთვის',
+      intro:
+        'ვგეგმავთ, ვიღებთ და ვწერთ იმ კონტენტს, რომელიც თქვენს ბრენდს ყოველთვიურად სჭირდება: ფოტოებს, მოკლე ვიდეოებს, დიზაინსა და ტექსტებს ქართულად და ინგლისურად. გამოქვეყნება თქვენს გუნდს შეუძლია, ან SMM-ის ფარგლებში გვერდებს ჩვენ ვმართავთ.',
+      included: [
+        'ყოველთვიური კონტენტ-გეგმა თქვენი შეთავაზებებისა და კამპანიების მიხედვით',
+        'პროდუქტის, ლაიფსტაილ და გუნდის ფოტოგადაღება',
+        'Reels, TikTok და მოკლე ვიდეო: გადაღება და მონტაჟი',
+        'პოსტების, კარუსელებისა და სარეკლამო კრეატივების დიზაინი ყველა ზომაში',
+        'ქოფირაითინგი ქართულად და ინგლისურად: პოსტების ტექსტები, სარეკლამო ტექსტები და სტატიები',
+      ],
+      fit: 'ბრენდებისთვის, რომლებიც იშვიათად ან არარეგულარულად აქვეყნებენ, ჰყავთ მარკეტოლოგი, მაგრამ არა დიზაინერი და ოპერატორი, ან რეკლამისთვის ყოველკვირეულად ახალი კრეატივები სჭირდებათ.',
+      pricing:
+        'ყოველთვიური კონტენტი ზრდის პაკეტში შედის, 4 000 ₾-დან თვეში, მოცულობის მიხედვით. ერთჯერადი გადაღება ან კონტენტის ნაკრები გაშვებისთვის სტარტის პროექტია 5 000 ₾-დან.',
+      faq: [
+        {
+          q: 'რა ღირს კონტენტის შექმნა?',
+          a: 'ზრდის პაკეტში 4 000 ₾-დან თვეში, იმის მიხედვით, რამდენი გადაღება, ვიდეო და პოსტი გჭირდებათ. ერთჯერადი კონტენტის ნაკრები გაშვებისთვის 5 000 ₾-დან იწყება.',
+        },
+        {
+          q: 'რით განსხვავდება კონტენტის შექმნა SMM-ისგან?',
+          a: 'კონტენტის შექმნა ფოტოების, ვიდეოების, დიზაინისა და ტექსტების მომზადებაა. SMM ასევე მოიცავს სტრატეგიას, გამოქვეყნებას, შეტყობინებებზე პასუხსა და რეკლამას. შეგიძლიათ აიღოთ მხოლოდ კონტენტი ან ორივე ერთად.',
+        },
+        {
+          q: 'ვის ეკუთვნის კონტენტი?',
+          a: 'თქვენ. ფოტოებს, ვიდეოებსა და დიზაინის ფაილებს სრულად გადმოგცემთ და მათი გამოყენება ნებისმიერ ადგილას შეგიძლიათ.',
+        },
+      ],
+    },
+  },
 }
 
 /** Labels shared by every service page and the services index. */
@@ -558,7 +710,7 @@ export const serviceChrome: Record<
     cta: 'Get a free marketing audit',
     indexMetaTitle: 'Marketing Services in Tbilisi',
     indexMetaDescription:
-      'SMM, Meta and Google Ads, SEO, website development, branding, video production and AI chatbots for mid-sized Georgian companies. Prices published upfront.',
+      'SMM, content creation, Meta and Google Ads, SEO, websites, branding, video, AI chatbots and AI calling for mid-sized Georgian companies. Prices published upfront.',
     indexH1: 'Marketing services for mid-sized businesses',
     indexIntro: 'One team runs every service against one plan and one report. Pick what you need now, or start with a free audit.',
     allServices: 'All services →',
@@ -582,7 +734,7 @@ export const serviceChrome: Record<
     cta: 'მიიღეთ უფასო მარკეტინგული აუდიტი',
     indexMetaTitle: 'მარკეტინგული სერვისები თბილისში',
     indexMetaDescription:
-      'SMM, რეკლამის მართვა, SEO ოპტიმიზაცია, საიტის დამზადება, ბრენდინგი, ვიდეო გადაღება და AI ჩატბოტები საშუალო ბიზნესისთვის. ფასები ღიად არის მითითებული.',
+      'SMM, კონტენტის შექმნა, რეკლამის მართვა, SEO ოპტიმიზაცია, საიტის დამზადება, ბრენდინგი, ვიდეო, AI ჩატბოტები და AI ზარები საშუალო ბიზნესისთვის. ფასები ღიად არის მითითებული.',
     indexH1: 'მარკეტინგული სერვისები საშუალო ბიზნესისთვის',
     indexIntro: 'ყველა სერვისს ერთი გუნდი მართავს ერთიანი გეგმითა და ერთი რეპორტით. აირჩიეთ ის, რაც ახლა გჭირდებათ, ან დავიწყოთ უფასო აუდიტით.',
     allServices: 'ყველა სერვისი →',
@@ -608,4 +760,6 @@ export const serviceIdByCode: Record<string, ServiceId> = {
   'S-04': 'websites',
   'S-05': 'seo',
   'S-06': 'automation',
+  'S-07': 'calling',
+  'S-08': 'content',
 }

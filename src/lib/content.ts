@@ -84,6 +84,18 @@ export const services = [
     text: 'AI chatbots that answer customers in Georgian and English, plus CRM automation so no lead is lost.',
     tags: ['AI chatbots', 'CRM', 'Automation'],
   },
+  {
+    code: 'S-07',
+    title: 'AI Calling (Inbound & Outbound)',
+    text: 'AI voice agents that answer every call 24/7 and call new leads back within minutes to qualify them and book meetings.',
+    tags: ['Voice AI', 'Inbound calls', 'Outbound sales'],
+  },
+  {
+    code: 'S-08',
+    title: 'Content Creation',
+    text: 'Photo shoots, Reels, design and copy in Georgian and English, made every month for social media and ads.',
+    tags: ['Photo', 'Reels', 'Copywriting'],
+  },
 ]
 
 export const stats = [

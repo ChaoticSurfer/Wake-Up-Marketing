@@ -270,14 +270,14 @@ export function AwServices() {
         <p className="hud-label text-wu-red">{c.services.label}</p>
         <h2 className="mt-4 font-display text-[clamp(36px,4.6vw,68px)] leading-[0.95]">{c.services.title}</h2>
       </Reveal>
-      <div className="mt-14 grid gap-4 [perspective:1200px] sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-4 [perspective:1200px] sm:grid-cols-2 xl:grid-cols-4">
         {c.services.items.map((s, i) => (
           <motion.article
             key={s.code}
             initial={{ opacity: 0, rotateX: 55, y: 60 }}
             whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 1, delay: (i % 3) * 0.12, ease }}
+            transition={{ duration: 1, delay: (i % 4) * 0.12, ease }}
             whileHover={{ y: -6 }}
             className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#141414] p-7"
           >
