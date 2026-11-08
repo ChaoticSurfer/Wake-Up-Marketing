@@ -1,0 +1,19 @@
+name: IndexNow
+
+# After Vercel reports a successful production deploy, submit the sitemap's URLs
+# to IndexNow (Bing, Yandex, Seznam, Naver, Yep). Google does not use IndexNow.
+
+on:
+  deployment_status:
+
+jobs:
+  submit:
+    name: Submit sitemap URLs
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: node scripts/indexnow.mjs
