@@ -4,7 +4,7 @@
 // plans in content.ts / copy-ka.ts; the owner confirms final service scope and prices.
 import type { Locale } from '@/lib/copy'
 
-export type ServiceId = 'smm' | 'advertising' | 'seo' | 'websites' | 'branding' | 'video'
+export type ServiceId = 'smm' | 'advertising' | 'seo' | 'websites' | 'branding' | 'video' | 'automation'
 
 type ServiceText = {
   slug: string
@@ -20,7 +20,7 @@ type ServiceText = {
   faq: { q: string; a: string }[]
 }
 
-export const serviceIds: ServiceId[] = ['smm', 'advertising', 'seo', 'websites', 'branding', 'video']
+export const serviceIds: ServiceId[] = ['smm', 'advertising', 'seo', 'websites', 'branding', 'video', 'automation']
 
 export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
   smm: {
@@ -435,6 +435,86 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       ],
     },
   },
+  // Georgian demand is for "ჩატბოტი" (ჩატბოტის შექმნა, ai ჩატბოტი); "AI ავტომატიზაცია" had no autocomplete
+  // suggestions on 2026-11-08 (seo-work/kw-ai-ka.json), so the Georgian page leads with chatbots.
+  automation: {
+    en: {
+      slug: 'ai-automation',
+      name: 'AI automation and chatbots',
+      metaTitle: 'AI Automation Agency in Tbilisi: Chatbots & Workflows',
+      metaDescription:
+        'AI chatbots for Messenger, Instagram, WhatsApp and your website that answer in Georgian and English, plus lead and CRM automation. From ₾5k.',
+      h1: 'AI automation and chatbots for business',
+      intro:
+        'We build AI chatbots that answer your customers in Georgian and English around the clock, and automations that send every lead to your CRM and sales team without manual work.',
+      included: [
+        'Chatbots for Facebook Messenger, Instagram, WhatsApp and your website',
+        'Answers in Georgian and English, based on your prices, services and FAQs',
+        'Lead qualification and bookings, with handover to a person when needed',
+        'Automatic lead routing to your CRM, email or team chat',
+        'Follow-up and reporting automations that save your team hours every week',
+      ],
+      fit: 'Companies that answer the same questions in messages all day, lose leads after working hours, or copy data between tools by hand.',
+      pricing:
+        'A chatbot or automation set-up is a Launch project from ₾5k, usually live in four to six weeks. Ongoing improvement and support run within the Growth plan.',
+      faq: [
+        {
+          q: 'How much does an AI chatbot cost?',
+          a: 'Set-up starts from ₾5k as a one-off Launch project. The price depends on the channels, integrations and how much the bot needs to know. Running costs for the AI model are usually small, and we estimate them before launch.',
+        },
+        {
+          q: 'Can the chatbot speak Georgian?',
+          a: 'Yes. It answers in Georgian and English, in your wording and with your prices and policies. Before launch we test it on real questions from your inbox.',
+        },
+        {
+          q: 'What happens when the bot cannot answer?',
+          a: 'It hands the conversation to your team with the full history, so the customer never has to repeat themselves.',
+        },
+        {
+          q: 'Is customer data safe?',
+          a: 'We connect the bot only to the data it needs, keep conversations in your own accounts, and agree with you before launch on what it may and may not say.',
+        },
+      ],
+    },
+    ka: {
+      slug: 'ai-chatbotebi',
+      name: 'AI ჩატბოტები და ავტომატიზაცია',
+      metaTitle: 'ჩატბოტის შექმნა და AI ავტომატიზაცია თბილისში — ფასი',
+      metaDescription:
+        'AI ჩატბოტები Messenger-ის, Instagram-ის, WhatsApp-ისა და საიტისთვის, რომლებიც ქართულად პასუხობს, და ლიდების ავტომატური გადაცემა CRM-ში. ფასი 5 000 ₾-დან.',
+      h1: 'ჩატბოტის შექმნა და AI ავტომატიზაცია',
+      intro:
+        'ვქმნით AI ჩატბოტებს, რომლებიც თქვენს მომხმარებლებს ქართულად და ინგლისურად 24/7 პასუხობს, და ავტომატიზაციას, რომელიც ყველა ლიდს ხელით მუშაობის გარეშე გადასცემს თქვენს CRM-სა და გაყიდვების გუნდს.',
+      included: [
+        'ჩატბოტები Facebook Messenger-ისთვის, Instagram-ისთვის, WhatsApp-ისა და საიტისთვის',
+        'პასუხები ქართულად და ინგლისურად, თქვენს ფასებზე, სერვისებსა და ხშირ კითხვებზე დაყრდნობით',
+        'ლიდების კვალიფიკაცია და ჯავშნები, საჭიროებისას საუბრის ოპერატორისთვის გადაცემით',
+        'ლიდების ავტომატური გადაცემა CRM-ში, ელ-ფოსტაზე ან გუნდის ჩატში',
+        'შეხსენებებისა და რეპორტების ავტომატიზაცია, რომელიც გუნდს ყოველ კვირა საათებს უზოგავს',
+      ],
+      fit: 'კომპანიებისთვის, რომლებიც შეტყობინებებში მთელი დღე ერთსა და იმავე კითხვებს პასუხობენ, სამუშაო საათების შემდეგ ლიდებს კარგავენ ან მონაცემებს პროგრამებს შორის ხელით გადააქვთ.',
+      pricing:
+        'ჩატბოტის ან ავტომატიზაციის აწყობა სტარტის პროექტია 5 000 ₾-დან, ჩვეულებრივ 4–6 კვირაში. შემდგომი გაუმჯობესება და მხარდაჭერა ზრდის პაკეტში გრძელდება.',
+      faq: [
+        {
+          q: 'რა ღირს AI ჩატბოტის შექმნა?',
+          a: 'აწყობა 5 000 ₾-დან იწყება ერთჯერად პროექტად. ფასი არხებზე, ინტეგრაციებსა და იმაზეა დამოკიდებული, რამდენი ინფორმაცია უნდა იცოდეს ბოტმა. AI მოდელის ყოველთვიური ხარჯი ჩვეულებრივ მცირეა და მას გაშვებამდე წინასწარ გითვლით.',
+        },
+        {
+          q: 'ჩატბოტი ქართულად ისაუბრებს?',
+          a: 'დიახ. ქართულად და ინგლისურად პასუხობს, თქვენი სიტყვებით, ფასებითა და წესებით. გაშვებამდე თქვენი შეტყობინებებიდან აღებულ რეალურ კითხვებზე ვტესტავთ.',
+        },
+        {
+          q: 'რა ხდება, თუ ბოტმა პასუხი არ იცის?',
+          a: 'საუბარს მთელი ისტორიით გადასცემს თქვენს გუნდს, ასე რომ მომხმარებელს არაფრის გამეორება არ უწევს.',
+        },
+        {
+          q: 'რამდენად დაცულია მომხმარებლების მონაცემები?',
+          a: 'ბოტს მხოლოდ საჭირო მონაცემებთან ვაკავშირებთ, საუბრები თქვენს ანგარიშებში ინახება, ხოლო იმას, რისი თქმა შეუძლია და რისი არა, გაშვებამდე ერთად ვთანხმდებით.',
+        },
+      ],
+    },
+  },
 }
 
 /** Labels shared by every service page and the services index. */
@@ -478,7 +558,7 @@ export const serviceChrome: Record<
     cta: 'Get a free marketing audit',
     indexMetaTitle: 'Marketing Services in Tbilisi',
     indexMetaDescription:
-      'SMM, Meta and Google Ads, SEO, website development, branding and video production for mid-sized Georgian companies. Prices published upfront.',
+      'SMM, Meta and Google Ads, SEO, website development, branding, video production and AI chatbots for mid-sized Georgian companies. Prices published upfront.',
     indexH1: 'Marketing services for mid-sized businesses',
     indexIntro: 'One team runs every service against one plan and one report. Pick what you need now, or start with a free audit.',
     allServices: 'All services →',
@@ -502,7 +582,7 @@ export const serviceChrome: Record<
     cta: 'მიიღეთ უფასო მარკეტინგული აუდიტი',
     indexMetaTitle: 'მარკეტინგული სერვისები თბილისში',
     indexMetaDescription:
-      'SMM, რეკლამის მართვა, SEO ოპტიმიზაცია, საიტის დამზადება, ბრენდინგი და ვიდეო გადაღება საშუალო ბიზნესისთვის. ფასები ღიად არის მითითებული.',
+      'SMM, რეკლამის მართვა, SEO ოპტიმიზაცია, საიტის დამზადება, ბრენდინგი, ვიდეო გადაღება და AI ჩატბოტები საშუალო ბიზნესისთვის. ფასები ღიად არის მითითებული.',
     indexH1: 'მარკეტინგული სერვისები საშუალო ბიზნესისთვის',
     indexIntro: 'ყველა სერვისს ერთი გუნდი მართავს ერთიანი გეგმითა და ერთი რეპორტით. აირჩიეთ ის, რაც ახლა გჭირდებათ, ან დავიწყოთ უფასო აუდიტით.',
     allServices: 'ყველა სერვისი →',
@@ -527,4 +607,5 @@ export const serviceIdByCode: Record<string, ServiceId> = {
   'S-03': 'smm',
   'S-04': 'websites',
   'S-05': 'seo',
+  'S-06': 'automation',
 }

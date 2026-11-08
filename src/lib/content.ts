@@ -80,9 +80,9 @@ export const services = [
   },
   {
     code: 'S-06',
-    title: 'Analytics, CRM & Automation',
-    text: 'Tracking, dashboards and CRM flows so every lead is measured and followed up.',
-    tags: ['GA4', 'HubSpot', 'Email'],
+    title: 'AI Automation & Chatbots',
+    text: 'AI chatbots that answer customers in Georgian and English, plus CRM automation so no lead is lost.',
+    tags: ['AI chatbots', 'CRM', 'Automation'],
   },
 ]
 
