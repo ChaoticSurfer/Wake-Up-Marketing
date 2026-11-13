@@ -2,7 +2,9 @@
 // src/content/blog/index.ts. Each language has its own topics from its own keyword research, so a post exists in
 // one language and carries no hreflang twin. Everything that builds a blog URL or date reads this module.
 import { blogPosts } from '@/content/blog'
+import { enCopy } from '@/lib/copy'
 import type { Locale } from '@/lib/copy'
+import { kaCopy } from '@/lib/copy-ka'
 import type { ServiceId } from '@/lib/service-pages'
 
 /** A body block. Text may hold inline links written as [anchor](/path or https://url). */
@@ -32,7 +34,7 @@ export type BlogPost = {
   body: BlogBlock[]
 }
 
-const blogPrefix: Record<Locale, string> = { en: '/blog', ka: '/ka/blog' }
+const blogPrefix: Record<Locale, string> = { en: enCopy.blogPath, ka: kaCopy.blogPath }
 
 export const blogIndexPath = (locale: Locale) => blogPrefix[locale]
 export const blogFeedPath = (locale: Locale) => `${blogPrefix[locale]}/rss.xml`

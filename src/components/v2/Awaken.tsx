@@ -533,6 +533,9 @@ export function AwContact() {
           <a href={c.contactPath} className="inline-flex min-h-11 items-center hover:text-white">
             {c.footer.contact}
           </a>
+          <a href={c.blogPath} className="inline-flex min-h-11 items-center hover:text-white">
+            {c.footer.blog}
+          </a>
           <a href="/privacy" className="inline-flex min-h-11 items-center hover:text-white">
             {c.footer.privacy}
           </a>

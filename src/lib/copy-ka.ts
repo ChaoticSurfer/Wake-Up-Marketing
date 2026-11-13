@@ -18,6 +18,7 @@ const serviceText: Record<string, { title: string; text: string }> = {
 export const kaCopy: SiteCopy = {
   home: '/ka',
   contactPath: '/ka/contact',
+  blogPath: '/ka/blog',
   nav: [
     { label: 'სერვისები', href: '#services' },
     { label: 'პროცესი', href: '#process' },
@@ -184,7 +185,7 @@ export const kaCopy: SiteCopy = {
     receivedTitle: 'მოთხოვნა მიღებულია',
     received: (ref, email) => `ნომერი ${ref}. ერთი სამუშაო დღის განმავლობაში მოგწერთ მისამართზე ${email}.`,
   },
-  footer: { contact: 'კონტაქტი', privacy: 'კონფიდენციალურობა' },
+  footer: { contact: 'კონტაქტი', blog: 'ბლოგი', privacy: 'კონფიდენციალურობა' },
   homeMeta: {
     title: 'მარკეტინგული სააგენტო საქართველოში | WakeUP Marketing',
     description: 'მარკეტინგული სააგენტო თბილისში: SMM, ფეისბუქ და Google რეკლამა, SEO ოპტიმიზაცია, საიტის დამზადება, ბრენდინგი და ვიდეო გადაღება. ფასები ღიაა, აუდიტი უფასო.',
