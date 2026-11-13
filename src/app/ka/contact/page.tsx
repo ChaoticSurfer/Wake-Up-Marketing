@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { LocaleProvider } from "@/components/shared/LocaleProvider";
 import { ContactPageBody } from "@/components/v2/ContactPageBody";
 import { bilingualAlternates } from "@/lib/alternates";
+import { organizationJsonLd } from "@/lib/organization";
+import { jsonLdHtml } from "@/lib/service-routes";
 import { kaCopy } from "@/lib/copy-ka";
 import { SITE_NAME } from "@/lib/site";
 
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
 export default function KaContactPage() {
   return (
     <LocaleProvider locale="ka" alternatePath="/contact">
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(organizationJsonLd)} />
       <ContactPageBody />
     </LocaleProvider>
   );
