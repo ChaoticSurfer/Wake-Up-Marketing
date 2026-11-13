@@ -197,7 +197,7 @@ export const enCopy: SiteCopy = {
     // "Georgia" alone matches the US state in English search; Tbilisi makes the market unambiguous.
     title: 'Marketing Agency in Tbilisi: SMM, Ads, SEO | WakeUP Marketing',
     description:
-      'Marketing agency in Tbilisi: social media marketing (SMM), Facebook and Google Ads, SEO, websites, branding and video for mid-sized companies. Published prices, free audit.',
+      'Marketing agency in Tbilisi: SMM, Facebook and Google Ads, SEO, websites, branding and video for mid-sized companies. Published prices, free audit.',
   },
   contactPage: {
     metaTitle: 'Contact a marketing agency in Tbilisi',
