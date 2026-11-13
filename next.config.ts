@@ -19,6 +19,9 @@ const oldSiteRedirects = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // English and Georgian have separate root layouts (for <html lang>), so the 404 for unknown URLs
+  // comes from app/global-not-found.tsx; Next.js still marks that file convention experimental.
+  experimental: { globalNotFound: true },
   redirects() {
     return oldSiteRedirects.map((r) => ({ ...r, permanent: true }));
   },
