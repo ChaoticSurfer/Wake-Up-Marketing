@@ -3,6 +3,8 @@ import { LocaleProvider } from "@/components/shared/LocaleProvider";
 import { AwakenPage } from "@/components/v2/AwakenPage";
 import { bilingualAlternates } from "@/lib/alternates";
 import { kaCopy } from "@/lib/copy-ka";
+import { organizationJsonLd } from "@/lib/organization";
+import { jsonLdHtml } from "@/lib/service-routes";
 import { SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
 export default function KaHome() {
   return (
     <LocaleProvider locale="ka" alternatePath="/">
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(organizationJsonLd)} />
       <AwakenPage />
     </LocaleProvider>
   );

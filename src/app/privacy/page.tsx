@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { contact } from "@/lib/content";
+import { organizationJsonLd } from "@/lib/organization";
+import { jsonLdHtml } from "@/lib/service-routes";
 import { SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -40,6 +42,7 @@ const sections: { heading: string; body: string[] }[] = [
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-wu-black px-4 pb-24 pt-16 text-white md:px-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(organizationJsonLd)} />
       <article className="mx-auto max-w-[720px]">
         <Link href="/" className="hud-label text-wu-red">
           ← {SITE_NAME}

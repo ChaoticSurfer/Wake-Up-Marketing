@@ -27,11 +27,28 @@ export const servicesIndexMetadata = (locale: Locale): Metadata => {
 
 const homePath: Record<Locale, string> = { en: '/', ka: '/ka' }
 
+/** BreadcrumbList from this language's homepage through `trail`, matching the breadcrumbs shown on the page. */
+const breadcrumbJsonLd = (locale: Locale, trail: { name: string; path: string }[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ name: serviceChrome[locale].home, path: homePath[locale] }, ...trail].map((crumb, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: crumb.name,
+    item: `${SITE_URL}${crumb.path === '/' ? '' : crumb.path}`,
+  })),
+})
+
+const servicesCrumb = (locale: Locale) => ({ name: serviceChrome[locale].services, path: servicesIndexPath(locale) })
+
+/** BreadcrumbList for the services index. */
+export const servicesIndexJsonLd = (locale: Locale) => breadcrumbJsonLd(locale, [servicesCrumb(locale)])
+
 /** Service and BreadcrumbList structured data for one service page. */
 export const serviceJsonLd = (id: ServiceId, locale: Locale) => {
   const s = servicePages[id][locale]
-  const ui = serviceChrome[locale]
-  const url = `${SITE_URL}${servicePath(id, locale)}`
+  const path = servicePath(id, locale)
+  const url = `${SITE_URL}${path}`
   return [
     {
       '@context': 'https://schema.org',
@@ -43,15 +60,7 @@ export const serviceJsonLd = (id: ServiceId, locale: Locale) => {
       areaServed: { '@type': 'Country', name: 'Georgia' },
       provider: organization,
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: ui.home, item: `${SITE_URL}${homePath[locale] === '/' ? '' : homePath[locale]}` },
-        { '@type': 'ListItem', position: 2, name: ui.services, item: `${SITE_URL}${servicesIndexPath(locale)}` },
-        { '@type': 'ListItem', position: 3, name: s.name, item: url },
-      ],
-    },
+    breadcrumbJsonLd(locale, [servicesCrumb(locale), { name: s.name, path }]),
   ]
 }
 
