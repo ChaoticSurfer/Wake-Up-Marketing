@@ -82,7 +82,8 @@ function Block({ block }: { block: BlogBlock }) {
   }
 }
 
-function PostList({ posts, locale }: { posts: BlogPost[]; locale: Locale }) {
+/** `titleTag` is h3 where the list sits under its own h2 (related posts, author page). */
+function PostList({ posts, locale, titleTag: Title = "h2" }: { posts: BlogPost[]; locale: Locale; titleTag?: "h2" | "h3" }) {
   return (
     <ul className="grid gap-4 md:grid-cols-2">
       {posts.map((p) => (
@@ -91,7 +92,7 @@ function PostList({ posts, locale }: { posts: BlogPost[]; locale: Locale }) {
             <time dateTime={p.publishedAt} className="font-mono text-xs text-white/50">
               {formatPostDate(p.publishedAt, locale)}
             </time>
-            <h2 className="mt-3 font-display text-2xl leading-tight">{p.title}</h2>
+            <Title className="mt-3 font-display text-2xl leading-tight">{p.title}</Title>
             <p className="mt-3 text-white/60">{p.description}</p>
           </a>
         </li>
@@ -140,7 +141,7 @@ export function BlogAuthorBody({ locale, posts }: { locale: Locale; posts: BlogP
       </section>
       <section className="mx-auto max-w-[1120px] px-4 py-16 md:px-8">
         <h2 className="mb-6 font-display text-3xl">{ui.authorPosts}</h2>
-        <PostList posts={posts} locale={locale} />
+        <PostList posts={posts} locale={locale} titleTag="h3" />
       </section>
     </Page>
   );
@@ -188,7 +189,7 @@ export function BlogPostBody({ post }: { post: BlogPost }) {
       {related.length > 0 && (
         <section className="mx-auto max-w-[1120px] px-4 pt-20 md:px-8">
           <h2 className="mb-6 font-display text-3xl">{ui.related}</h2>
-          <PostList posts={related} locale={post.locale} />
+          <PostList posts={related} locale={post.locale} titleTag="h3" />
         </section>
       )}
     </Page>
