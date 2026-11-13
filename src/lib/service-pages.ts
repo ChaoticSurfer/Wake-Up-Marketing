@@ -4,7 +4,7 @@
 // plans in content.ts / copy-ka.ts; the owner confirms final service scope and prices.
 import type { Locale } from '@/lib/copy'
 
-export type ServiceId = 'smm' | 'content' | 'advertising' | 'seo' | 'websites' | 'branding' | 'video' | 'automation' | 'calling'
+export type ServiceId = 'smm' | 'content' | 'advertising' | 'seo' | 'websites' | 'branding' | 'video' | 'automation' | 'calling' | 'audit'
 
 type ServiceText = {
   slug: string
@@ -20,9 +20,92 @@ type ServiceText = {
   faq: { q: string; a: string }[]
 }
 
+/** Paid services: the pages under /services, listed on the index and linked from each other. The free audit is not one. */
 export const serviceIds: ServiceId[] = ['smm', 'content', 'advertising', 'seo', 'websites', 'branding', 'video', 'automation', 'calling']
 
 export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
+  // The free audit the homepage and every service page offer. Only what the site already states about it:
+  // a short summary of ads, site and sales process within one business day, three quick wins, no obligation.
+  audit: {
+    en: {
+      slug: 'audit',
+      name: 'Free marketing audit',
+      metaTitle: 'Free Marketing Audit in Tbilisi',
+      metaDescription:
+        'A free marketing audit for Georgian businesses: we review your ads, website and sales process and send the three changes that would help most within a day.',
+      h1: 'Free marketing audit in Tbilisi',
+      intro:
+        'Send us your website and a few details about your business. Within one business day we reply with a short audit of your ads, website and sales process: where budget leaks and the three changes that would improve results fastest. It is free and there is no obligation.',
+      included: [
+        'A look at your paid ads and where the budget goes',
+        'A check of your website and the path from visit to enquiry',
+        'Your sales process: what happens to a lead after it arrives',
+        'A short written summary within one business day',
+        'The three changes that would improve results fastest',
+        'A fixed quote, if you want us to do the work',
+      ],
+      fit: 'Companies across Georgia with roughly 20–250 people that already spend on ads, a website or social media and want to know what the money brings back.',
+      pricing:
+        'The audit is free, with no obligation. If you then want us to do the work, you get a fixed quote: one-off projects start from ₾5k and monthly plans run ₾4k–10k for most clients, with ad spend separate.',
+      faq: [
+        {
+          q: 'Is the marketing audit really free?',
+          a: 'Yes. There is no fee and no obligation: you get the summary whether or not you work with us afterwards.',
+        },
+        {
+          q: 'What do you need from us?',
+          a: 'Your name, work email and company website, and roughly what you spend on marketing each month. That is all the form asks for.',
+        },
+        {
+          q: 'How long does it take?',
+          a: 'You get the summary within one business day of sending the form.',
+        },
+        {
+          q: 'What happens after the audit?',
+          a: 'If you want to go further, we give you a fixed quote. Paid work starts with a fuller audit and a 90-day plan with channels, budget split, owners and target KPIs.',
+        },
+      ],
+    },
+    ka: {
+      slug: 'audit',
+      name: 'უფასო მარკეტინგული აუდიტი',
+      metaTitle: 'უფასო მარკეტინგული აუდიტი თბილისში',
+      metaDescription:
+        'უფასო მარკეტინგული აუდიტი: ვამოწმებთ თქვენს რეკლამას, საიტსა და გაყიდვების პროცესს და ერთ სამუშაო დღეში გიგზავნით სამ ცვლილებას, რომელიც შედეგს გააუმჯობესებს.',
+      h1: 'უფასო მარკეტინგული აუდიტი',
+      intro:
+        'გამოგვიგზავნეთ საიტის მისამართი და მოკლე ინფორმაცია ბიზნესზე. ერთ სამუშაო დღეში მიიღებთ რეკლამის, საიტისა და გაყიდვების პროცესის მოკლე აუდიტს: სად იკარგება ბიუჯეტი და რომელი სამი ცვლილება გააუმჯობესებს შედეგს ყველაზე სწრაფად. აუდიტი უფასოა და არაფერს გავალდებულებთ.',
+      included: [
+        'სარეკლამო კამპანიების შემოწმება: სად მიდის ბიუჯეტი',
+        'საიტის შემოწმება და გზა ვიზიტიდან მომართვამდე',
+        'გაყიდვების პროცესი: რა ხდება ლიდთან მისი შემოსვლის შემდეგ',
+        'მოკლე წერილობითი დასკვნა ერთ სამუშაო დღეში',
+        'სამი ცვლილება, რომელიც შედეგს ყველაზე სწრაფად გააუმჯობესებს',
+        'ფიქსირებული ფასი, თუ სამუშაოს ჩვენთან გაგრძელება გსურთ',
+      ],
+      fit: 'საქართველოში მოქმედი კომპანიებისთვის, დაახლოებით 20–250 თანამშრომლით, რომლებიც უკვე ხარჯავენ რეკლამაზე, საიტსა თუ სოციალურ მედიაზე და უნდათ გაიგონ, რას აბრუნებს ეს ხარჯი.',
+      pricing:
+        'აუდიტი უფასოა და ვალდებულებას არ გულისხმობს. თუ შემდეგ სამუშაოს ჩვენთან გაგრძელებას გადაწყვეტთ, ფიქსირებულ ფასს გეტყვით: ერთჯერადი პროექტები 5 000 ₾-დან იწყება, ყოველთვიური მომსახურება კი კლიენტების უმეტესობისთვის 4 000–10 000 ₾-ია. სარეკლამო ბიუჯეტი ცალკეა.',
+      faq: [
+        {
+          q: 'რა ღირს მარკეტინგული აუდიტი?',
+          a: 'არაფერი. აუდიტი უფასოა და არაფერს გავალდებულებთ: დასკვნას მიიღებთ იმისდა მიუხედავად, გააგრძელებთ თუ არა ჩვენთან მუშაობას.',
+        },
+        {
+          q: 'რა ინფორმაცია გჭირდებათ ჩვენგან?',
+          a: 'თქვენი სახელი, სამუშაო ელ-ფოსტა, კომპანიის ვებგვერდი და დაახლოებით რამდენს ხარჯავთ მარკეტინგზე თვეში. ფორმაში მხოლოდ ამას გკითხავთ.',
+        },
+        {
+          q: 'რამდენ ხანში მივიღებ აუდიტს?',
+          a: 'დასკვნას ფორმის გაგზავნიდან ერთ სამუშაო დღეში მიიღებთ.',
+        },
+        {
+          q: 'რა ხდება აუდიტის შემდეგ?',
+          a: 'თუ გაგრძელება გსურთ, ფიქსირებულ ფასს გეტყვით. ფასიანი სამუშაო უფრო სრული აუდიტითა და 90-დღიანი გეგმით იწყება: არხები, ბიუჯეტის გადანაწილება, პასუხისმგებლები და მიზნობრივი KPI-ები.',
+        },
+      ],
+    },
+  },
   smm: {
     en: {
       slug: 'smm',
@@ -746,8 +829,12 @@ const prefix: Record<Locale, string> = { en: '/services', ka: '/ka/services' }
 /** Path of the services index in a language. */
 export const servicesIndexPath = (locale: Locale) => prefix[locale]
 
+// The free audit is the offer every page leads to, so it sits at the top level rather than under /services.
+const auditPath: Record<Locale, string> = { en: '/audit', ka: '/ka/audit' }
+
 /** Path of one service page in a language. */
-export const servicePath = (id: ServiceId, locale: Locale) => `${prefix[locale]}/${servicePages[id][locale].slug}`
+export const servicePath = (id: ServiceId, locale: Locale) =>
+  id === 'audit' ? auditPath[locale] : `${prefix[locale]}/${servicePages[id][locale].slug}`
 
 export const serviceBySlug = (locale: Locale, slug: string): ServiceId | undefined =>
   serviceIds.find((id) => servicePages[id][locale].slug === slug)

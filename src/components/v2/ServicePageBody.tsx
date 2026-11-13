@@ -139,6 +139,9 @@ export function ServicesIndexBody() {
           <Breadcrumbs trail={[{ name: ui.home, href: c.home }, { name: ui.services }]} />
           <h1 className="mt-8 font-display text-[clamp(38px,6vw,80px)] leading-[0.95]">{ui.indexH1}</h1>
           <p className="mt-6 max-w-[680px] text-lg text-white/70">{ui.indexIntro}</p>
+          <a href={servicePath("audit", c.locale)} className="mt-8 inline-flex h-14 items-center rounded-full bg-wu-red px-8 font-semibold shadow-[0_14px_40px_-10px_rgba(228,6,19,.9)]">
+            {ui.cta} →
+          </a>
         </section>
         <ul className="mx-auto grid max-w-[1120px] gap-4 px-4 py-16 sm:grid-cols-2 lg:grid-cols-3 md:px-8">
           {serviceIds.map((id) => {
