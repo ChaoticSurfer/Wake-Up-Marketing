@@ -105,7 +105,7 @@ export function AwHero() {
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Magnetic strength={0.2}>
-                <a href="#contact" className="flex h-14 items-center justify-center rounded-full bg-wu-red px-8 font-semibold shadow-[0_14px_40px_-10px_rgba(228,6,19,.9)]">
+                <a href={servicePath("audit", c.locale)} className="flex h-14 items-center justify-center rounded-full bg-wu-red px-8 font-semibold shadow-[0_14px_40px_-10px_rgba(228,6,19,.9)]">
                   {c.hero.primaryCta} →
                 </a>
               </Magnetic>
