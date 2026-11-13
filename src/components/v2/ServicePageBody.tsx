@@ -6,7 +6,7 @@ import { AwContact, AwNav } from "@/components/v2/Awaken";
 import { serviceChrome, serviceIds, servicePages, servicePath, servicesIndexPath } from "@/lib/service-pages";
 import type { ServiceId } from "@/lib/service-pages";
 
-function Breadcrumbs({ trail }: { trail: { name: string; href?: string }[] }) {
+export function Breadcrumbs({ trail }: { trail: { name: string; href?: string }[] }) {
   return (
     <nav aria-label="Breadcrumb" className="text-sm text-white/55">
       <ol className="flex flex-wrap gap-2">
@@ -30,7 +30,8 @@ function Breadcrumbs({ trail }: { trail: { name: string; href?: string }[] }) {
 }
 
 /** One service page (/services/<slug> or /ka/services/<slug>) in the current language. */
-export function ServicePageBody({ id }: { id: ServiceId }) {
+/** `blogLinks` are the posts that support this service, passed in so the post registry stays out of client code. */
+export function ServicePageBody({ id, blogLinks = [] }: { id: ServiceId; blogLinks?: { title: string; href: string }[] }) {
   const c = useCopy();
   const ui = serviceChrome[c.locale];
   const s = servicePages[id][c.locale];
@@ -106,6 +107,21 @@ export function ServicePageBody({ id }: { id: ServiceId }) {
             ))}
           </div>
         </section>
+
+        {blogLinks.length > 0 && (
+          <section className="mx-auto max-w-[1120px] px-4 pb-20 md:px-8">
+            <h2 className="font-display text-3xl">{ui.fromBlog}</h2>
+            <ul className="mt-6 grid gap-3">
+              {blogLinks.map((b) => (
+                <li key={b.href}>
+                  <a href={b.href} className="inline-flex min-h-11 items-center text-lg text-white/80 underline decoration-wu-red/60 underline-offset-4 hover:text-white">
+                    {b.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <section className="mx-auto max-w-[1120px] px-4 md:px-8">
           <h2 className="font-display text-3xl">{ui.related}</h2>
