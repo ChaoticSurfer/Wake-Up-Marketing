@@ -9,6 +9,8 @@ export type SiteCopy = {
   /** Path of this language's homepage; in-page anchors are resolved against it. */
   home: string
   contactPath: string
+  /** This language's blog index; src/lib/blog.ts builds every blog URL from it. */
+  blogPath: string
   nav: { label: string; href: string }[]
   navCta: string
   /** Link to the same page in the other language. */
@@ -80,7 +82,7 @@ export type SiteCopy = {
     receivedTitle: string
     received: (ref: string, email: string) => string
   }
-  footer: { contact: string; privacy: string }
+  footer: { contact: string; blog: string; privacy: string }
   homeMeta: { title: string; description: string }
   contactPage: { metaTitle: string; metaDescription: string; label: string; title: string; intro: string }
 }
@@ -101,6 +103,7 @@ export const resultRows = (labels: string[]): [string, string, string][] =>
 export const enCopy: SiteCopy = {
   home: '/',
   contactPath: '/contact',
+  blogPath: '/blog',
   nav,
   navCta: 'Free audit',
   languageSwitch: { label: 'კა', hrefLang: 'ka', name: 'ქართული' },
@@ -192,7 +195,7 @@ export const enCopy: SiteCopy = {
     receivedTitle: 'Request received',
     received: (ref, email) => `Reference ${ref}. We’ll email ${email} within one business day.`,
   },
-  footer: { contact: 'Contact', privacy: 'Privacy' },
+  footer: { contact: 'Contact', blog: 'Blog', privacy: 'Privacy' },
   homeMeta: {
     // "Georgia" alone matches the US state in English search; Tbilisi makes the market unambiguous.
     title: 'Marketing Agency in Tbilisi: SMM, Ads, SEO | WakeUP Marketing',
