@@ -83,7 +83,16 @@ export const postJsonLd = (post: BlogPost) => {
       inLanguage: post.locale,
       url,
       mainEntityOfPage: url,
-      author: { '@type': 'Organization', '@id': organization['@id'], name: organization.name, url: `${SITE_URL}${blogAuthorPath(post.locale)}` },
+      // The company as author. Its url is the author page (ProfilePage), which the byline also links.
+      author: {
+        '@type': 'Organization',
+        name: organization.name,
+        url: `${SITE_URL}${blogAuthorPath(post.locale)}`,
+        logo: organization.logo,
+        sameAs: organization.sameAs,
+        contactPoint: organization.contactPoint,
+        address: organization.address,
+      },
       publisher: { '@id': organization['@id'] },
     },
     breadcrumbJsonLd(post.locale, [blogCrumb(post.locale), { name: post.title, path: postPath(post) }]),
