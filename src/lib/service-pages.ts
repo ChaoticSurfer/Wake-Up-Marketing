@@ -61,9 +61,9 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'smm',
       name: 'სოციალური მედიის მართვა (SMM)',
-      metaTitle: 'სოციალური მედიის მართვა (SMM) თბილისში — ფასი',
+      metaTitle: 'სოციალური მედიის მართვა (SMM) — ფასი',
       metaDescription:
-        'SMM მომსახურება ქართული ბიზნესისთვის: სტრატეგია, კონტენტის შექმნა, Reels, გვერდების მართვა და რეკლამა. შედეგს ლიდებითა და გაყიდვებით ვზომავთ. ფასი 4 000 ₾-დან თვეში.',
+        'SMM მომსახურება ბიზნესისთვის: სტრატეგია, კონტენტის შექმნა, Reels, გვერდების მართვა და რეკლამა. შედეგს ლიდებითა და გაყიდვებით ვზომავთ. ფასი 4 000 ₾-დან თვეში.',
       h1: 'სოციალური მედიის მართვა (SMM)',
       intro:
         'თქვენს Facebook-ს, Instagram-ს, TikTok-სა და LinkedIn-ს გაყიდვების არხად ვმართავთ და არა უბრალოდ პოსტების გრაფიკად. ყოველთვიურად ხედავთ, რომელმა პოსტმა და კამპანიამ მოიტანა მომართვები.',
@@ -99,7 +99,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
       name: 'Meta and Google Ads',
       metaTitle: 'Facebook & Google Ads in Tbilisi',
       metaDescription:
-        'Facebook, Instagram and Google Ads managed against cost per lead and sales: campaign setup, creative testing, tracking and weekly optimisation. From ₾4k a month.',
+        'Facebook, Instagram and Google Ads run against cost per lead and sales: campaign setup, creative testing, tracking and weekly optimisation. From ₾4k a month.',
       h1: 'Meta and Google Ads management',
       intro:
         'We plan, launch and optimise ads on Facebook, Instagram and Google so that every lari of budget is judged by the leads and sales it brings.',
@@ -132,9 +132,9 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'reklama',
       name: 'რეკლამის მართვა (Meta, Google Ads)',
-      metaTitle: 'ფეისბუქ და Google რეკლამის მართვა — ფასი',
+      metaTitle: 'ფეისბუქ და Google რეკლამა — ფასი',
       metaDescription:
-        'ფეისბუქ, Instagram და Google Ads რეკლამის მართვა ლიდის ღირებულებასა და გაყიდვებზე ორიენტირებით: კამპანიების აწყობა, კრეატივის ტესტირება, ოპტიმიზაცია. მართვა 4 000 ₾-დან თვეში.',
+        'ფეისბუქ, Instagram და Google Ads რეკლამის მართვა ლიდის ღირებულებასა და გაყიდვებზე: კამპანიების აწყობა, კრეატივის ტესტირება, ოპტიმიზაცია. ფასი 4 000 ₾-დან თვეში.',
       h1: 'ფეისბუქ და Google რეკლამის მართვა',
       intro:
         'ვგეგმავთ, ვუშვებთ და ვაოპტიმიზებთ რეკლამას Facebook-ზე, Instagram-სა და Google-ში, რომ ბიუჯეტის ყოველი ლარი იმით შეფასდეს, რამდენ ლიდსა და გაყიდვას მოიტანს.',
@@ -203,7 +203,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'seo',
       name: 'SEO ოპტიმიზაცია',
-      metaTitle: 'SEO ოპტიმიზაცია თბილისში — ფასი და მომსახურება',
+      metaTitle: 'SEO ოპტიმიზაცია თბილისში — ფასი',
       metaDescription:
         'SEO მომსახურება ქართულ და ინგლისურ ენებზე: ტექნიკური SEO, საკვანძო სიტყვების კვლევა, კონტენტი და ლოკალური SEO. ერთჯერადი SEO აუდიტი 5 000 ₾-დან.',
       h1: 'SEO ოპტიმიზაცია',
@@ -336,7 +336,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'brendingi',
       name: 'ბრენდინგი და პოზიციონირება',
-      metaTitle: 'ბრენდინგი და ლოგოს დიზაინი თბილისში — ფასი',
+      metaTitle: 'ბრენდინგი და ლოგოს დიზაინი — ფასი',
       metaDescription:
         'ბრენდინგი და რებრენდინგი ქართული კომპანიებისთვის: პოზიციონირება, მესიჯები, ლოგოს დიზაინი და ბრენდბუქი. ფასი 5 000 ₾-დან.',
       h1: 'ბრენდინგი და პოზიციონირება',
@@ -441,7 +441,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     en: {
       slug: 'ai-automation',
       name: 'AI automation and chatbots',
-      metaTitle: 'AI Automation Agency in Tbilisi: Chatbots & Workflows',
+      metaTitle: 'AI Chatbot & Automation Agency in Tbilisi',
       metaDescription:
         'AI chatbots for Messenger, Instagram, WhatsApp and your website that answer in Georgian and English, plus lead and CRM automation. From ₾5k.',
       h1: 'AI automation and chatbots for business',
@@ -479,7 +479,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'ai-chatbotebi',
       name: 'AI ჩატბოტები და ავტომატიზაცია',
-      metaTitle: 'ჩატბოტის შექმნა და AI ავტომატიზაცია თბილისში — ფასი',
+      metaTitle: 'AI ჩატბოტის შექმნა თბილისში — ფასი',
       metaDescription:
         'AI ჩატბოტები Messenger-ის, Instagram-ის, WhatsApp-ისა და საიტისთვის, რომლებიც ქართულად პასუხობს, და ლიდების ავტომატური გადაცემა CRM-ში. ფასი 5 000 ₾-დან.',
       h1: 'ჩატბოტის შექმნა და AI ავტომატიზაცია',
@@ -521,7 +521,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     en: {
       slug: 'ai-calling',
       name: 'AI calling: inbound and outbound',
-      metaTitle: 'AI Voice Agents in Tbilisi: Inbound & Outbound Sales Calls',
+      metaTitle: 'AI Voice Agents for Sales Calls in Tbilisi',
       metaDescription:
         'AI voice agents that answer calls in Georgian and English 24/7 and call new leads back within minutes to qualify them and book meetings. Set-up from ₾5k.',
       h1: 'AI calling for inbound calls and outbound sales',
@@ -559,9 +559,9 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'ai-khmovani-asistenti',
       name: 'AI ზარები და ხმოვანი ასისტენტი',
-      metaTitle: 'AI ხმოვანი ასისტენტი ზარებისა და გაყიდვებისთვის — ფასი',
+      metaTitle: 'ქართული AI ხმოვანი ასისტენტი — ფასი',
       metaDescription:
-        'ქართული AI ხმოვანი ასისტენტი, რომელიც შემომავალ ზარებს 24/7 პასუხობს, ახალ ლიდებს რამდენიმე წუთში ურეკავს, აკვალიფიცირებს და შეხვედრას უნიშნავს. ფასი 5 000 ₾-დან.',
+        'ქართული AI ხმოვანი ასისტენტი, რომელიც ზარებს 24/7 პასუხობს, ახალ ლიდებს რამდენიმე წუთში ურეკავს, აკვალიფიცირებს და შეხვედრას უნიშნავს. ფასი 5 000 ₾-დან.',
       h1: 'AI ხმოვანი ასისტენტი ზარებისა და გაყიდვებისთვის',
       intro:
         'AI ხმოვანი ასისტენტი ყველა ზარს ქართულად და ინგლისურად პასუხობს: კითხვებზე პასუხობს, ვიზიტს ჯავშნის და მზად მყოფ მყიდველს თქვენს გუნდს გადასცემს. გაყიდვებისთვის ახალ ლიდებს ფორმიდან ან რეკლამიდან მომართვის შემდეგ რამდენიმე წუთში ურეკავს, აკვალიფიცირებს და გაყიდვების გუნდთან შეხვედრას უნიშნავს.',
@@ -601,7 +601,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     en: {
       slug: 'content-creation',
       name: 'Content creation',
-      metaTitle: 'Content Creation Agency in Tbilisi: Photo, Video & Copy',
+      metaTitle: 'Content Creation Agency in Tbilisi',
       metaDescription:
         'Content creation for Georgian brands: photo shoots, Reels, design and copy in Georgian and English, made for social media and ads. From ₾4k a month.',
       h1: 'Content creation for social media and ads',
@@ -635,7 +635,7 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
     ka: {
       slug: 'kontentis-sheqmna',
       name: 'კონტენტის შექმნა',
-      metaTitle: 'კონტენტის შექმნა სოციალური მედიისა და რეკლამისთვის — ფასი',
+      metaTitle: 'კონტენტის შექმნა თბილისში — ფასი',
       metaDescription:
         'კონტენტის შექმნა ქართული ბრენდებისთვის: ფოტოგადაღება, Reels და ვიდეო, დიზაინი და ტექსტები ქართულად და ინგლისურად. ფასი 4 000 ₾-დან თვეში.',
       h1: 'კონტენტის შექმნა სოციალური მედიისა და რეკლამისთვის',
@@ -710,7 +710,7 @@ export const serviceChrome: Record<
     cta: 'Get a free marketing audit',
     indexMetaTitle: 'Marketing Services in Tbilisi',
     indexMetaDescription:
-      'SMM, content creation, Meta and Google Ads, SEO, websites, branding, video, AI chatbots and AI calling for mid-sized Georgian companies. Prices published upfront.',
+      'SMM, content creation, Meta and Google Ads, SEO, websites, branding, video, AI chatbots and AI calling for mid-sized Georgian companies. Published prices.',
     indexH1: 'Marketing services for mid-sized businesses',
     indexIntro: 'One team runs every service against one plan and one report. Pick what you need now, or start with a free audit.',
     allServices: 'All services →',
@@ -734,7 +734,7 @@ export const serviceChrome: Record<
     cta: 'მიიღეთ უფასო მარკეტინგული აუდიტი',
     indexMetaTitle: 'მარკეტინგული სერვისები თბილისში',
     indexMetaDescription:
-      'SMM, კონტენტის შექმნა, რეკლამის მართვა, SEO ოპტიმიზაცია, საიტის დამზადება, ბრენდინგი, ვიდეო, AI ჩატბოტები და AI ზარები საშუალო ბიზნესისთვის. ფასები ღიად არის მითითებული.',
+      'SMM, კონტენტის შექმნა, რეკლამის მართვა, SEO ოპტიმიზაცია, საიტის დამზადება, ბრენდინგი, ვიდეო, AI ჩატბოტები და AI ზარები საშუალო ბიზნესისთვის. ფასები ღიაა.',
     indexH1: 'მარკეტინგული სერვისები საშუალო ბიზნესისთვის',
     indexIntro: 'ყველა სერვისს ერთი გუნდი მართავს ერთიანი გეგმითა და ერთი რეპორტით. აირჩიეთ ის, რაც ახლა გჭირდებათ, ან დავიწყოთ უფასო აუდიტით.',
     allServices: 'ყველა სერვისი →',
