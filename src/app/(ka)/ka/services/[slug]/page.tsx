@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocaleProvider } from "@/components/shared/LocaleProvider";
 import { ServicePageBody } from "@/components/v2/ServicePageBody";
+import { blogLinksForService } from "@/lib/blog";
 import { serviceBySlug, serviceIds, servicePages, servicePath } from "@/lib/service-pages";
 import { jsonLdHtml, serviceJsonLd, serviceMetadata } from "@/lib/service-routes";
 
@@ -25,7 +26,7 @@ export default async function ServicePage({ params }: Props) {
   return (
     <LocaleProvider locale="ka" alternatePath={servicePath(id, "en")}>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(serviceJsonLd(id, "ka"))} />
-      <ServicePageBody id={id} />
+      <ServicePageBody id={id} blogLinks={blogLinksForService(id, "ka")} />
     </LocaleProvider>
   );
 }

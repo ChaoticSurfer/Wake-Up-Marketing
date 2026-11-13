@@ -28,7 +28,7 @@ export const servicesIndexMetadata = (locale: Locale): Metadata => {
 const homePath: Record<Locale, string> = { en: '/', ka: '/ka' }
 
 /** BreadcrumbList from this language's homepage through `trail`, matching the breadcrumbs shown on the page. */
-const breadcrumbJsonLd = (locale: Locale, trail: { name: string; path: string }[]) => ({
+export const breadcrumbJsonLd = (locale: Locale, trail: { name: string; path: string }[]) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [{ name: serviceChrome[locale].home, path: homePath[locale] }, ...trail].map((crumb, i) => ({

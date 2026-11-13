@@ -766,6 +766,7 @@ export const serviceChrome: Record<
     seePlans: string
     faq: string
     related: string
+    fromBlog: string
     cta: string
     indexMetaTitle: string
     indexMetaDescription: string
@@ -790,6 +791,7 @@ export const serviceChrome: Record<
     seePlans: 'See all plans',
     faq: 'Questions',
     related: 'Other services',
+    fromBlog: 'From the blog',
     cta: 'Get a free marketing audit',
     indexMetaTitle: 'Marketing Services in Tbilisi',
     indexMetaDescription:
@@ -814,6 +816,7 @@ export const serviceChrome: Record<
     seePlans: 'ყველა პაკეტი',
     faq: 'ხშირი კითხვები',
     related: 'სხვა სერვისები',
+    fromBlog: 'ბლოგიდან',
     cta: 'მიიღეთ უფასო მარკეტინგული აუდიტი',
     indexMetaTitle: 'მარკეტინგული სერვისები თბილისში',
     indexMetaDescription:
