@@ -87,6 +87,8 @@ export const blogChrome: Record<
     serviceLink: string
     cta: string
     authorName: string
+    /** The author page's <title>; the byline name alone would repeat the site suffix. */
+    authorMetaTitle: string
     authorMetaDescription: string
     authorIntro: string
     authorPosts: string
@@ -107,6 +109,7 @@ export const blogChrome: Record<
     serviceLink: 'See the service',
     cta: 'Get a free marketing audit',
     authorName: 'WakeUP Marketing',
+    authorMetaTitle: 'Articles and Guides',
     authorMetaDescription: 'Articles by WakeUP Marketing, a marketing agency in Tbilisi for mid-sized Georgian companies.',
     authorIntro:
       'WakeUP Marketing is a marketing agency in Tbilisi. One team runs SMM, advertising, SEO, websites, AI chatbots and AI calling for Georgian companies with 20–250 people, and reports results in leads and sales.',
@@ -127,6 +130,7 @@ export const blogChrome: Record<
     serviceLink: 'სერვისის ნახვა',
     cta: 'მიიღეთ უფასო მარკეტინგული აუდიტი',
     authorName: 'WakeUP Marketing',
+    authorMetaTitle: 'სტატიები და გზამკვლევები',
     authorMetaDescription: 'WakeUP Marketing-ის სტატიები. მარკეტინგული სააგენტო თბილისში საშუალო ზომის ქართული კომპანიებისთვის.',
     authorIntro:
       'WakeUP Marketing თბილისში მოქმედი მარკეტინგული სააგენტოა. ერთი გუნდი მართავს SMM-ს, რეკლამას, SEO ოპტიმიზაციას, საიტებს, AI ჩატბოტებსა და AI ზარებს ქართული კომპანიებისთვის 20–250 თანამშრომლით, ხოლო შედეგს ლიდებითა და გაყიდვებით ვზომავთ.',

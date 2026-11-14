@@ -27,10 +27,10 @@ export const blogAuthorMetadata = (locale: Locale): Metadata => {
   const ui = blogChrome[locale]
   const path = blogAuthorPath(locale)
   return {
-    title: ui.authorName,
+    title: ui.authorMetaTitle,
     description: ui.authorMetaDescription,
     alternates: bilingualAlternates(path, blogAuthorPath('en'), blogAuthorPath('ka')),
-    openGraph: { type: 'profile', siteName: SITE_NAME, locale: ogLocale[locale], images: ['/opengraph-image'], url: path, title: ui.authorName, description: ui.authorMetaDescription },
+    openGraph: { type: 'profile', siteName: SITE_NAME, locale: ogLocale[locale], images: ['/opengraph-image'], url: path, title: ui.authorMetaTitle, description: ui.authorMetaDescription },
   }
 }
 
@@ -57,17 +57,23 @@ const blogCrumb = (locale: Locale) => ({ name: blogChrome[locale].blog, path: bl
 
 export const blogIndexJsonLd = (locale: Locale) => breadcrumbJsonLd(locale, [blogCrumb(locale)])
 
-/** ProfilePage for the author page: the company is the author of every post. */
-export const blogAuthorJsonLd = (locale: Locale) => [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'ProfilePage',
-    url: `${SITE_URL}${blogAuthorPath(locale)}`,
-    inLanguage: locale,
-    mainEntity: organization,
-  },
-  breadcrumbJsonLd(locale, [blogCrumb(locale), { name: blogChrome[locale].authorName, path: blogAuthorPath(locale) }]),
-]
+/** ProfilePage for the author page: the company is the author of every post. The page dates from its first post and
+ * changes whenever a post is added or updated. */
+export const blogAuthorJsonLd = (locale: Locale) => {
+  const posts = postsIn(locale)
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ProfilePage',
+      url: `${SITE_URL}${blogAuthorPath(locale)}`,
+      inLanguage: locale,
+      dateCreated: posts.reduce((first, p) => (p.publishedAt < first ? p.publishedAt : first), posts[0].publishedAt),
+      dateModified: posts.reduce((last, p) => (p.updatedAt > last ? p.updatedAt : last), posts[0].updatedAt),
+      mainEntity: organization,
+    },
+    breadcrumbJsonLd(locale, [blogCrumb(locale), { name: blogChrome[locale].authorName, path: blogAuthorPath(locale) }]),
+  ]
+}
 
 export const postJsonLd = (post: BlogPost) => {
   const url = `${SITE_URL}${postPath(post)}`
