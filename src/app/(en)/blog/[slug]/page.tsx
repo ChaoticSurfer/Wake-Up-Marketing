@@ -8,8 +8,9 @@ import { jsonLdHtml } from "@/lib/service-routes";
 
 type Props = { params: Promise<{ slug: string }> };
 
-// Only the listed posts exist; any other slug is a 404.
-export const dynamicParams = false;
+// Live posts are built ahead; a scheduled post renders on its first request after its publish time, and any
+// other slug is a 404. Pages are rebuilt hourly so related-post lists pick up new posts.
+export const revalidate = 3600;
 
 export function generateStaticParams() {
   return postsIn("en").map((p) => ({ slug: p.slug }));

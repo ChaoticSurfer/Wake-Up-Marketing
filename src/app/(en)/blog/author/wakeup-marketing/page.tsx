@@ -6,6 +6,9 @@ import { blogAuthorPath, postsIn } from "@/lib/blog";
 import { blogAuthorJsonLd, blogAuthorMetadata } from "@/lib/blog-routes";
 import { jsonLdHtml } from "@/lib/service-routes";
 
+// Rebuilt hourly so a scheduled post appears within an hour of its publish time.
+export const revalidate = 3600;
+
 export const metadata: Metadata = blogAuthorMetadata("en");
 
 export default function BlogAuthorPage() {

@@ -11,6 +11,9 @@ type Props = { params: Promise<{ slug: string }> };
 // Only the listed services exist; any other slug is a 404.
 export const dynamicParams = false;
 
+// Rebuilt hourly so the "From the blog" links pick up scheduled posts.
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   return serviceIds.map((id) => ({ slug: servicePages[id].en.slug }));
 }

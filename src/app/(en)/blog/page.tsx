@@ -6,6 +6,9 @@ import { blogIndexPath, postsIn } from "@/lib/blog";
 import { blogIndexJsonLd, blogIndexMetadata } from "@/lib/blog-routes";
 import { jsonLdHtml } from "@/lib/service-routes";
 
+// Rebuilt hourly so a scheduled post appears within an hour of its publish time.
+export const revalidate = 3600;
+
 export const metadata: Metadata = blogIndexMetadata("en");
 
 export default function BlogIndex() {

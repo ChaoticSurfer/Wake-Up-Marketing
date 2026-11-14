@@ -1,7 +1,7 @@
 import { blogFeedXml } from "@/lib/blog-routes";
 
-// Built once per deploy: the feed only changes when a post ships.
-export const dynamic = "force-static";
+// Rebuilt hourly so a scheduled post joins the feed within an hour of its publish time.
+export const revalidate = 3600;
 
 export function GET() {
   return new Response(blogFeedXml("en"), { headers: { "Content-Type": "application/rss+xml; charset=utf-8" } });
