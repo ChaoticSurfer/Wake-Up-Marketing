@@ -1,0 +1,26 @@
+name: IndexNow scheduled posts
+
+# GitHub runs scheduled workflows only from the repository's default branch, so this copy lives here while the site
+# itself deploys from main. It checks out main and runs main's script.
+# Blog posts go live at their publish time (10:00 and 16:00 Tbilisi) without a deploy, and the sitemap is rebuilt
+# hourly. About an hour after each slot, submit the URLs whose lastmod falls in the last 5 hours.
+# 07:15 and 13:15 UTC = 11:15 and 17:15 Tbilisi (UTC+4, no daylight saving).
+
+on:
+  schedule:
+    - cron: "15 7 * * *"
+    - cron: "15 13 * * *"
+  workflow_dispatch:
+
+jobs:
+  submit:
+    name: Submit recently published URLs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: node scripts/indexnow.mjs --since-hours 5
