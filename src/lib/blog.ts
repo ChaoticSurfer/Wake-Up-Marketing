@@ -41,9 +41,14 @@ export const blogFeedPath = (locale: Locale) => `${blogPrefix[locale]}/rss.xml`
 export const blogAuthorPath = (locale: Locale) => `${blogPrefix[locale]}/author/wakeup-marketing`
 export const postPath = (post: BlogPost) => `${blogPrefix[post.locale]}/${post.slug}`
 
-/** Posts in one language, newest first. */
+/** A post goes live at its publishedAt instant. Until then every page, list, feed and the sitemap leave it out. */
+const isLive = (post: BlogPost) => Date.parse(post.publishedAt) <= Date.now()
+
+/** Live posts in one language, newest first. */
 export const postsIn = (locale: Locale) =>
-  blogPosts.filter((p) => p.locale === locale).sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
+  blogPosts
+    .filter((p) => p.locale === locale && isLive(p))
+    .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
 
 export const postBySlug = (locale: Locale, slug: string) => postsIn(locale).find((p) => p.slug === slug)
 
