@@ -109,11 +109,11 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
   smm: {
     en: {
       slug: 'smm',
-      name: 'Social media marketing (SMM)',
-      metaTitle: 'Social Media Marketing (SMM) in Tbilisi',
+      name: 'Social media management (SMM)',
+      metaTitle: 'SMM Agency in Tbilisi: Social Media Management',
       metaDescription:
-        'SMM for Georgian businesses: strategy, content, Reels and video, page management and paid social, reported in leads and sales. From ₾4k a month.',
-      h1: 'Social media marketing (SMM) in Tbilisi',
+        'SMM agency for Georgian businesses: social media management, strategy, content, Reels and video, and paid social, reported in leads and sales. From ₾4k a month.',
+      h1: 'Social media marketing and management (SMM) in Tbilisi',
       intro:
         'We run your Facebook, Instagram, TikTok and LinkedIn as a sales channel, not a posting schedule. Every month you see which posts and campaigns brought enquiries.',
       included: [
@@ -179,11 +179,11 @@ export const servicePages: Record<ServiceId, Record<Locale, ServiceText>> = {
   advertising: {
     en: {
       slug: 'advertising',
-      name: 'Meta and Google Ads',
+      name: 'Advertising: Meta and Google Ads',
       metaTitle: 'Facebook & Google Ads in Tbilisi',
       metaDescription:
         'Facebook, Instagram and Google Ads run against cost per lead and sales: campaign setup, creative testing, tracking and weekly optimisation. From ₾4k a month.',
-      h1: 'Meta and Google Ads management',
+      h1: 'Advertising: Meta and Google Ads management',
       intro:
         'We plan, launch and optimise ads on Facebook, Instagram and Google so that every lari of budget is judged by the leads and sales it brings.',
       included: [

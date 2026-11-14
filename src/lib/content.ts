@@ -50,7 +50,7 @@ export const pains = [
 export const services = [
   {
     code: 'S-01',
-    title: 'Paid Ads (Meta & Google)',
+    title: 'Advertising (Meta & Google Ads)',
     text: 'Google, Meta and LinkedIn campaigns run against pipeline and cost per acquisition.',
     tags: ['Google Ads', 'Meta', 'LinkedIn'],
   },
@@ -62,7 +62,7 @@ export const services = [
   },
   {
     code: 'S-03',
-    title: 'Social Media Marketing (SMM)',
+    title: 'Social Media Management (SMM)',
     text: 'Always-on content, video and social for the channels your buyers actually use.',
     tags: ['Video', 'Social', 'Thought leadership'],
   },
