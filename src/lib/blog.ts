@@ -164,7 +164,7 @@ export const blogChrome: Record<
     page: 'page',
     pagination: 'Pages',
     topics: 'Topics',
-    topicMetaTitle: (service) => `${service}: Articles and Guides`,
+    topicMetaTitle: (service) => `${service} – Blog`,
   },
   ka: {
     home: 'მთავარი',
@@ -189,6 +189,6 @@ export const blogChrome: Record<
     page: 'გვერდი',
     pagination: 'გვერდები',
     topics: 'თემები',
-    topicMetaTitle: (service) => `${service}: სტატიები და გზამკვლევები`,
+    topicMetaTitle: (service) => `${service} – ბლოგი`,
   },
 }
