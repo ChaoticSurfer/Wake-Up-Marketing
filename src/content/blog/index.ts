@@ -257,6 +257,118 @@ import { post as isMySeoAgencyWorking } from '@/content/blog/en/is-my-seo-agency
 import { post as howToDefineBrandVoice } from '@/content/blog/en/how-to-define-brand-voice'
 import { post as websiteCrmIntegration } from '@/content/blog/en/website-crm-integration'
 import { post as companyCultureVideoIdeas } from '@/content/blog/en/company-culture-video-ideas'
+import { post as howToWriteACaseStudy } from '@/content/blog/en/how-to-write-a-case-study'
+import { post as seoVsGeo } from '@/content/blog/en/seo-vs-geo'
+import { post as whatToPutOnAHomepage } from '@/content/blog/en/what-to-put-on-a-homepage'
+import { post as marketplaceVsOwnOnlineStore } from '@/content/blog/en/marketplace-vs-own-online-store'
+import { post as facebookAdCreativeBestPractices } from '@/content/blog/en/facebook-ad-creative-best-practices'
+import { post as contentCreatorVsAgency } from '@/content/blog/en/content-creator-vs-agency'
+import { post as youtubeForBusiness } from '@/content/blog/en/youtube-for-business'
+import { post as whatsappMarketing } from '@/content/blog/en/whatsapp-marketing'
+import { post as onlineBookingSystemForWebsite } from '@/content/blog/en/online-booking-system-for-website'
+import { post as shortFormVideoStrategy } from '@/content/blog/en/short-form-video-strategy'
+import { post as seoRoi } from '@/content/blog/en/seo-roi'
+import { post as tourCompanyMarketing } from '@/content/blog/en/tour-company-marketing'
+import { post as howToWriteValueProposition } from '@/content/blog/en/how-to-write-value-proposition'
+import { post as responsiveSearchAdsCopy } from '@/content/blog/en/responsive-search-ads-copy'
+import { post as howToShootBusinessVideosWithPhone } from '@/content/blog/en/how-to-shoot-business-videos-with-phone'
+import { post as goodBounceRate } from '@/content/blog/en/good-bounce-rate'
+import { post as roasVsRoi } from '@/content/blog/en/roas-vs-roi'
+import { post as getBusinessRecommendedByChatgpt } from '@/content/blog/en/get-business-recommended-by-chatgpt'
+import { post as aiMarketingAutomationSmallBusiness } from '@/content/blog/en/ai-marketing-automation-small-business'
+import { post as repurposeVideoContentForSocialMedia } from '@/content/blog/en/repurpose-video-content-for-social-media'
+import { post as bestTimeToPostOnSocialMedia } from '@/content/blog/en/best-time-to-post-on-social-media'
+import { post as websiteMigrationSeo } from '@/content/blog/en/website-migration-seo'
+import { post as facebookAdCopyExamples } from '@/content/blog/en/facebook-ad-copy-examples'
+import { post as b2bMarketingStrategy } from '@/content/blog/en/b2b-marketing-strategy'
+import { post as seoVsSocialMediaMarketing } from '@/content/blog/en/seo-vs-social-media-marketing'
+import { post as socialMediaContentPillars } from '@/content/blog/en/social-media-content-pillars'
+import { post as removeFakeGoogleReviews } from '@/content/blog/en/remove-fake-google-reviews'
+import { post as mobileFriendlyWebsiteChecklist } from '@/content/blog/en/mobile-friendly-website-checklist'
+import { post as brandStrategyFramework } from '@/content/blog/en/brand-strategy-framework'
+import { post as websiteNotShowingOnGoogle } from '@/content/blog/en/website-not-showing-on-google'
+import { post as googleAdsConversionTracking } from '@/content/blog/en/google-ads-conversion-tracking'
+import { post as b2bContentMarketingStrategy } from '@/content/blog/en/b2b-content-marketing-strategy'
+import { post as wireframeVsMockupVsPrototype } from '@/content/blog/en/wireframe-vs-mockup-vs-prototype'
+import { post as negativeCommentsOnSocialMedia } from '@/content/blog/en/negative-comments-on-social-media'
+import { post as ecommerceEmailFlows } from '@/content/blog/en/ecommerce-email-flows'
+import { post as howToSwitchSeoAgencies } from '@/content/blog/en/how-to-switch-seo-agencies'
+import { post as corporateWebsiteRequirements } from '@/content/blog/en/corporate-website-requirements'
+import { post as customerRetentionStrategies } from '@/content/blog/en/customer-retention-strategies'
+import { post as howToAbTestFacebookAds } from '@/content/blog/en/how-to-ab-test-facebook-ads'
+import { post as realEstateMarketingIdeas } from '@/content/blog/en/real-estate-marketing-ideas'
+import { post as smmStrategia } from '@/content/blog/ka/smm-strategia'
+import { post as websiteRedesignVsRebuild } from '@/content/blog/en/website-redesign-vs-rebuild'
+import { post as internalLinkingSeo } from '@/content/blog/en/internal-linking-seo'
+import { post as goToMarketStrategy } from '@/content/blog/en/go-to-market-strategy'
+import { post as howToCalculateCustomerAcquisitionCost } from '@/content/blog/en/how-to-calculate-customer-acquisition-cost'
+import { post as socialMediaCrisisPlan } from '@/content/blog/en/social-media-crisis-plan'
+import { post as staticVsDynamicWebsite } from '@/content/blog/en/static-vs-dynamic-website'
+import { post as googleAdsBiddingStrategies } from '@/content/blog/en/google-ads-bidding-strategies'
+import { post as aiEmailMarketingAutomation } from '@/content/blog/en/ai-email-marketing-automation'
+import { post as buyingBacklinksRisks } from '@/content/blog/en/buying-backlinks-risks'
+import { post as howToImproveLeadQuality } from '@/content/blog/en/how-to-improve-lead-quality'
+import { post as websiteInformationArchitecture } from '@/content/blog/en/website-information-architecture'
+import { post as personalBrandingForFounders } from '@/content/blog/en/personal-branding-for-founders'
+import { post as howToChooseSeoAgency } from '@/content/blog/en/how-to-choose-seo-agency'
+import { post as metaAdvantagePlusCampaigns } from '@/content/blog/en/meta-advantage-plus-campaigns'
+import { post as copywritingFormulas } from '@/content/blog/en/copywriting-formulas'
+import { post as b2bWebsiteDesignComplexProducts } from '@/content/blog/en/b2b-website-design-complex-products'
+import { post as howToGetMoreProductReviews } from '@/content/blog/en/how-to-get-more-product-reviews'
+import { post as microVsMacroInfluencers } from '@/content/blog/en/micro-vs-macro-influencers'
+import { post as howToMeasureSeoResults } from '@/content/blog/en/how-to-measure-seo-results'
+import { post as emailListSegmentation } from '@/content/blog/en/email-list-segmentation'
+import { post as googleAdsLandingPageBestPractices } from '@/content/blog/en/google-ads-landing-page-best-practices'
+import { post as realEstateListingMarketingPlan } from '@/content/blog/en/real-estate-listing-marketing-plan'
+import { post as keywordCannibalization } from '@/content/blog/en/keyword-cannibalization'
+import { post as howToCalculateCustomerLifetimeValue } from '@/content/blog/en/how-to-calculate-customer-lifetime-value'
+import { post as aiMarketingMistakesToAvoid } from '@/content/blog/en/ai-marketing-mistakes-to-avoid'
+import { post as broadVsInterestTargetingFacebookAds } from '@/content/blog/en/broad-vs-interest-targeting-facebook-ads'
+import { post as goodSocialMediaEngagementRate } from '@/content/blog/en/good-social-media-engagement-rate'
+import { post as whatIsEeat } from '@/content/blog/en/what-is-eeat'
+import { post as howToDoABrandAudit } from '@/content/blog/en/how-to-do-a-brand-audit'
+import { post as howToWriteHeadlines } from '@/content/blog/en/how-to-write-headlines'
+import { post as ecommerceMarketingStrategy } from '@/content/blog/en/ecommerce-marketing-strategy'
+import { post as googleAdsAccountStructure } from '@/content/blog/en/google-ads-account-structure'
+import { post as whatsappBusinessAppVsApi } from '@/content/blog/en/whatsapp-business-app-vs-api'
+import { post as dentalMarketingIdeas } from '@/content/blog/en/dental-marketing-ideas'
+import { post as howOftenToPostOnSocialMedia } from '@/content/blog/en/how-often-to-post-on-social-media'
+import { post as ltvToCacRatio } from '@/content/blog/en/ltv-to-cac-ratio'
+import { post as cboVsAboFacebookAds } from '@/content/blog/en/cbo-vs-abo-facebook-ads'
+import { post as howToWriteABrandStory } from '@/content/blog/en/how-to-write-a-brand-story'
+import { post as userGeneratedContentForBusiness } from '@/content/blog/en/user-generated-content-for-business'
+import { post as ecommerceCategoryPageSeo } from '@/content/blog/en/ecommerce-category-page-seo'
+import { post as googleAdsBenchmarks } from '@/content/blog/en/google-ads-benchmarks'
+import { post as emailsGoingToSpam } from '@/content/blog/en/emails-going-to-spam'
+import { post as medicalClinicMarketing } from '@/content/blog/en/medical-clinic-marketing'
+import { post as rogorShevqmnatLogo } from '@/content/blog/ka/rogor-shevqmnat-logo'
+import { post as trackFormSubmissionsGa4 } from '@/content/blog/en/track-form-submissions-ga4'
+import { post as facebookAdsLearningLimited } from '@/content/blog/en/facebook-ads-learning-limited'
+import { post as contentDistributionStrategy } from '@/content/blog/en/content-distribution-strategy'
+import { post as increaseAverageOrderValue } from '@/content/blog/en/increase-average-order-value'
+import { post as marketingAutomationWorkflows } from '@/content/blog/en/marketing-automation-workflows'
+import { post as googleAdsAssetsExtensions } from '@/content/blog/en/google-ads-assets-extensions'
+import { post as beautySalonMarketingIdeas } from '@/content/blog/en/beauty-salon-marketing-ideas'
+import { post as trackOfflineSalesFromOnlineMarketing } from '@/content/blog/en/track-offline-sales-from-online-marketing'
+import { post as howToDoAContentAudit } from '@/content/blog/en/how-to-do-a-content-audit'
+import { post as clickToWhatsappAds } from '@/content/blog/en/click-to-whatsapp-ads'
+import { post as increaseRepeatPurchases } from '@/content/blog/en/increase-repeat-purchases'
+import { post as crmSetupChecklist } from '@/content/blog/en/crm-setup-checklist'
+import { post as languageSchoolMarketing } from '@/content/blog/en/language-school-marketing'
+import { post as googleDemandGenCampaigns } from '@/content/blog/en/google-demand-gen-campaigns'
+import { post as lookerStudioMarketingDashboard } from '@/content/blog/en/looker-studio-marketing-dashboard'
+import { post as howToWriteAnAboutUsPage } from '@/content/blog/en/how-to-write-an-about-us-page'
+import { post as emailSubjectLines } from '@/content/blog/en/email-subject-lines'
+import { post as trackFacebookAdsUtmParameters } from '@/content/blog/en/track-facebook-ads-utm-parameters'
+import { post as marketingReportTemplate } from '@/content/blog/en/marketing-report-template'
+import { post as howToCollectCustomerTestimonials } from '@/content/blog/en/how-to-collect-customer-testimonials'
+import { post as googleTagManagerBasics } from '@/content/blog/en/google-tag-manager-basics'
+import { post as googleAdsKeywordResearch } from '@/content/blog/en/google-ads-keyword-research'
+import { post as howToWriteACallToAction } from '@/content/blog/en/how-to-write-a-call-to-action'
+import { post as ga4DirectAndUnassignedTraffic } from '@/content/blog/en/ga4-direct-and-unassigned-traffic'
+import { post as contentMarketingRoi } from '@/content/blog/en/content-marketing-roi'
+import { post as facebookAdLibraryCompetitorResearch } from '@/content/blog/en/facebook-ad-library-competitor-research'
+import { post as howToMeasureBrandAwareness } from '@/content/blog/en/how-to-measure-brand-awareness'
 
 export const blogPosts: BlogPost[] = [
   aiChatbotCost,
@@ -516,4 +628,116 @@ export const blogPosts: BlogPost[] = [
   howToDefineBrandVoice,
   websiteCrmIntegration,
   companyCultureVideoIdeas,
+  howToWriteACaseStudy,
+  seoVsGeo,
+  whatToPutOnAHomepage,
+  marketplaceVsOwnOnlineStore,
+  facebookAdCreativeBestPractices,
+  contentCreatorVsAgency,
+  youtubeForBusiness,
+  whatsappMarketing,
+  onlineBookingSystemForWebsite,
+  shortFormVideoStrategy,
+  seoRoi,
+  tourCompanyMarketing,
+  howToWriteValueProposition,
+  responsiveSearchAdsCopy,
+  howToShootBusinessVideosWithPhone,
+  goodBounceRate,
+  roasVsRoi,
+  getBusinessRecommendedByChatgpt,
+  aiMarketingAutomationSmallBusiness,
+  repurposeVideoContentForSocialMedia,
+  bestTimeToPostOnSocialMedia,
+  websiteMigrationSeo,
+  facebookAdCopyExamples,
+  b2bMarketingStrategy,
+  seoVsSocialMediaMarketing,
+  socialMediaContentPillars,
+  removeFakeGoogleReviews,
+  mobileFriendlyWebsiteChecklist,
+  brandStrategyFramework,
+  websiteNotShowingOnGoogle,
+  googleAdsConversionTracking,
+  b2bContentMarketingStrategy,
+  wireframeVsMockupVsPrototype,
+  negativeCommentsOnSocialMedia,
+  ecommerceEmailFlows,
+  howToSwitchSeoAgencies,
+  corporateWebsiteRequirements,
+  customerRetentionStrategies,
+  howToAbTestFacebookAds,
+  realEstateMarketingIdeas,
+  smmStrategia,
+  websiteRedesignVsRebuild,
+  internalLinkingSeo,
+  goToMarketStrategy,
+  howToCalculateCustomerAcquisitionCost,
+  socialMediaCrisisPlan,
+  staticVsDynamicWebsite,
+  googleAdsBiddingStrategies,
+  aiEmailMarketingAutomation,
+  buyingBacklinksRisks,
+  howToImproveLeadQuality,
+  websiteInformationArchitecture,
+  personalBrandingForFounders,
+  howToChooseSeoAgency,
+  metaAdvantagePlusCampaigns,
+  copywritingFormulas,
+  b2bWebsiteDesignComplexProducts,
+  howToGetMoreProductReviews,
+  microVsMacroInfluencers,
+  howToMeasureSeoResults,
+  emailListSegmentation,
+  googleAdsLandingPageBestPractices,
+  realEstateListingMarketingPlan,
+  keywordCannibalization,
+  howToCalculateCustomerLifetimeValue,
+  aiMarketingMistakesToAvoid,
+  broadVsInterestTargetingFacebookAds,
+  goodSocialMediaEngagementRate,
+  whatIsEeat,
+  howToDoABrandAudit,
+  howToWriteHeadlines,
+  ecommerceMarketingStrategy,
+  googleAdsAccountStructure,
+  whatsappBusinessAppVsApi,
+  dentalMarketingIdeas,
+  howOftenToPostOnSocialMedia,
+  ltvToCacRatio,
+  cboVsAboFacebookAds,
+  howToWriteABrandStory,
+  userGeneratedContentForBusiness,
+  ecommerceCategoryPageSeo,
+  googleAdsBenchmarks,
+  emailsGoingToSpam,
+  medicalClinicMarketing,
+  rogorShevqmnatLogo,
+  trackFormSubmissionsGa4,
+  facebookAdsLearningLimited,
+  contentDistributionStrategy,
+  increaseAverageOrderValue,
+  marketingAutomationWorkflows,
+  googleAdsAssetsExtensions,
+  beautySalonMarketingIdeas,
+  trackOfflineSalesFromOnlineMarketing,
+  howToDoAContentAudit,
+  clickToWhatsappAds,
+  increaseRepeatPurchases,
+  crmSetupChecklist,
+  languageSchoolMarketing,
+  googleDemandGenCampaigns,
+  lookerStudioMarketingDashboard,
+  howToWriteAnAboutUsPage,
+  emailSubjectLines,
+  trackFacebookAdsUtmParameters,
+  marketingReportTemplate,
+  howToCollectCustomerTestimonials,
+  googleTagManagerBasics,
+  googleAdsKeywordResearch,
+  howToWriteACallToAction,
+  ga4DirectAndUnassignedTraffic,
+  contentMarketingRoi,
+  facebookAdLibraryCompetitorResearch,
+  howToMeasureBrandAwareness,
 ]
