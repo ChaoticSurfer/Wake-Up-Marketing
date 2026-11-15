@@ -77,6 +77,62 @@ import { post as reklamaFacebookze } from '@/content/blog/ka/reklama-facebookze'
 import { post as rilsiBiznesistvis } from '@/content/blog/ka/rilsi-biznesistvis'
 import { post as smmMenejeri } from '@/content/blog/ka/smm-menejeri'
 import type { BlogPost } from '@/lib/blog'
+import { post as aiVideoForMarketing } from '@/content/blog/en/ai-video-for-marketing'
+import { post as websiteRedesignChecklist } from '@/content/blog/en/website-redesign-checklist'
+import { post as keywordResearchForSeo } from '@/content/blog/en/keyword-research-for-seo'
+import { post as linkedinCompanyPage } from '@/content/blog/en/linkedin-company-page'
+import { post as bestVideoEditingAppsForBusiness } from '@/content/blog/en/best-video-editing-apps-for-business'
+import { post as customWebsiteVsTemplate } from '@/content/blog/en/custom-website-vs-template'
+import { post as whatDoSeoServicesInclude } from '@/content/blog/en/what-do-seo-services-include'
+import { post as instagramReelsEditingTips } from '@/content/blog/en/instagram-reels-editing-tips'
+import { post as tiktokBiznesistvis } from '@/content/blog/ka/tiktok-biznesistvis'
+import { post as smallBusinessWebsiteMistakes } from '@/content/blog/en/small-business-website-mistakes'
+import { post as longTailKeywords } from '@/content/blog/en/long-tail-keywords'
+import { post as marketingVideoScriptTemplate } from '@/content/blog/en/marketing-video-script-template'
+import { post as customWebDevelopmentProcess } from '@/content/blog/en/custom-web-development-process'
+import { post as behindTheScenesVideoIdeas } from '@/content/blog/en/behind-the-scenes-video-ideas'
+import { post as videoEditingBasicsForBusiness } from '@/content/blog/en/video-editing-basics-for-business'
+import { post as performanceMaxExplained } from '@/content/blog/en/performance-max-explained'
+import { post as seoRetainerWhatYouGet } from '@/content/blog/en/seo-retainer-what-you-get'
+import { post as pagesABusinessWebsiteNeeds } from '@/content/blog/en/pages-a-business-website-needs'
+import { post as capcutForBusiness } from '@/content/blog/en/capcut-for-business'
+import { post as searchIntentTypes } from '@/content/blog/en/search-intent-types'
+import { post as webApplicationVsWebsite } from '@/content/blog/en/web-application-vs-website'
+import { post as facebookRetargetingAds } from '@/content/blog/en/facebook-retargeting-ads'
+import { post as explainerVideoVsProductDemo } from '@/content/blog/en/explainer-video-vs-product-demo'
+import { post as growFacebookBusinessPage } from '@/content/blog/en/grow-facebook-business-page'
+import { post as websiteConversionRateOptimization } from '@/content/blog/en/website-conversion-rate-optimization'
+import { post as videoEditingMistakesToAvoid } from '@/content/blog/en/video-editing-mistakes-to-avoid'
+import { post as seoAgencyRedFlags } from '@/content/blog/en/seo-agency-red-flags'
+import { post as performanceMaxVsSearch } from '@/content/blog/en/performance-max-vs-search'
+import { post as facebookVideoAdCreative } from '@/content/blog/en/facebook-video-ad-creative'
+import { post as headlessCmsForBusinessWebsite } from '@/content/blog/en/headless-cms-for-business-website'
+import { post as howToBuildBacklinks } from '@/content/blog/en/how-to-build-backlinks'
+import { post as howToMakeATestimonialVideo } from '@/content/blog/en/how-to-make-a-testimonial-video'
+import { post as howToImproveWebsiteSpeed } from '@/content/blog/en/how-to-improve-website-speed'
+import { post as facebookLookalikeAudiences } from '@/content/blog/en/facebook-lookalike-audiences'
+import { post as instagramCarouselVsReels } from '@/content/blog/en/instagram-carousel-vs-reels'
+import { post as inHouseSeoVsAgency } from '@/content/blog/en/in-house-seo-vs-agency'
+import { post as shortFormVideoHooks } from '@/content/blog/en/short-form-video-hooks'
+import { post as nextjsForBusinessWebsites } from '@/content/blog/en/nextjs-for-business-websites'
+import { post as aiToolsForSmallBusinessMarketing } from '@/content/blog/en/ai-tools-for-small-business-marketing'
+import { post as videoThumbnailsAndReelCovers } from '@/content/blog/en/video-thumbnails-and-reel-covers'
+import { post as whatIsTechnicalSeo } from '@/content/blog/en/what-is-technical-seo'
+import { post as googleAdsRemarketing } from '@/content/blog/en/google-ads-remarketing'
+import { post as howToQualifyLeads } from '@/content/blog/en/how-to-qualify-leads'
+import { post as wixVsWordpress } from '@/content/blog/en/wix-vs-wordpress'
+import { post as youtubeShortsForBusiness } from '@/content/blog/en/youtube-shorts-for-business'
+import { post as inboundVsOutboundMarketing } from '@/content/blog/en/inbound-vs-outbound-marketing'
+import { post as seoConsultantVsSeoAgency } from '@/content/blog/en/seo-consultant-vs-seo-agency'
+import { post as websiteUxUiDesignProcess } from '@/content/blog/en/website-ux-ui-design-process'
+import { post as howToRebrandABusiness } from '@/content/blog/en/how-to-rebrand-a-business'
+import { post as socialMediaContentCalendar } from '@/content/blog/en/social-media-content-calendar'
+import { post as whatIsBRoll } from '@/content/blog/en/what-is-b-roll'
+import { post as facebookCustomAudiencesTypes } from '@/content/blog/en/facebook-custom-audiences-types'
+import { post as contentStrategyForSmallBusiness } from '@/content/blog/en/content-strategy-for-small-business'
+import { post as websiteMaintenanceChecklist } from '@/content/blog/en/website-maintenance-checklist'
+import { post as howToReduceCartAbandonment } from '@/content/blog/en/how-to-reduce-cart-abandonment'
+import { post as improveCoreWebVitals } from '@/content/blog/en/improve-core-web-vitals'
 
 export const blogPosts: BlogPost[] = [
   aiChatbotCost,
@@ -156,4 +212,60 @@ export const blogPosts: BlogPost[] = [
   rilsiBiznesistvis,
   gayidvebisGazrda,
   onlainBiznesisDawyeba,
+  aiVideoForMarketing,
+  websiteRedesignChecklist,
+  keywordResearchForSeo,
+  linkedinCompanyPage,
+  bestVideoEditingAppsForBusiness,
+  customWebsiteVsTemplate,
+  whatDoSeoServicesInclude,
+  instagramReelsEditingTips,
+  tiktokBiznesistvis,
+  smallBusinessWebsiteMistakes,
+  longTailKeywords,
+  marketingVideoScriptTemplate,
+  customWebDevelopmentProcess,
+  behindTheScenesVideoIdeas,
+  videoEditingBasicsForBusiness,
+  performanceMaxExplained,
+  seoRetainerWhatYouGet,
+  pagesABusinessWebsiteNeeds,
+  capcutForBusiness,
+  searchIntentTypes,
+  webApplicationVsWebsite,
+  facebookRetargetingAds,
+  explainerVideoVsProductDemo,
+  growFacebookBusinessPage,
+  websiteConversionRateOptimization,
+  videoEditingMistakesToAvoid,
+  seoAgencyRedFlags,
+  performanceMaxVsSearch,
+  facebookVideoAdCreative,
+  headlessCmsForBusinessWebsite,
+  howToBuildBacklinks,
+  howToMakeATestimonialVideo,
+  howToImproveWebsiteSpeed,
+  facebookLookalikeAudiences,
+  instagramCarouselVsReels,
+  inHouseSeoVsAgency,
+  shortFormVideoHooks,
+  nextjsForBusinessWebsites,
+  aiToolsForSmallBusinessMarketing,
+  videoThumbnailsAndReelCovers,
+  whatIsTechnicalSeo,
+  googleAdsRemarketing,
+  howToQualifyLeads,
+  wixVsWordpress,
+  youtubeShortsForBusiness,
+  inboundVsOutboundMarketing,
+  seoConsultantVsSeoAgency,
+  websiteUxUiDesignProcess,
+  howToRebrandABusiness,
+  socialMediaContentCalendar,
+  whatIsBRoll,
+  facebookCustomAudiencesTypes,
+  contentStrategyForSmallBusiness,
+  websiteMaintenanceChecklist,
+  howToReduceCartAbandonment,
+  improveCoreWebVitals,
 ]
