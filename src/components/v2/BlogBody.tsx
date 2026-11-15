@@ -3,10 +3,23 @@ import type { ReactNode } from "react";
 import { LocalizedChat } from "@/components/shared/LocalizedChat";
 import { AwContact, AwNav } from "@/components/v2/Awaken";
 import { Breadcrumbs } from "@/components/v2/ServicePageBody";
-import { blogAuthorPath, blogChrome, blogIndexPath, formatPostDate, postPath, relatedPosts } from "@/lib/blog";
+import {
+  blogAuthorPath,
+  blogChrome,
+  blogIndexPath,
+  blogTopicPath,
+  formatPostDate,
+  indexableTopics,
+  numbered,
+  pagedPath,
+  postPath,
+  relatedPosts,
+  topicIsIndexable,
+} from "@/lib/blog";
 import type { BlogBlock, BlogPost } from "@/lib/blog";
 import type { Locale } from "@/lib/copy";
 import { servicePages, servicePath } from "@/lib/service-pages";
+import type { ServiceId } from "@/lib/service-pages";
 
 const homePath: Record<Locale, string> = { en: "/", ka: "/ka" };
 const link = "text-wu-red underline decoration-wu-red/40 underline-offset-4 hover:text-white";
@@ -114,17 +127,82 @@ function Page({ children }: { children: ReactNode }) {
   );
 }
 
-export function BlogIndexBody({ locale, posts }: { locale: Locale; posts: BlogPost[] }) {
+/** Numbered links to every page of a list, as <a href> in the server HTML. */
+function Pagination({ locale, listPath, page, pages }: { locale: Locale; listPath: string; page: number; pages: number }) {
+  if (pages < 2) return null;
+  return (
+    <nav aria-label={blogChrome[locale].pagination} className="mt-12">
+      <ol className="flex flex-wrap gap-2">
+        {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
+          <li key={n}>
+            <a
+              href={pagedPath(listPath, n)}
+              aria-current={n === page ? "page" : undefined}
+              className={`grid size-11 place-items-center rounded-full border ${n === page ? "border-wu-red bg-wu-red font-semibold" : "border-white/15 hover:bg-white/10"}`}
+            >
+              {n}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+type Listing = { locale: Locale; posts: BlogPost[]; page: number; pages: number };
+
+/** One page of the blog index, with links to the topic hubs. */
+export function BlogIndexBody({ locale, posts, page, pages }: Listing) {
   const ui = blogChrome[locale];
+  const topics = indexableTopics(locale);
   return (
     <Page>
       <section className="mx-auto max-w-[1120px] px-4 pt-14 md:px-8">
-        <Breadcrumbs trail={[{ name: ui.home, href: homePath[locale] }, { name: ui.blog }]} />
-        <h1 className="mt-8 font-display text-[clamp(38px,6vw,80px)] leading-[0.95]">{ui.indexH1}</h1>
+        <Breadcrumbs trail={[{ name: ui.home, href: homePath[locale] }, { name: ui.blog, href: page === 1 ? undefined : blogIndexPath(locale) }]} />
+        <h1 className="mt-8 font-display text-[clamp(38px,6vw,80px)] leading-[0.95]">{numbered(ui.indexH1, locale, page)}</h1>
         <p className="mt-6 max-w-[680px] text-lg text-white/70">{ui.indexIntro}</p>
+        {topics.length > 0 && (
+          <nav aria-label={ui.topics} className="mt-8">
+            <ul className="flex flex-wrap gap-3">
+              {topics.map((id) => (
+                <li key={id}>
+                  <a href={blogTopicPath(locale, id)} className="inline-flex min-h-11 items-center rounded-full border border-white/15 px-5 hover:bg-white/10">
+                    {servicePages[id][locale].name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </section>
       <div className="mx-auto max-w-[1120px] px-4 py-16 md:px-8">
         <PostList posts={posts} locale={locale} />
+        <Pagination locale={locale} listPath={blogIndexPath(locale)} page={page} pages={pages} />
+      </div>
+    </Page>
+  );
+}
+
+/** One page of a topic hub: the posts on one service, introduced by that service page's own intro. */
+export function BlogTopicBody({ locale, id, posts, page, pages }: Listing & { id: ServiceId }) {
+  const ui = blogChrome[locale];
+  const service = servicePages[id][locale];
+  const hubPath = blogTopicPath(locale, id);
+  return (
+    <Page>
+      <section className="mx-auto max-w-[1120px] px-4 pt-14 md:px-8">
+        <Breadcrumbs
+          trail={[{ name: ui.home, href: homePath[locale] }, { name: ui.blog, href: blogIndexPath(locale) }, { name: service.name, href: page === 1 ? undefined : hubPath }]}
+        />
+        <h1 className="mt-8 font-display text-[clamp(38px,6vw,80px)] leading-[0.95]">{numbered(service.name, locale, page)}</h1>
+        <p className="mt-6 max-w-[680px] text-lg text-white/70">{service.intro}</p>
+        <a href={servicePath(id, locale)} className={`mt-6 inline-block text-lg ${link}`}>
+          {ui.serviceLink}: {service.name} →
+        </a>
+      </section>
+      <div className="mx-auto max-w-[1120px] px-4 py-16 md:px-8">
+        <PostList posts={posts} locale={locale} />
+        <Pagination locale={locale} listPath={hubPath} page={page} pages={pages} />
       </div>
     </Page>
   );
@@ -154,7 +232,14 @@ export function BlogPostBody({ post }: { post: BlogPost }) {
   return (
     <Page>
       <article className="mx-auto max-w-[760px] px-4 pt-14 md:px-8">
-        <Breadcrumbs trail={[{ name: ui.home, href: homePath[post.locale] }, { name: ui.blog, href: blogIndexPath(post.locale) }, { name: post.title }]} />
+        <Breadcrumbs
+          trail={[
+            { name: ui.home, href: homePath[post.locale] },
+            { name: ui.blog, href: blogIndexPath(post.locale) },
+            ...(topicIsIndexable(post.locale, post.service) ? [{ name: service.name, href: blogTopicPath(post.locale, post.service) }] : []),
+            { name: post.title },
+          ]}
+        />
         <h1 className="mt-8 font-display text-[clamp(34px,5vw,64px)] leading-[1]">{post.title}</h1>
         <p className="mt-6 flex flex-wrap gap-x-4 gap-y-1 text-sm text-white/55">
           <span>

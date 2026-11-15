@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocaleProvider } from "@/components/shared/LocaleProvider";
 import { BlogIndexBody } from "@/components/v2/BlogBody";
-import { blogIndexPath, postsIn } from "@/lib/blog";
+import { blogIndexPath, pageOf, postsIn } from "@/lib/blog";
 import { blogIndexJsonLd, blogIndexMetadata } from "@/lib/blog-routes";
 import { jsonLdHtml } from "@/lib/service-routes";
 
@@ -18,7 +18,7 @@ export default function BlogIndex() {
   return (
     <LocaleProvider locale="en" alternatePath={blogIndexPath("ka")}>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(blogIndexJsonLd("en"))} />
-      <BlogIndexBody locale="en" posts={posts} />
+      <BlogIndexBody locale="en" page={1} {...pageOf(posts, 1)!} />
     </LocaleProvider>
   );
 }

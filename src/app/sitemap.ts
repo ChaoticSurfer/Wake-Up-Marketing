@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { blogAuthorPath, blogIndexPath, postPath, postsIn } from "@/lib/blog";
+import { blogAuthorPath, blogIndexPath, blogTopicPath, indexableTopics, postPath, postsIn, postsOnTopic } from "@/lib/blog";
+import type { Locale } from "@/lib/copy";
 import { serviceIds, servicePath, servicesIndexPath } from "@/lib/service-pages";
 import { SITE_URL } from "@/lib/site";
 
@@ -12,6 +13,16 @@ const bilingual = (en: string, ka: string, priority: number): MetadataRoute.Site
   ];
 };
 
+// Topic hubs with enough posts to be indexable, each dated by the last change to one of its posts. The English and
+// Georgian hubs list different posts, so they are not alternates of each other. Numbered pages are left to the links.
+const topicHubs = (locale: Locale): MetadataRoute.Sitemap =>
+  indexableTopics(locale).map((id) => ({
+    url: `${SITE_URL}${blogTopicPath(locale, id)}`,
+    lastModified: new Date(Math.max(...postsOnTopic(locale, id).map((p) => Date.parse(p.updatedAt)))),
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  }));
+
 // The blog index and author pages are listed only while both languages have posts (an empty one is a 404).
 // A post exists in one language, so it has no alternates; its lastmod is its own last change.
 const blogPages = (): MetadataRoute.Sitemap =>
@@ -19,6 +30,8 @@ const blogPages = (): MetadataRoute.Sitemap =>
     ? [
         ...bilingual(blogIndexPath("en"), blogIndexPath("ka"), 0.6),
         ...bilingual(blogAuthorPath("en"), blogAuthorPath("ka"), 0.3),
+        ...topicHubs("en"),
+        ...topicHubs("ka"),
         ...[...postsIn("en"), ...postsIn("ka")].map((p) => ({ url: `${SITE_URL}${postPath(p)}`, lastModified: new Date(p.updatedAt), changeFrequency: "monthly" as const, priority: 0.6 })),
       ]
     : [];
