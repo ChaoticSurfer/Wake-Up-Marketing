@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'Facebook Ads vs Google Ads',
   description:
     'Facebook ads vs Google ads: Google captures existing demand, Facebook creates it. How targeting, pricing and measurement differ, and which fits your goal.',
-  publishedAt: '2026-12-05T16:00:00+04:00',
-  updatedAt: '2026-12-05T16:00:00+04:00',
+  publishedAt: '2026-12-03T12:00:00+04:00',
+  updatedAt: '2026-12-03T12:00:00+04:00',
   service: 'advertising',
   reviewState: 'llm_reviewed',
   body: [

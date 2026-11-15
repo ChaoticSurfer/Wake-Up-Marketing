@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'როგორ გავზარდოთ ონლაინ გაყიდვები',
   description:
     'როგორ გავზარდოთ ონლაინ გაყიდვები: საიტის სიჩქარე, პროდუქტის გვერდი, გადახდა და მიწოდება, Facebook, Instagram, რეტარგეტინგი და შეხსენება.',
-  publishedAt: '2026-12-04T10:00:00+04:00',
-  updatedAt: '2026-12-04T10:00:00+04:00',
+  publishedAt: '2026-12-02T15:00:00+04:00',
+  updatedAt: '2026-12-02T15:00:00+04:00',
   service: 'advertising',
   reviewState: 'llm_reviewed',
   body: [

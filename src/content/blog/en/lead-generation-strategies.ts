@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'Lead Generation Strategies for Business',
   description:
     'Lead generation strategies for small business in Georgia: when each channel fits, how to measure cost per lead, and how to follow up fast.',
-  publishedAt: '2026-12-03T10:00:00+04:00',
-  updatedAt: '2026-12-03T10:00:00+04:00',
+  publishedAt: '2026-12-02T09:00:00+04:00',
+  updatedAt: '2026-12-02T09:00:00+04:00',
   service: 'advertising',
   reviewState: 'llm_reviewed',
   body: [

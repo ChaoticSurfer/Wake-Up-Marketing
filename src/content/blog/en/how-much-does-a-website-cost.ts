@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'How Much Does a Website Cost?',
   description:
     'How much does a website cost? Plan prices from Wix, Squarespace, Shopify and WordPress.com in November 2026, plus the costs a plan price leaves out.',
-  publishedAt: '2026-12-02T16:00:00+04:00',
-  updatedAt: '2026-12-02T16:00:00+04:00',
+  publishedAt: '2026-12-01T18:00:00+04:00',
+  updatedAt: '2026-12-01T18:00:00+04:00',
   service: 'websites',
   reviewState: 'llm_reviewed',
   body: [

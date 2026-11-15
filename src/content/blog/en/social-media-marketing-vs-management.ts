@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'Social Media Marketing vs Management',
   description:
     'Social media marketing vs social media management: marketing runs campaigns for results, management runs daily posting and replies. See the table.',
-  publishedAt: '2026-12-06T16:00:00+04:00',
-  updatedAt: '2026-12-06T16:00:00+04:00',
+  publishedAt: '2026-12-03T18:00:00+04:00',
+  updatedAt: '2026-12-03T18:00:00+04:00',
   service: 'smm',
   reviewState: 'llm_reviewed',
   body: [

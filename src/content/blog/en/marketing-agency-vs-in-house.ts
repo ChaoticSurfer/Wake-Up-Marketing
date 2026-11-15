@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'Marketing Agency vs In House',
   description:
     'Marketing agency vs in house: compare cost, skills, speed, control and risk, see when each wins, and how a hybrid model works for mid-sized companies.',
-  publishedAt: '2026-12-11T16:00:00+04:00',
-  updatedAt: '2026-12-11T16:00:00+04:00',
+  publishedAt: '2026-12-06T12:00:00+04:00',
+  updatedAt: '2026-12-06T12:00:00+04:00',
   service: 'audit',
   reviewState: 'llm_reviewed',
   body: [

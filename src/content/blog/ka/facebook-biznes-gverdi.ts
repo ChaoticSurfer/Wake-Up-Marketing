@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'როგორ შევქმნათ ფეისბუქ ბიზნეს გვერდი',
   description:
     'როგორ შევქმნათ ფეისბუქ ბიზნეს გვერდი: 11 ნაბიჯი Meta-ს ინსტრუქციით, სახელის წესები, Instagram-ისა და WhatsApp-ის დაკავშირება, წვდომა და უსაფრთხოება.',
-  publishedAt: '2026-12-07T10:00:00+04:00',
-  updatedAt: '2026-12-07T10:00:00+04:00',
+  publishedAt: '2026-12-04T09:00:00+04:00',
+  updatedAt: '2026-12-04T09:00:00+04:00',
   service: 'smm',
   reviewState: 'llm_reviewed',
   body: [

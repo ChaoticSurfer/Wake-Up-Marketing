@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'Instagram Marketing Strategy',
   description:
     'Instagram marketing strategy for a business in Georgia: account setup, Reels, carousels, Stories, DMs, ads and Insights, built on what Instagram says.',
-  publishedAt: '2026-12-10T10:00:00+04:00',
-  updatedAt: '2026-12-10T10:00:00+04:00',
+  publishedAt: '2026-12-05T15:00:00+04:00',
+  updatedAt: '2026-12-05T15:00:00+04:00',
   service: 'smm',
   reviewState: 'llm_reviewed',
   body: [

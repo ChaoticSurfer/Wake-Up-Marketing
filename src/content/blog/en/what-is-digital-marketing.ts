@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'What Is Digital Marketing?',
   description:
     'What is digital marketing? Marketing done through digital channels. See the main channels, digital vs traditional marketing, and what it means in Georgia.',
-  publishedAt: '2026-12-08T10:00:00+04:00',
-  updatedAt: '2026-12-08T10:00:00+04:00',
+  publishedAt: '2026-12-04T15:00:00+04:00',
+  updatedAt: '2026-12-04T15:00:00+04:00',
   service: 'audit',
   reviewState: 'llm_reviewed',
   body: [
