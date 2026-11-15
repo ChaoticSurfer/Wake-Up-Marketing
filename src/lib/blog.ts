@@ -5,6 +5,7 @@ import { blogPosts } from '@/content/blog'
 import { enCopy } from '@/lib/copy'
 import type { Locale } from '@/lib/copy'
 import { kaCopy } from '@/lib/copy-ka'
+import { servicePages } from '@/lib/service-pages'
 import type { ServiceId } from '@/lib/service-pages'
 
 /** A body block. Text may hold inline links written as [anchor](/path or https://url). */
@@ -40,6 +41,31 @@ export const blogIndexPath = (locale: Locale) => blogPrefix[locale]
 export const blogFeedPath = (locale: Locale) => `${blogPrefix[locale]}/rss.xml`
 export const blogAuthorPath = (locale: Locale) => `${blogPrefix[locale]}/author/wakeup-marketing`
 export const postPath = (post: BlogPost) => `${blogPrefix[post.locale]}/${post.slug}`
+/** A topic hub lists the posts on one service, at that service page's own slug in the language. */
+export const blogTopicPath = (locale: Locale, id: ServiceId) => `${blogPrefix[locale]}/topic/${servicePages[id][locale].slug}`
+
+/** Page 1 of a post list is the list's own URL; page 2 and on are <list>/page/<n>. */
+export const pagedPath = (listPath: string, page: number) => (page === 1 ? listPath : `${listPath}/page/${page}`)
+
+/** The number in a /page/<n> segment: 2 or more, written without a leading zero. /page/1 would duplicate the list's own
+ * URL, so it is not a page. */
+export const pageParam = (segment: string) => (/^[1-9]\d*$/.test(segment) && Number(segment) >= 2 ? Number(segment) : undefined)
+
+/** Page 2 and on carry their number in the title, H1 and description, so no two pages of a list share them. */
+export const numbered = (text: string, locale: Locale, page: number) =>
+  page === 1 ? text : `${text} – ${blogChrome[locale].page} ${page}`
+
+const POSTS_PER_PAGE = 24
+
+/** The posts on one numbered page of a list and the number of pages, or undefined past the last page. */
+export const pageOf = (posts: BlogPost[], page: number) => {
+  const pages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE))
+  return page <= pages ? { posts: posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE), pages } : undefined
+}
+
+/** Page numbers 2 and on of a list, for generateStaticParams. */
+export const laterPageParams = (posts: BlogPost[]) =>
+  Array.from({ length: Math.max(0, Math.ceil(posts.length / POSTS_PER_PAGE) - 1) }, (_, i) => ({ page: String(i + 2) }))
 
 /** A post goes live at its publishedAt instant. Until then every page, list, feed and the sitemap leave it out. */
 const isLive = (post: BlogPost) => Date.parse(post.publishedAt) <= Date.now()
@@ -51,6 +77,21 @@ export const postsIn = (locale: Locale) =>
     .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
 
 export const postBySlug = (locale: Locale, slug: string) => postsIn(locale).find((p) => p.slug === slug)
+
+/** The service a topic hub slug names in one language; the free audit has posts too, so it has a hub. */
+export const topicBySlug = (locale: Locale, slug: string) =>
+  (Object.keys(servicePages) as ServiceId[]).find((id) => servicePages[id][locale].slug === slug)
+
+export const postsOnTopic = (locale: Locale, id: ServiceId) => postsIn(locale).filter((p) => p.service === id)
+
+// A hub with fewer live posts is a thin archive: it stays noindex, follow and nothing links to it.
+const MIN_TOPIC_POSTS = 3
+
+export const topicIsIndexable = (locale: Locale, id: ServiceId) => postsOnTopic(locale, id).length >= MIN_TOPIC_POSTS
+
+/** The hubs the index, posts, service pages and sitemap link: the ones with enough live posts. */
+export const indexableTopics = (locale: Locale) =>
+  (Object.keys(servicePages) as ServiceId[]).filter((id) => topicIsIndexable(locale, id))
 
 /** The other posts in the same language, the ones on the same service first. */
 export const relatedPosts = (post: BlogPost) => {
@@ -92,6 +133,12 @@ export const blogChrome: Record<
     authorMetaDescription: string
     authorIntro: string
     authorPosts: string
+    /** "page" in a numbered page's title, as in "Marketing blog – page 2". */
+    page: string
+    pagination: string
+    topics: string
+    /** The <title> of a topic hub, from the service's name. */
+    topicMetaTitle: (service: string) => string
   }
 > = {
   en: {
@@ -114,6 +161,10 @@ export const blogChrome: Record<
     authorIntro:
       'WakeUP Marketing is a marketing agency in Tbilisi. One team runs SMM, advertising, SEO, websites, AI chatbots and AI calling for Georgian companies with 20–250 people, and reports results in leads and sales.',
     authorPosts: 'Articles',
+    page: 'page',
+    pagination: 'Pages',
+    topics: 'Topics',
+    topicMetaTitle: (service) => `${service} – Blog`,
   },
   ka: {
     home: 'მთავარი',
@@ -135,5 +186,9 @@ export const blogChrome: Record<
     authorIntro:
       'WakeUP Marketing თბილისში მოქმედი მარკეტინგული სააგენტოა. ერთი გუნდი მართავს SMM-ს, რეკლამას, SEO ოპტიმიზაციას, საიტებს, AI ჩატბოტებსა და AI ზარებს ქართული კომპანიებისთვის 20–250 თანამშრომლით, ხოლო შედეგს ლიდებითა და გაყიდვებით ვზომავთ.',
     authorPosts: 'სტატიები',
+    page: 'გვერდი',
+    pagination: 'გვერდები',
+    topics: 'თემები',
+    topicMetaTitle: (service) => `${service} – ბლოგი`,
   },
 }
