@@ -72,7 +72,7 @@ export const post: BlogPost = {
     {
       type: 'ol',
       items: [
-        'List a short set of the searches a buyer would type, in the language they use. For Georgia that often means both Georgian and English.',
+        'List a short set of the searches a buyer would type, in the language they use. For Georgia that often means both Georgian and English. Note that Google\'s [list of supported ad languages](https://support.google.com/google-ads/answer/6333734) does not include Georgian and says ads written in an unsupported language are disapproved, so the ads themselves need to be in a supported language such as English or Russian.',
         'Enter them in Keyword Planner and set the location to Georgia, or to the cities you serve.',
         'Note the monthly searches and the average cost Google shows for each keyword.',
         'Multiply: clicks you want per month times the average cost per click gives your monthly ad spend.',
