@@ -369,6 +369,12 @@ import { post as ga4DirectAndUnassignedTraffic } from '@/content/blog/en/ga4-dir
 import { post as contentMarketingRoi } from '@/content/blog/en/content-marketing-roi'
 import { post as facebookAdLibraryCompetitorResearch } from '@/content/blog/en/facebook-ad-library-competitor-research'
 import { post as howToMeasureBrandAwareness } from '@/content/blog/en/how-to-measure-brand-awareness'
+import { post as geotourSeoCaseStudy } from '@/content/blog/en/geotour-seo-case-study'
+import { post as similartoursSeoCaseStudy } from '@/content/blog/en/similartours-seo-case-study'
+import { post as moneyTalksSeoCaseStudy } from '@/content/blog/en/money-talks-seo-case-study'
+import { post as geotourSeoKeisi } from '@/content/blog/ka/geotour-seo-keisi'
+import { post as similartoursSeoKeisi } from '@/content/blog/ka/similartours-seo-keisi'
+import { post as moneyTalksSeoKeisi } from '@/content/blog/ka/money-talks-seo-keisi'
 
 export const blogPosts: BlogPost[] = [
   aiChatbotCost,
@@ -740,4 +746,10 @@ export const blogPosts: BlogPost[] = [
   contentMarketingRoi,
   facebookAdLibraryCompetitorResearch,
   howToMeasureBrandAwareness,
+  geotourSeoCaseStudy,
+  similartoursSeoCaseStudy,
+  moneyTalksSeoCaseStudy,
+  geotourSeoKeisi,
+  similartoursSeoKeisi,
+  moneyTalksSeoKeisi,
 ]
