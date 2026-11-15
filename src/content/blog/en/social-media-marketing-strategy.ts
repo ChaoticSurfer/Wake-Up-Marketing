@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'Social Media Marketing Strategy',
   description:
     'Social media marketing strategy for small business: seven steps from one goal to a monthly review, with Georgia platform data and caveats.',
-  publishedAt: '2026-12-01T16:00:00+04:00',
-  updatedAt: '2026-12-01T16:00:00+04:00',
+  publishedAt: '2026-12-01T12:00:00+04:00',
+  updatedAt: '2026-12-01T12:00:00+04:00',
   service: 'smm',
   reviewState: 'llm_reviewed',
   body: [

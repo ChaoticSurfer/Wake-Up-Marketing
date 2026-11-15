@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'What Is Branding? A Practical Guide',
   description:
     'What is branding? A plain definition, how it differs from a logo and identity, what a brand book holds, and seven steps for a small business in Georgia.',
-  publishedAt: '2026-12-08T16:00:00+04:00',
-  updatedAt: '2026-12-08T16:00:00+04:00',
+  publishedAt: '2026-12-04T18:00:00+04:00',
+  updatedAt: '2026-12-04T18:00:00+04:00',
   service: 'branding',
   reviewState: 'llm_reviewed',
   body: [

@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'SEO for Small Business: A Simple Plan',
   description:
     'SEO for small business in Georgia: a practical plan from Google\'s own guidance, covering site basics, Georgian and English versions, and local search.',
-  publishedAt: '2026-12-06T10:00:00+04:00',
-  updatedAt: '2026-12-06T10:00:00+04:00',
+  publishedAt: '2026-12-03T15:00:00+04:00',
+  updatedAt: '2026-12-03T15:00:00+04:00',
   service: 'seo',
   reviewState: 'llm_reviewed',
   body: [

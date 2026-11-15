@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'Google Ads Cost: How Pricing Works',
   description:
     'Google Ads cost depends on an auction, not a price list. See how bids, Quality Score and daily budget work, and how to estimate your own spend.',
-  publishedAt: '2026-12-04T16:00:00+04:00',
-  updatedAt: '2026-12-04T16:00:00+04:00',
+  publishedAt: '2026-12-02T18:00:00+04:00',
+  updatedAt: '2026-12-02T18:00:00+04:00',
   service: 'advertising',
   reviewState: 'llm_reviewed',
   body: [

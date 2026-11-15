@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'Video Marketing for Small Business',
   description:
     'Video marketing for small business: which video fits which goal, platform formats, Georgian and English captions, in-house or agency, and what to measure.',
-  publishedAt: '2026-12-09T16:00:00+04:00',
-  updatedAt: '2026-12-09T16:00:00+04:00',
+  publishedAt: '2026-12-05T12:00:00+04:00',
+  updatedAt: '2026-12-05T12:00:00+04:00',
   service: 'video',
   reviewState: 'llm_reviewed',
   body: [

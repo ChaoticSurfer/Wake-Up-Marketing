@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'SMM მენეჯერის მოვალეობები და უნარები',
   description:
     'რას აკეთებს SMM მენეჯერი, რა უნარები მოსთხოვოთ კანდიდატს, როგორ მისცეთ დავალება და შეაფასოთ შედეგი, როდის აჯობებს ფრილანსერი ან სააგენტო.',
-  publishedAt: '2026-12-09T10:00:00+04:00',
-  updatedAt: '2026-12-09T10:00:00+04:00',
+  publishedAt: '2026-12-05T09:00:00+04:00',
+  updatedAt: '2026-12-05T09:00:00+04:00',
   service: 'smm',
   reviewState: 'llm_reviewed',
   body: [

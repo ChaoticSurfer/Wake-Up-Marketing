@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'How Much Do Facebook Ads Cost?',
   description:
     'How much do Facebook ads cost? Meta sets no fixed price: an auction does. See how bids, budgets and CPM work, and how to test your own cost.',
-  publishedAt: '2026-12-03T16:00:00+04:00',
-  updatedAt: '2026-12-03T16:00:00+04:00',
+  publishedAt: '2026-12-02T12:00:00+04:00',
+  updatedAt: '2026-12-02T12:00:00+04:00',
   service: 'advertising',
   reviewState: 'llm_reviewed',
   body: [

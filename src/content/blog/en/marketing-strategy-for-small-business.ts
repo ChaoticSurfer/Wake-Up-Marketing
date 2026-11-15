@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'Marketing Strategy for Small Business',
   description:
     'Marketing strategy for small business: goal, audience, positioning, channels, budget split, measurement and a 90-day plan for Georgian firms.',
-  publishedAt: '2026-12-07T16:00:00+04:00',
-  updatedAt: '2026-12-07T16:00:00+04:00',
+  publishedAt: '2026-12-04T12:00:00+04:00',
+  updatedAt: '2026-12-04T12:00:00+04:00',
   service: 'audit',
   reviewState: 'llm_reviewed',
   body: [

@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'What Does a Marketing Agency Do?',
   description:
     'What does a marketing agency do? It plans, runs and measures your marketing for you. See the types, the services, how work is set up and how to judge one.',
-  publishedAt: '2026-12-10T16:00:00+04:00',
-  updatedAt: '2026-12-10T16:00:00+04:00',
+  publishedAt: '2026-12-05T18:00:00+04:00',
+  updatedAt: '2026-12-05T18:00:00+04:00',
   service: 'audit',
   reviewState: 'llm_reviewed',
   body: [

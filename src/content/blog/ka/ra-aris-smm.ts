@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'SMM რა არის და როგორ მუშაობს',
   description:
     'SMM რა არის? სოციალური მედიის მარკეტინგი: სტრატეგია, კონტენტი, აუდიტორიასთან ურთიერთობა და რეკლამა. მის შედეგს ლიდებითა და გაყიდვებით ზომავენ.',
-  publishedAt: '2026-12-02T10:00:00+04:00',
-  updatedAt: '2026-12-02T10:00:00+04:00',
+  publishedAt: '2026-12-01T15:00:00+04:00',
+  updatedAt: '2026-12-01T15:00:00+04:00',
   service: 'smm',
   reviewState: 'llm_reviewed',
   body: [

@@ -7,8 +7,8 @@ export const post: BlogPost = {
   metaTitle: 'როგორ გავაკეთოთ რეკლამა ფეისბუქზე',
   description:
     'როგორ გავაკეთოთ რეკლამა ფეისბუქზე: Ads Manager-ში მიზნის, აუდიტორიის, ბიუჯეტისა და განთავსების არჩევა, Meta Pixel და რეკლამის შემოწმება.',
-  publishedAt: '2026-12-05T10:00:00+04:00',
-  updatedAt: '2026-12-05T10:00:00+04:00',
+  publishedAt: '2026-12-03T09:00:00+04:00',
+  updatedAt: '2026-12-03T09:00:00+04:00',
   service: 'advertising',
   reviewState: 'llm_reviewed',
   body: [
