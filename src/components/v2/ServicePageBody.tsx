@@ -30,8 +30,17 @@ export function Breadcrumbs({ trail }: { trail: { name: string; href?: string }[
 }
 
 /** One service page (/services/<slug> or /ka/services/<slug>) in the current language. */
-/** `blogLinks` are the posts that support this service, passed in so the post registry stays out of client code. */
-export function ServicePageBody({ id, blogLinks = [] }: { id: ServiceId; blogLinks?: { title: string; href: string }[] }) {
+/** `blogLinks` are the newest posts that support this service and `blogTopicHref` its topic hub when it is indexable,
+ * passed in so the post registry stays out of client code. */
+export function ServicePageBody({
+  id,
+  blogLinks = [],
+  blogTopicHref,
+}: {
+  id: ServiceId;
+  blogLinks?: { title: string; href: string }[];
+  blogTopicHref?: string;
+}) {
   const c = useCopy();
   const ui = serviceChrome[c.locale];
   const s = servicePages[id][c.locale];
@@ -120,6 +129,11 @@ export function ServicePageBody({ id, blogLinks = [] }: { id: ServiceId; blogLin
                 </li>
               ))}
             </ul>
+            {blogTopicHref && (
+              <a href={blogTopicHref} className="mt-6 inline-flex min-h-11 items-center font-semibold text-wu-red hover:text-white">
+                {ui.allBlogPosts}
+              </a>
+            )}
           </section>
         )}
 

@@ -767,6 +767,8 @@ export const serviceChrome: Record<
     faq: string
     related: string
     fromBlog: string
+    /** The link from "From the blog" to the service's topic hub. */
+    allBlogPosts: string
     cta: string
     indexMetaTitle: string
     indexMetaDescription: string
@@ -792,6 +794,7 @@ export const serviceChrome: Record<
     faq: 'Questions',
     related: 'Other services',
     fromBlog: 'From the blog',
+    allBlogPosts: 'All articles on this topic →',
     cta: 'Get a free marketing audit',
     indexMetaTitle: 'Marketing Services in Tbilisi',
     indexMetaDescription:
@@ -817,6 +820,7 @@ export const serviceChrome: Record<
     faq: 'ხშირი კითხვები',
     related: 'სხვა სერვისები',
     fromBlog: 'ბლოგიდან',
+    allBlogPosts: 'ყველა სტატია ამ თემაზე →',
     cta: 'მიიღეთ უფასო მარკეტინგული აუდიტი',
     indexMetaTitle: 'მარკეტინგული სერვისები თბილისში',
     indexMetaDescription:
