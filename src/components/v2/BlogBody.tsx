@@ -220,6 +220,9 @@ export function BlogAuthorBody({ locale, posts }: { locale: Locale; posts: BlogP
       <section className="mx-auto max-w-[1120px] px-4 py-16 md:px-8">
         <h2 className="mb-6 font-display text-3xl">{ui.authorPosts}</h2>
         <PostList posts={posts} locale={locale} titleTag="h3" />
+        <a href={blogIndexPath(locale)} className={`mt-10 inline-block text-lg ${link}`}>
+          {ui.allPosts}
+        </a>
       </section>
     </Page>
   );
@@ -228,7 +231,7 @@ export function BlogAuthorBody({ locale, posts }: { locale: Locale; posts: BlogP
 export function BlogPostBody({ post }: { post: BlogPost }) {
   const ui = blogChrome[post.locale];
   const service = servicePages[post.service][post.locale];
-  const related = relatedPosts(post).slice(0, 4);
+  const related = relatedPosts(post);
   return (
     <Page>
       <article className="mx-auto max-w-[760px] px-4 pt-14 md:px-8">

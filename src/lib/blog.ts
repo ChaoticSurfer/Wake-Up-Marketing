@@ -93,17 +93,43 @@ export const topicIsIndexable = (locale: Locale, id: ServiceId) => postsOnTopic(
 export const indexableTopics = (locale: Locale) =>
   (Object.keys(servicePages) as ServiceId[]).filter((id) => topicIsIndexable(locale, id))
 
-/** The other posts in the same language, the ones on the same service first. */
-export const relatedPosts = (post: BlogPost) => {
-  const others = postsIn(post.locale).filter((p) => p !== post)
-  return [...others.filter((p) => p.service === post.service), ...others.filter((p) => p.service !== post.service)]
+/** Up to `count` posts nearest to `post` by date in `list` (newest first, `post` included), one newer then one older
+ * at each step, so a post with neighbours on both sides gets two of each and one at the end of the list gets more from
+ * the side it has. */
+const dateNeighbours = (list: BlogPost[], post: BlogPost, count: number) => {
+  const i = list.indexOf(post)
+  const near: BlogPost[] = []
+  for (let d = 1; near.length < count && (i - d >= 0 || i + d < list.length); d++) {
+    if (i - d >= 0) near.push(list[i - d])
+    if (near.length < count && i + d < list.length) near.push(list[i + d])
+  }
+  return near
 }
 
-/** Title and path of the posts that support one service page, for its "From the blog" links. */
+const RELATED_POSTS = 4
+
+/** A post's related posts: its date neighbours on the same service, then the nearest by date on other services, newest
+ * first. Every post is a neighbour of the posts around it, so each one gets related links, not only the newest few. */
+export const relatedPosts = (post: BlogPost) => {
+  const live = postsIn(post.locale)
+  const sameService = dateNeighbours(live.filter((p) => p.service === post.service), post, RELATED_POSTS)
+  const otherServices = dateNeighbours(live.filter((p) => p === post || p.service !== post.service), post, RELATED_POSTS - sameService.length)
+  return [...sameService, ...otherServices].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
+}
+
+const SERVICE_PAGE_POSTS = 6
+
+/** Title and path of the newest posts that support one service page, for its "From the blog" links. Its topic hub
+ * lists the rest. */
 export const blogLinksForService = (id: ServiceId, locale: Locale) =>
-  postsIn(locale)
-    .filter((p) => p.service === id)
+  postsOnTopic(locale, id)
+    .slice(0, SERVICE_PAGE_POSTS)
     .map((p) => ({ title: p.title, href: postPath(p) }))
+
+const AUTHOR_PAGE_POSTS = 24
+
+/** The newest posts for the author page, which links the index for the rest. */
+export const authorPagePosts = (locale: Locale) => postsIn(locale).slice(0, AUTHOR_PAGE_POSTS)
 
 /** The calendar date in Tbilisi, read from the stored instant so it never shifts with the server's time zone. */
 export const formatPostDate = (iso: string, locale: Locale) =>
@@ -139,6 +165,7 @@ export const blogChrome: Record<
     topics: string
     /** The <title> of a topic hub, from the service's name. */
     topicMetaTitle: (service: string) => string
+    allPosts: string
   }
 > = {
   en: {
@@ -165,6 +192,7 @@ export const blogChrome: Record<
     pagination: 'Pages',
     topics: 'Topics',
     topicMetaTitle: (service) => `${service} – Blog`,
+    allPosts: 'All articles →',
   },
   ka: {
     home: 'მთავარი',
@@ -190,5 +218,6 @@ export const blogChrome: Record<
     pagination: 'გვერდები',
     topics: 'თემები',
     topicMetaTitle: (service) => `${service} – ბლოგი`,
+    allPosts: 'ყველა სტატია →',
   },
 }

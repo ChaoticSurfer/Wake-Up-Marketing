@@ -138,10 +138,13 @@ export const postJsonLd = (post: BlogPost) => {
 
 const xml = (text: string) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
-/** RSS 2.0 feed of one language's posts, newest first, with absolute links. */
+const FEED_ITEMS = 50
+
+/** RSS 2.0 feed of one language's newest posts, with absolute links. The sitemap lists every post. */
 export const blogFeedXml = (locale: Locale) => {
   const ui = blogChrome[locale]
   const items = postsIn(locale)
+    .slice(0, FEED_ITEMS)
     .map((p) => {
       const url = `${SITE_URL}${postPath(p)}`
       return `<item><title>${xml(p.title)}</title><link>${url}</link><guid>${url}</guid><description>${xml(p.description)}</description><pubDate>${new Date(p.publishedAt).toUTCString()}</pubDate></item>`
